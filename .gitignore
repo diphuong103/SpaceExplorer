@@ -1,0 +1,49 @@
+# Unity-generated files and caches
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]serSettings/
+/[Mm]emoryCaptures/
+/[Rr]ecordings/
+
+# IDE and generated project files
+/.vs/
+/*.csproj
+/*.sln
+/*.slnx
+/*.suo
+/*.user
+/*.userprefs
+/*.pidb
+/*.booproj
+/*.svd
+/*.pdb
+/*.mdb
+/*.opendb
+/*.VC.db
+
+# Keep source and configuration in Assets, but omit game resources.
+/Assets/**
+!/Assets/**/
+!/Assets/**/*.meta
+!/Assets/**/*.cs
+!/Assets/**/*.asmdef
+!/Assets/**/*.asmref
+!/Assets/**/*.rsp
+!/Assets/**/*.shader
+!/Assets/**/*.compute
+!/Assets/**/*.hlsl
+!/Assets/**/*.cginc
+!/Assets/**/*.uxml
+!/Assets/**/*.uss
+!/Assets/**/*.json
+!/Assets/**/*.xml
+!/Assets/**/*.yaml
+!/Assets/**/*.yml
+!/Assets/**/*.inputactions
+
+# Unity render-pipeline and project-specific settings assets
+!/Assets/Settings/**
