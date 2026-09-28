@@ -6,10 +6,10 @@ public class UIController : MonoBehaviour
 {
     public static UIController Instance { get; private set; }
 
-    [SerializeField] private Slider energySlider; 
-    [SerializeField] private TMP_Text energyText; 
+    [SerializeField] private Slider energySlider;
+    [SerializeField] private TMP_Text energyText;
     [SerializeField] private Slider healthSlider;
-    [SerializeField] private TMP_Text healthText; 
+    [SerializeField] private TMP_Text healthText;
     public GameObject pausePanel;
 
     private void Awake()
@@ -17,11 +17,22 @@ public class UIController : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            if (pausePanel != null)
+            {
+                pausePanel.SetActive(false);
+            }
         }
         else
         {
             Destroy(gameObject);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (Instance == this)
+        {
+            Instance = null;
         }
     }
 
@@ -53,4 +64,3 @@ public class UIController : MonoBehaviour
         }
     }
 }
-       

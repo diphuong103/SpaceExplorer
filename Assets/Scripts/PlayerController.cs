@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
     private Vector2 playerDirection;
     private bool isBoosting = false;
+    private bool isDead;
 
     public float boost => isBoosting ? boostMultiplier : 1f; 
     private readonly int moveXHash = Animator.StringToHash("moveX");
@@ -157,6 +158,11 @@ public class PlayerController : MonoBehaviour
 
     private void TakeDamage(float damage)
     {
+        if (isDead)
+        {
+            return;
+        }
+
         health -= damage;
         if (health < 0f)
         {
@@ -173,14 +179,31 @@ public class PlayerController : MonoBehaviour
 
     private void Die()
     {
-        // Xử lý khi Player chết (ví dụ: hiển thị màn hình Game Over)
+        if (isDead)
+        {
+            return;
+        }
+
+        isDead = true;
+
         if (destroyEffectPrefab != null)
         {
-            gameObject.SetActive(false); // Ẩn Player trước khi tạo hiệu ứng
             Instantiate(destroyEffectPrefab, transform.position, Quaternion.identity);
-        }   
+        }
+
+        gameObject.SetActive(false);
 
         Debug.Log("Player has died!");
-        // Có thể thêm logic để reset game hoặc load lại scene
+
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.GameOver();
+        }
+        else
+        {
+            Debug.LogError("Cannot show Game Over: GameManager.Instance is missing.");
+        }
     }
+
+    
 }
