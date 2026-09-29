@@ -1,55 +1,112 @@
+using System.Collections;
 using UnityEngine;
 
 public class Asteroid : MonoBehaviour
 {
-    [SerializeField] private Sprite[] sprites; // Các sprite cho tiểu hành tinh
+    [SerializeField] private Sprite[] sprites; 
+    [SerializeField, Min(1)] private int health = 4;
+    [SerializeField, Min(0f)] private float hitFlashDuration = 0.12f;
+
+    [Header("Material Flash")]
+    [SerializeField] private Material whiteMaterial;
 
     private SpriteRenderer spriteRenderer;  
     private Rigidbody2D rb; 
+    private Material originalMaterial;
+    private Coroutine hitFlashCoroutine;
+    private bool isDestroyed;
 
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();  
         rb = GetComponent<Rigidbody2D>(); 
-        
-        // 1. Kiểm tra an toàn mảng sprites trước khi truy cập
-        if (sprites != null && sprites.Length > 0)
+
+        if (spriteRenderer != null)
         {
-            spriteRenderer.sprite = sprites[Random.Range(0, sprites.Length)];
+            // Lưu lại Material gốc của Sprite
+            originalMaterial = spriteRenderer.material;
+
+            // Đổi ngẫu nhiên Sprite nếu mảng có dữ liệu
+            if (sprites != null && sprites.Length > 0)
+            {
+                spriteRenderer.sprite = sprites[Random.Range(0, sprites.Length)];
+            }
         }
 
-        // 2. Tạo lực đẩy/xoay tự do ban đầu
+        // Tạo lực đẩy/xoay tự do ban đầu
         float pushX = Random.Range(-1f, 1f); 
         float pushY = Random.Range(-1f, 1f);  
-        rb.linearVelocity = new Vector2(pushX, pushY).normalized * Random.Range(1f, 3f);
+        if (rb != null)
+        {
+            rb.linearVelocity = new Vector2(pushX, pushY).normalized * Random.Range(1f, 3f);
+        }
     }
 
     void Update()
     {
-        // 3. Lấy tốc độ cuộn thế giới (kiểm tra Null để tránh văng lỗi)
+        // Lấy tốc độ cuộn thế giới
         float currentWorldSpeed = 1f;
         if (GameManager.Instance != null)
         {
-            currentWorldSpeed = GameManager.Instance.worlSpeed;
+            // Nếu biến trong GameManager của bạn là worldSpeed thì giữ nguyên, còn chuẩn sẽ là worldSpeed
+            currentWorldSpeed = GameManager.Instance.worldSpeed; 
         }
 
-        // 4. Lấy trạng thái tăng tốc từ Player
-        float boostFactor = 1f;
-        if (PlayerController.Instance != null)
-        {
-            // Giả định: Tốc độ trôi tăng lên khi Player đang Boost
-            // (Cần khai báo public bool IsBoosting => isBoosting; bên PlayerController)
-            // boostFactor = PlayerController.Instance.IsBoosting ? 1.5f : 1f;
-        }
+        // Trôi về bên TRÁI (-X)
+        transform.position -= new Vector3(currentWorldSpeed * Time.deltaTime, 0, 0); 
 
-        // 5. Di chuyển tiểu hành tinh trôi về bên TRÁI (-X)
-        float moveX = currentWorldSpeed * boostFactor;
-        transform.position -= new Vector3(moveX * Time.deltaTime, 0, 0); 
-
-        // 6. Hủy bỏ khi tiểu hành tinh đi khuất khỏi màn hình bên TRÁI
+        // Hủy khi trôi khỏi màn hình bên trái
         if (transform.position.x < -10f) 
         {
             Destroy(gameObject); 
+        }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        if (isDestroyed || damage <= 0) return;
+
+        health -= damage;
+        FlashOnHit();
+
+        if (health <= 0)
+        {
+            isDestroyed = true;
+            Destroy(gameObject, hitFlashDuration);
+        }
+    }
+
+    private void FlashOnHit()
+    {
+        if (spriteRenderer == null || whiteMaterial == null || hitFlashDuration <= 0f) return;
+
+        if (hitFlashCoroutine != null)
+        {
+            StopCoroutine(hitFlashCoroutine);
+        }
+
+        hitFlashCoroutine = StartCoroutine(ResetMaterialRoutine());
+    }
+
+    // Coroutine đổi Material sang màu trắng rồi khôi phục lại
+    private IEnumerator ResetMaterialRoutine()
+    {
+        spriteRenderer.material = whiteMaterial;
+        yield return new WaitForSeconds(hitFlashDuration);
+
+        if (spriteRenderer != null && originalMaterial != null)
+        {
+            spriteRenderer.material = originalMaterial;
+        }
+
+        hitFlashCoroutine = null;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Bullet"))
+        {
+            FlashOnHit(); // Gọi chung hàm Flash đã đồng nhất
         }
     }
 }

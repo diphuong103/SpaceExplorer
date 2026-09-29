@@ -1,23 +1,20 @@
-using UnityEngine;  
+using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController Instance { get; private set; }
 
     [Header("Movement Settings")]
-    [SerializeField] private float moveSpeed = 8f;         
-    [SerializeField] private float boostMultiplier = 1.5f; 
+    [SerializeField] private float moveSpeed = 8f;
+    [SerializeField] private float boostMultiplier = 1.5f;
 
     [Header("Shooting Settings")]
-    [SerializeField] private GameObject laserPrefab;       
-    [SerializeField] private Transform firePoint;          
-
     [Header("Energy Settings")]
-    [SerializeField] private float energy; 
+    [SerializeField] private float energy;
     [SerializeField] private float maxEnergy;
-    [SerializeField] private float energyRegenerationRate = 10f; 
+    [SerializeField] private float energyRegenerationRate = 10f;
 
-    [SerializeField] private float health; 
+    [SerializeField] private float health;
     [SerializeField] private float maxHealth;
 
     [SerializeField] private GameObject destroyEffectPrefab; // Prefab của hiệu ứng khi Player chết
@@ -28,7 +25,7 @@ public class PlayerController : MonoBehaviour
     private bool isBoosting = false;
     private bool isDead;
 
-    public float boost => isBoosting ? boostMultiplier : 1f; 
+    public float boost => isBoosting ? boostMultiplier : 1f;
     private readonly int moveXHash = Animator.StringToHash("moveX");
     private readonly int moveYHash = Animator.StringToHash("moveY");
     private readonly int boostingHash = Animator.StringToHash("Boosting");
@@ -51,7 +48,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        energy = maxEnergy; 
+        energy = maxEnergy;
         health = maxHealth;
 
         UpdateUI();
@@ -102,6 +99,10 @@ public class PlayerController : MonoBehaviour
             {
                 energy = 0f;
                 isBoosting = false;
+                if (AudioManager.Instance != null)
+                {
+                    AudioManager.Instance.Fire();
+                }
             }
         }
         else
@@ -118,7 +119,7 @@ public class PlayerController : MonoBehaviour
 
     private void HandleHealth()
     {
-        
+
     }
 
     private void UpdateUI()
@@ -142,10 +143,17 @@ public class PlayerController : MonoBehaviour
 
     private void Shoot()
     {
-        if (laserPrefab == null) return;
+        if (PhaserWeapon.Instance == null)
+        {
+            Debug.LogError("Cannot shoot: PhaserWeapon is missing from the scene.");
+            return;
+        }
 
-        Vector3 spawnPosition = (firePoint != null) ? firePoint.position : transform.position;
-        Instantiate(laserPrefab, spawnPosition, Quaternion.identity);
+        bool shotFired = PhaserWeapon.Instance.Shoot();
+        if (shotFired && AudioManager.Instance != null)
+        {
+            AudioManager.Instance.Block();
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -205,5 +213,5 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    
+
 }

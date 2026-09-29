@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 621670ff7ba871dfeb4893ff5bd6d920
+guid: 4d2f00ee28336a1ed9e8d90862ebd6ae
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2009410003007727163
-    second: bullet1_0
+      213: 477120322876232147
+    second: player_ship_broken_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bullet1_0
+      name: player_ship_broken_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 26
-        height: 10
+        x: 13
+        y: 13
+        width: 176
+        height: 239
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b36646d50cbd2eb10800000000000000
-      internalID: 2009410003007727163
+      spriteID: 3d15820e7621f9600800000000000000
+      internalID: 477120322876232147
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      bullet1_0: 2009410003007727163
+      player_ship_broken_0: 477120322876232147
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
