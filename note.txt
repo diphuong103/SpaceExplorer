@@ -1,0 +1,18 @@
+Module 3: Thu Thập & Hệ Thống Điểm Số (Collectibles & Scoring)
+Thu thập Ngôi sao (Stars):
+
+Gắn CircleCollider2D (đánh dấu IsTrigger = true) cho Star Prefab.
+
+Khi Tàu vũ trụ chạm vào Ngôi sao (OnTriggerEnter2D), hệ thống thực hiện:
+
+Tăng điểm số hiện tại của người chơi.
+
+Phát hiệu ứng âm thanh nhặt đồ (nếu có).
+
+Hủy đối tượng Ngôi sao bằng Destroy(gameObject).
+
+Điểm số (Score Tracker):
+
+Lưu trữ biến currentScore trong Script quản lý.
+
+Cập nhật tức thì điểm số lên giao diện Canvas UI.

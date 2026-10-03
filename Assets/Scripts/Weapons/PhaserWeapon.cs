@@ -49,6 +49,7 @@ public class PhaserWeapon : MonoBehaviour
         Transform spawnPoint = firePoint != null ? firePoint : transform;
         PhaserBullet bullet = Instantiate(bulletPrefab, spawnPoint.position, Quaternion.identity);
         bullet.Initialize(speed, damage);
+        AudioManager.Instance?.PlayModifiedSound(AudioManager.Instance.shoot, 1f);
         bullet.gameObject.SetActive(true);
         return true;
     }

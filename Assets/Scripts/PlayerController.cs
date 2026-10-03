@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private GameObject destroyEffectPrefab; // Prefab của hiệu ứng khi Player chết
 
+    [SerializeField] private ParticleSystem engineEffect; // Prefab của hiệu ứng động cơ
+
     private Rigidbody2D rb;
     private Animator animator;
     private Vector2 playerDirection;
@@ -95,6 +97,7 @@ public class PlayerController : MonoBehaviour
         if (isBoosting)
         {
             energy -= Time.fixedDeltaTime * 10f; // Trừ năng lượng khi tăng tốc
+            engineEffect.Play();
             if (energy <= 0f)
             {
                 energy = 0f;
@@ -141,7 +144,7 @@ public class PlayerController : MonoBehaviour
         animator.SetBool(boostingHash, isBoosting);
     }
 
-    private void Shoot()
+     private void Shoot()
     {
         if (PhaserWeapon.Instance == null)
         {

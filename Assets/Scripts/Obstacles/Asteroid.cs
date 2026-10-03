@@ -10,6 +10,8 @@ public class Asteroid : MonoBehaviour
     [Header("Material Flash")]
     [SerializeField] private Material whiteMaterial;
 
+    [SerializeField] private GameObject destroyEffectPrefab; // Prefab của hiệu ứng khi Asteroid bị phá hủy
+
     private SpriteRenderer spriteRenderer;  
     private Rigidbody2D rb; 
     private Material originalMaterial;
@@ -84,8 +86,31 @@ public class Asteroid : MonoBehaviour
         {
             StopCoroutine(hitFlashCoroutine);
         }
-
+        health--;
         hitFlashCoroutine = StartCoroutine(ResetMaterialRoutine());
+
+        if(health <= 0)
+        {
+            // Tạo hiệu ứng phá hủy nếu prefab được gán
+            if (destroyEffectPrefab != null)
+            {
+                Instantiate(destroyEffectPrefab, transform.position, Quaternion.identity);
+            }
+
+            // Phát âm thanh khi Asteroid bị phá hủy
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.PlaySound(AudioManager.Instance.Boom2);
+            }
+        }
+        else
+        {
+            // Phát âm thanh khi Asteroid bị trúng đạn nhưng chưa bị phá hủy
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.PlaySound(AudioManager.Instance.HitRock);
+            }
+        }
     }
 
     // Coroutine đổi Material sang màu trắng rồi khôi phục lại

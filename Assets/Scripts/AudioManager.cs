@@ -8,8 +8,15 @@ public class AudioManager : MonoBehaviour
     public AudioSource fire;
     public AudioSource hit;
 
+
     public AudioSource pause;
     public AudioSource resume;
+
+    
+    public AudioSource Boom2;
+    public AudioSource HitRock;
+
+    public AudioSource shoot;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     void Awake()
@@ -32,6 +39,18 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
+        audioSource.Play();
+    }
+
+    public void PlayModifiedSound(AudioSource audioSource, float pitch)
+    {
+        if (audioSource == null)
+        {
+            Debug.LogWarning("Cannot play sound: AudioSource is not assigned.");
+            return;
+        }
+
+        audioSource.pitch = pitch;
         audioSource.Play();
     }
 
