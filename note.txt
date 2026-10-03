@@ -16,3 +16,6 @@ Hủy đối tượng Ngôi sao bằng Destroy(gameObject).
 Lưu trữ biến currentScore trong Script quản lý.
 
 Cập nhật tức thì điểm số lên giao diện Canvas UI.
+
+
+test 
