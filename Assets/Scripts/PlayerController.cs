@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -17,6 +18,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float health;
     [SerializeField] private float maxHealth;
 
+    [Header("Sound Wave Hit")]
+    [SerializeField, Min(0f)] private float soundWaveKnockbackSpeed = 6f;
+    [SerializeField, Min(0f)] private float soundWaveKnockbackDuration = 0.35f;
+    [SerializeField, Min(0.01f)] private float soundWaveFlashDuration = 0.2f;
+    [SerializeField] private Color soundWaveFlashColor = new Color(0.5f, 1f, 1f, 1f);
+
     [SerializeField] private GameObject destroyEffectPrefab; // Prefab của hiệu ứng khi Player chết
 
     [SerializeField] private ParticleSystem engineEffect; // Prefab của hiệu ứng động cơ
@@ -26,6 +33,11 @@ public class PlayerController : MonoBehaviour
     private Vector2 playerDirection;
     private bool isBoosting = false;
     private bool isDead;
+    private SpriteRenderer spriteRenderer;
+    private Color originalSpriteColor;
+    private Coroutine hitFlashCoroutine;
+    private Vector2 soundWaveKnockbackVelocity;
+    private float soundWaveKnockbackRemaining;
 
     public float boost => isBoosting ? boostMultiplier : 1f;
     private readonly int moveXHash = Animator.StringToHash("moveX");
@@ -36,6 +48,12 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null)
+        {
+            originalSpriteColor = spriteRenderer.color;
+        }
+
         if (Instance == null)
         {
             Instance = this;
@@ -89,7 +107,61 @@ public class PlayerController : MonoBehaviour
     private void HandleMovement()
     {
         float currentSpeed = isBoosting ? moveSpeed * boostMultiplier : moveSpeed;
-        rb.linearVelocity = playerDirection * currentSpeed;
+        Vector2 knockbackVelocity = Vector2.zero;
+
+        if (soundWaveKnockbackRemaining > 0f && soundWaveKnockbackDuration > 0f)
+        {
+            float knockbackStrength = soundWaveKnockbackRemaining / soundWaveKnockbackDuration;
+            knockbackVelocity = soundWaveKnockbackVelocity * knockbackStrength;
+            soundWaveKnockbackRemaining = Mathf.Max(0f, soundWaveKnockbackRemaining - Time.fixedDeltaTime);
+        }
+
+        rb.linearVelocity = playerDirection * currentSpeed + knockbackVelocity;
+    }
+
+    public void ApplySoundWaveHit(Vector2 knockbackDirection, float damage = 0f)
+    {
+        if (isDead)
+        {
+            return;
+        }
+
+        soundWaveKnockbackVelocity = knockbackDirection.normalized * soundWaveKnockbackSpeed;
+        soundWaveKnockbackRemaining = soundWaveKnockbackDuration;
+        if (damage > 0f)
+        {
+            TakeDamage(damage);
+        }
+
+        if (isDead)
+        {
+            return;
+        }
+
+        if (hitFlashCoroutine != null)
+        {
+            StopCoroutine(hitFlashCoroutine);
+        }
+
+        hitFlashCoroutine = StartCoroutine(SoundWaveHitFlashRoutine());
+    }
+
+    private IEnumerator SoundWaveHitFlashRoutine()
+    {
+        if (spriteRenderer == null)
+        {
+            yield break;
+        }
+
+        spriteRenderer.color = soundWaveFlashColor;
+        yield return new WaitForSeconds(soundWaveFlashDuration);
+
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = originalSpriteColor;
+        }
+
+        hitFlashCoroutine = null;
     }
 
     private void HandleEnergy()

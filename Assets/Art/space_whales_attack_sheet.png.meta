@@ -1,0 +1,897 @@
+fileFormatVersion: 2
+guid: 1b72d6601c33b7742a553095bf07d4c2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1264716023990448362
+    second: space_whales_attack_sheet_0
+  - first:
+      213: 3789754393378851456
+    second: space_whales_attack_sheet_1
+  - first:
+      213: -1588404866112330459
+    second: space_whales_attack_sheet_2
+  - first:
+      213: -7645904246624943125
+    second: space_whales_attack_sheet_3
+  - first:
+      213: -6441211449327544731
+    second: space_whales_attack_sheet_4
+  - first:
+      213: -3485104868445425164
+    second: space_whales_attack_sheet_5
+  - first:
+      213: 8493377402479464487
+    second: space_whales_attack_sheet_6
+  - first:
+      213: -7580541042724638571
+    second: space_whales_attack_sheet_7
+  - first:
+      213: 5144379008864236553
+    second: space_whales_attack_sheet_8
+  - first:
+      213: 7959596534353584723
+    second: space_whales_attack_sheet_9
+  - first:
+      213: 3245417369040931789
+    second: space_whales_attack_sheet_10
+  - first:
+      213: 6990375796120516063
+    second: space_whales_attack_sheet_11
+  - first:
+      213: 2882884641491642440
+    second: space_whales_attack_sheet_12
+  - first:
+      213: 4500385003840419290
+    second: space_whales_attack_sheet_13
+  - first:
+      213: -8680279106077373061
+    second: space_whales_attack_sheet_14
+  - first:
+      213: 8615425491376504235
+    second: space_whales_attack_sheet_15
+  - first:
+      213: -7286207606889099445
+    second: space_whales_attack_sheet_16
+  - first:
+      213: -1978065683139584484
+    second: space_whales_attack_sheet_17
+  - first:
+      213: 3445134876247038876
+    second: space_whales_attack_sheet_18
+  - first:
+      213: -1984434629855377410
+    second: space_whales_attack_sheet_19
+  - first:
+      213: -6886658573516186301
+    second: space_whales_attack_sheet_20
+  - first:
+      213: -983980320462512740
+    second: space_whales_attack_sheet_21
+  - first:
+      213: 4398858589234065536
+    second: space_whales_attack_sheet_22
+  - first:
+      213: 745404976192800739
+    second: space_whales_attack_sheet_23
+  - first:
+      213: 2202148450916121119
+    second: space_whales_attack_sheet_24
+  - first:
+      213: 961010829047980504
+    second: space_whales_attack_sheet_25
+  - first:
+      213: 342441851232986216
+    second: space_whales_attack_sheet_26
+  - first:
+      213: -7422799615357993750
+    second: space_whales_attack_sheet_27
+  - first:
+      213: 3734772782811841776
+    second: space_whales_attack_sheet_28
+  - first:
+      213: -8738263672970515135
+    second: space_whales_attack_sheet_29
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: space_whales_attack_sheet_0
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 173
+        width: 101
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61f0e481a73d27ee0800000000000000
+      internalID: -1264716023990448362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space_whales_attack_sheet_1
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 173
+        width: 101
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08a8253ba89e79430800000000000000
+      internalID: 3789754393378851456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space_whales_attack_sheet_2
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 172
+        width: 102
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5256fd3a03ad4f9e0800000000000000
+      internalID: -1588404866112330459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space_whales_attack_sheet_3
+      rect:
+        serializedVersion: 2
+        x: 613
+        y: 172
+        width: 112
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be30541f89a44e590800000000000000
+      internalID: -7645904246624943125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space_whales_attack_sheet_4
+      rect:
+        serializedVersion: 2
+        x: 812
+        y: 173
+        width: 109
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56617a750583c96a0800000000000000
+      internalID: -6441211449327544731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space_whales_attack_sheet_5
+      rect:
+        serializedVersion: 2
+        x: 1013
+        y: 173
+        width: 102
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f17357469b62afc0800000000000000
+      internalID: -3485104868445425164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space_whales_attack_sheet_6
+      rect:
+        serializedVersion: 2
+        x: 1116
+        y: 189
+        width: 8
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7205e1a6fb98ed570800000000000000
+      internalID: 8493377402479464487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space_whales_attack_sheet_7
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 37
+        width: 104
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 590f027c5128cc690800000000000000
+      internalID: -7580541042724638571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space_whales_attack_sheet_8
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 51
+        width: 9
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9043455d371846740800000000000000
+      internalID: 5144379008864236553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space_whales_attack_sheet_9
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 42
+        width: 13
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 352639150ea267e60800000000000000
+      internalID: 7959596534353584723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space_whales_attack_sheet_10
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 37
+        width: 101
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcb4195f6e90a0d20800000000000000
+      internalID: 3245417369040931789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space_whales_attack_sheet_11
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 56
+        width: 7
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd5704effbdc20160800000000000000
+      internalID: 6990375796120516063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space_whales_attack_sheet_12
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 48
+        width: 10
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 848e988ae40120820800000000000000
+      internalID: 2882884641491642440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space_whales_attack_sheet_13
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 39
+        width: 14
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad537622154947e30800000000000000
+      internalID: 4500385003840419290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space_whales_attack_sheet_14
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 29
+        width: 19
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7d4303a424798780800000000000000
+      internalID: -8680279106077373061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space_whales_attack_sheet_15
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 37
+        width: 101
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bad775286d3209770800000000000000
+      internalID: 8615425491376504235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space_whales_attack_sheet_16
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 54
+        width: 8
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4f40a719c032ea90800000000000000
+      internalID: -7286207606889099445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space_whales_attack_sheet_17
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 46
+        width: 11
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1e131ecdbf7c84e0800000000000000
+      internalID: -1978065683139584484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space_whales_attack_sheet_18
+      rect:
+        serializedVersion: 2
+        x: 535
+        y: 36
+        width: 16
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9b9306bae39fcf20800000000000000
+      internalID: 3445134876247038876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space_whales_attack_sheet_19
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 24
+        width: 22
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef78c77d73fd574e0800000000000000
+      internalID: -1984434629855377410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space_whales_attack_sheet_20
+      rect:
+        serializedVersion: 2
+        x: 615
+        y: 37
+        width: 101
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34d5b24b38cad60a0800000000000000
+      internalID: -6886658573516186301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space_whales_attack_sheet_21
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 51
+        width: 9
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9d5bd4ac133852f0800000000000000
+      internalID: -983980320462512740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space_whales_attack_sheet_22
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 42
+        width: 13
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 080f87ca492eb0d30800000000000000
+      internalID: 4398858589234065536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space_whales_attack_sheet_23
+      rect:
+        serializedVersion: 2
+        x: 742
+        y: 29
+        width: 19
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e7c7c360e5385a00800000000000000
+      internalID: 745404976192800739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space_whales_attack_sheet_24
+      rect:
+        serializedVersion: 2
+        x: 748
+        y: 17
+        width: 26
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1a388f395a9f8e10800000000000000
+      internalID: 2202148450916121119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space_whales_attack_sheet_25
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 37
+        width: 101
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d165b2e142365d00800000000000000
+      internalID: 961010829047980504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space_whales_attack_sheet_26
+      rect:
+        serializedVersion: 2
+        x: 935
+        y: 46
+        width: 11
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86428f2ac0990c400800000000000000
+      internalID: 342441851232986216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space_whales_attack_sheet_27
+      rect:
+        serializedVersion: 2
+        x: 944
+        y: 35
+        width: 16
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aec3ea7d31becf890800000000000000
+      internalID: -7422799615357993750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space_whales_attack_sheet_28
+      rect:
+        serializedVersion: 2
+        x: 951
+        y: 22
+        width: 23
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f40c4cee0494d330800000000000000
+      internalID: 3734772782811841776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space_whales_attack_sheet_29
+      rect:
+        serializedVersion: 2
+        x: 1015
+        y: 37
+        width: 101
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14d64ea9c737bb680800000000000000
+      internalID: -8738263672970515135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      space_whales_attack_sheet_0: -1264716023990448362
+      space_whales_attack_sheet_1: 3789754393378851456
+      space_whales_attack_sheet_10: 3245417369040931789
+      space_whales_attack_sheet_11: 6990375796120516063
+      space_whales_attack_sheet_12: 2882884641491642440
+      space_whales_attack_sheet_13: 4500385003840419290
+      space_whales_attack_sheet_14: -8680279106077373061
+      space_whales_attack_sheet_15: 8615425491376504235
+      space_whales_attack_sheet_16: -7286207606889099445
+      space_whales_attack_sheet_17: -1978065683139584484
+      space_whales_attack_sheet_18: 3445134876247038876
+      space_whales_attack_sheet_19: -1984434629855377410
+      space_whales_attack_sheet_2: -1588404866112330459
+      space_whales_attack_sheet_20: -6886658573516186301
+      space_whales_attack_sheet_21: -983980320462512740
+      space_whales_attack_sheet_22: 4398858589234065536
+      space_whales_attack_sheet_23: 745404976192800739
+      space_whales_attack_sheet_24: 2202148450916121119
+      space_whales_attack_sheet_25: 961010829047980504
+      space_whales_attack_sheet_26: 342441851232986216
+      space_whales_attack_sheet_27: -7422799615357993750
+      space_whales_attack_sheet_28: 3734772782811841776
+      space_whales_attack_sheet_29: -8738263672970515135
+      space_whales_attack_sheet_3: -7645904246624943125
+      space_whales_attack_sheet_4: -6441211449327544731
+      space_whales_attack_sheet_5: -3485104868445425164
+      space_whales_attack_sheet_6: 8493377402479464487
+      space_whales_attack_sheet_7: -7580541042724638571
+      space_whales_attack_sheet_8: 5144379008864236553
+      space_whales_attack_sheet_9: 7959596534353584723
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

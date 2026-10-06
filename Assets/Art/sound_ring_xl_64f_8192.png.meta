@@ -1,0 +1,1625 @@
+fileFormatVersion: 2
+guid: e89dac14516595f47bd275ce37144a7c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1666795841017777268
+    second: sound_ring_xl_64f_8192_0
+  - first:
+      213: 5310978857400603710
+    second: sound_ring_xl_64f_8192_1
+  - first:
+      213: -5073748582978057303
+    second: sound_ring_xl_64f_8192_2
+  - first:
+      213: 3866766160526757725
+    second: sound_ring_xl_64f_8192_3
+  - first:
+      213: -8197483244507572656
+    second: sound_ring_xl_64f_8192_4
+  - first:
+      213: 2310332298394113665
+    second: sound_ring_xl_64f_8192_5
+  - first:
+      213: -537161844366476018
+    second: sound_ring_xl_64f_8192_6
+  - first:
+      213: 2665438046481810194
+    second: sound_ring_xl_64f_8192_7
+  - first:
+      213: -7123745296328745632
+    second: sound_ring_xl_64f_8192_8
+  - first:
+      213: 3851484400992828808
+    second: sound_ring_xl_64f_8192_9
+  - first:
+      213: 4844854564943618343
+    second: sound_ring_xl_64f_8192_10
+  - first:
+      213: -1349655008422772549
+    second: sound_ring_xl_64f_8192_11
+  - first:
+      213: 1649952144253315900
+    second: sound_ring_xl_64f_8192_12
+  - first:
+      213: 881816462330072915
+    second: sound_ring_xl_64f_8192_13
+  - first:
+      213: 1800195660212851516
+    second: sound_ring_xl_64f_8192_14
+  - first:
+      213: -2022796316432650051
+    second: sound_ring_xl_64f_8192_15
+  - first:
+      213: 7855506329309725251
+    second: sound_ring_xl_64f_8192_16
+  - first:
+      213: -3563459959938368351
+    second: sound_ring_xl_64f_8192_17
+  - first:
+      213: 5732168370129077546
+    second: sound_ring_xl_64f_8192_18
+  - first:
+      213: -1430818933576410537
+    second: sound_ring_xl_64f_8192_19
+  - first:
+      213: 4934452277302442305
+    second: sound_ring_xl_64f_8192_20
+  - first:
+      213: -6935006953348792626
+    second: sound_ring_xl_64f_8192_21
+  - first:
+      213: 573169135597405901
+    second: sound_ring_xl_64f_8192_22
+  - first:
+      213: -4845099857052501110
+    second: sound_ring_xl_64f_8192_23
+  - first:
+      213: -5448961394922630391
+    second: sound_ring_xl_64f_8192_24
+  - first:
+      213: -5282428302981614707
+    second: sound_ring_xl_64f_8192_25
+  - first:
+      213: -5463265506690218774
+    second: sound_ring_xl_64f_8192_26
+  - first:
+      213: -1414410265873939935
+    second: sound_ring_xl_64f_8192_27
+  - first:
+      213: 520380680920783532
+    second: sound_ring_xl_64f_8192_28
+  - first:
+      213: 6151767570309975886
+    second: sound_ring_xl_64f_8192_29
+  - first:
+      213: 5726558885317250766
+    second: sound_ring_xl_64f_8192_30
+  - first:
+      213: 6879820390029324400
+    second: sound_ring_xl_64f_8192_31
+  - first:
+      213: 6238783907350815433
+    second: sound_ring_xl_64f_8192_32
+  - first:
+      213: -4176047468091399065
+    second: sound_ring_xl_64f_8192_33
+  - first:
+      213: -4500355039036721159
+    second: sound_ring_xl_64f_8192_34
+  - first:
+      213: -2279869983984718840
+    second: sound_ring_xl_64f_8192_35
+  - first:
+      213: 3826105541639763552
+    second: sound_ring_xl_64f_8192_36
+  - first:
+      213: -7708726020809740695
+    second: sound_ring_xl_64f_8192_37
+  - first:
+      213: -8276873886381213278
+    second: sound_ring_xl_64f_8192_38
+  - first:
+      213: 3830118218994605555
+    second: sound_ring_xl_64f_8192_39
+  - first:
+      213: 2982288619629067786
+    second: sound_ring_xl_64f_8192_40
+  - first:
+      213: -5264691639240936998
+    second: sound_ring_xl_64f_8192_41
+  - first:
+      213: 3270583363885758081
+    second: sound_ring_xl_64f_8192_42
+  - first:
+      213: -143674300239639404
+    second: sound_ring_xl_64f_8192_43
+  - first:
+      213: 4034119793309923383
+    second: sound_ring_xl_64f_8192_44
+  - first:
+      213: 5380242422894003387
+    second: sound_ring_xl_64f_8192_45
+  - first:
+      213: -3279786091714386606
+    second: sound_ring_xl_64f_8192_46
+  - first:
+      213: -1950337675530039906
+    second: sound_ring_xl_64f_8192_47
+  - first:
+      213: -353811612503840795
+    second: sound_ring_xl_64f_8192_48
+  - first:
+      213: 4053526042846775963
+    second: sound_ring_xl_64f_8192_49
+  - first:
+      213: -2998768729780011230
+    second: sound_ring_xl_64f_8192_50
+  - first:
+      213: -5835130411421691993
+    second: sound_ring_xl_64f_8192_51
+  - first:
+      213: -6175654634010797531
+    second: sound_ring_xl_64f_8192_52
+  - first:
+      213: -2606462520644857946
+    second: sound_ring_xl_64f_8192_53
+  - first:
+      213: -7261638745636260480
+    second: sound_ring_xl_64f_8192_54
+  - first:
+      213: 2173630844657105862
+    second: sound_ring_xl_64f_8192_55
+  - first:
+      213: -3764058965391989001
+    second: sound_ring_xl_64f_8192_56
+  - first:
+      213: -8518542664184904258
+    second: sound_ring_xl_64f_8192_57
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_0
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 7241
+        width: 878
+        height: 878
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c83790f730a5ed8e0800000000000000
+      internalID: -1666795841017777268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_1
+      rect:
+        serializedVersion: 2
+        x: 1091
+        y: 7235
+        width: 890
+        height: 890
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3419fcc12364b940800000000000000
+      internalID: 5310978857400603710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_2
+      rect:
+        serializedVersion: 2
+        x: 2109
+        y: 7229
+        width: 902
+        height: 902
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ab83ffab8c6699b0800000000000000
+      internalID: -5073748582978057303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_3
+      rect:
+        serializedVersion: 2
+        x: 3127
+        y: 7223
+        width: 914
+        height: 914
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5fc2b3065389a530800000000000000
+      internalID: 3866766160526757725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_4
+      rect:
+        serializedVersion: 2
+        x: 4146
+        y: 7218
+        width: 924
+        height: 924
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 056d8e6db60bc3e80800000000000000
+      internalID: -8197483244507572656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_5
+      rect:
+        serializedVersion: 2
+        x: 5165
+        y: 7213
+        width: 934
+        height: 934
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18694e61cf2ff0020800000000000000
+      internalID: 2310332298394113665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_6
+      rect:
+        serializedVersion: 2
+        x: 6184
+        y: 7208
+        width: 944
+        height: 944
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0d74a7062e9b88f0800000000000000
+      internalID: -537161844366476018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_7
+      rect:
+        serializedVersion: 2
+        x: 7203
+        y: 7203
+        width: 954
+        height: 954
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2130c5bf7c98df420800000000000000
+      internalID: 2665438046481810194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_8
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 6174
+        width: 964
+        height: 964
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06d17fd656f532d90800000000000000
+      internalID: -7123745296328745632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_9
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 6170
+        width: 972
+        height: 972
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88db22b18a8337530800000000000000
+      internalID: 3851484400992828808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_10
+      rect:
+        serializedVersion: 2
+        x: 2070
+        y: 6166
+        width: 980
+        height: 980
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 721e4e3ce816c3340800000000000000
+      internalID: 4844854564943618343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_11
+      rect:
+        serializedVersion: 2
+        x: 3090
+        y: 6162
+        width: 988
+        height: 988
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb042adabef054de0800000000000000
+      internalID: -1349655008422772549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_12
+      rect:
+        serializedVersion: 2
+        x: 4110
+        y: 6158
+        width: 996
+        height: 996
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3bec9ebbbec5e610800000000000000
+      internalID: 1649952144253315900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_13
+      rect:
+        serializedVersion: 2
+        x: 5130
+        y: 6154
+        width: 1004
+        height: 1004
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35f86428667dc3c00800000000000000
+      internalID: 881816462330072915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_14
+      rect:
+        serializedVersion: 2
+        x: 6151
+        y: 6151
+        width: 1010
+        height: 1010
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c33df254a649bf810800000000000000
+      internalID: 1800195660212851516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_15
+      rect:
+        serializedVersion: 2
+        x: 7172
+        y: 6148
+        width: 1016
+        height: 1016
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db0301aa7759de3e0800000000000000
+      internalID: -2022796316432650051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_16
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 5122
+        width: 1020
+        height: 1020
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 342c651e26d540d60800000000000000
+      internalID: 7855506329309725251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_17
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 5120
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1acbb84eb0c0c8ec0800000000000000
+      internalID: -3563459959938368351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_18
+      rect:
+        serializedVersion: 2
+        x: 2047
+        y: 5119
+        width: 3074
+        height: 1026
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a25064623c0cc8f40800000000000000
+      internalID: 5732168370129077546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_19
+      rect:
+        serializedVersion: 2
+        x: 5122
+        y: 5122
+        width: 1020
+        height: 1020
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75a564eb2c5b42ce0800000000000000
+      internalID: -1430818933576410537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_20
+      rect:
+        serializedVersion: 2
+        x: 6213
+        y: 5189
+        width: 886
+        height: 886
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 149babdc332ba7440800000000000000
+      internalID: 4934452277302442305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_21
+      rect:
+        serializedVersion: 2
+        x: 7231
+        y: 5183
+        width: 898
+        height: 898
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecef7ce4be7e1cf90800000000000000
+      internalID: -6935006953348792626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_22
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 4153
+        width: 910
+        height: 910
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc64083ca4e44f700800000000000000
+      internalID: 573169135597405901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_23
+      rect:
+        serializedVersion: 2
+        x: 1076
+        y: 4148
+        width: 920
+        height: 920
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8bf617b95fb2ccb0800000000000000
+      internalID: -4845099857052501110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_24
+      rect:
+        serializedVersion: 2
+        x: 2094
+        y: 4142
+        width: 932
+        height: 932
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 903d1dc2b766164b0800000000000000
+      internalID: -5448961394922630391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_25
+      rect:
+        serializedVersion: 2
+        x: 3113
+        y: 4137
+        width: 942
+        height: 942
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d83bf49227b01b6b0800000000000000
+      internalID: -5282428302981614707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_26
+      rect:
+        serializedVersion: 2
+        x: 4132
+        y: 4132
+        width: 952
+        height: 952
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae4c510a7f49e24b0800000000000000
+      internalID: -5463265506690218774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_27
+      rect:
+        serializedVersion: 2
+        x: 5152
+        y: 4128
+        width: 960
+        height: 960
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1220be76b510f5ce0800000000000000
+      internalID: -1414410265873939935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_28
+      rect:
+        serializedVersion: 2
+        x: 6171
+        y: 4123
+        width: 970
+        height: 970
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: caa5242e873c83700800000000000000
+      internalID: 520380680920783532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_29
+      rect:
+        serializedVersion: 2
+        x: 7191
+        y: 4119
+        width: 978
+        height: 978
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4f081103087f5550800000000000000
+      internalID: 6151767570309975886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_30
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 3091
+        width: 986
+        height: 986
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ece01b037f2d87f40800000000000000
+      internalID: 5726558885317250766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_31
+      rect:
+        serializedVersion: 2
+        x: 1039
+        y: 3087
+        width: 994
+        height: 994
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 070ff22a1380a7f50800000000000000
+      internalID: 6879820390029324400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_32
+      rect:
+        serializedVersion: 2
+        x: 2060
+        y: 3084
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c2a114c8ec949650800000000000000
+      internalID: 6238783907350815433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_33
+      rect:
+        serializedVersion: 2
+        x: 3080
+        y: 3080
+        width: 1008
+        height: 1008
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7642e3314f2bb06c0800000000000000
+      internalID: -4176047468091399065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_34
+      rect:
+        serializedVersion: 2
+        x: 4101
+        y: 3077
+        width: 1014
+        height: 1014
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f7b3179fe68b81c0800000000000000
+      internalID: -4500355039036721159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_35
+      rect:
+        serializedVersion: 2
+        x: 5123
+        y: 3075
+        width: 1018
+        height: 1018
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80ce38e24564c50e0800000000000000
+      internalID: -2279869983984718840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_36
+      rect:
+        serializedVersion: 2
+        x: 6144
+        y: 3072
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0667792f7be091530800000000000000
+      internalID: 3826105541639763552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_37
+      rect:
+        serializedVersion: 2
+        x: 7167
+        y: 3071
+        width: 1025
+        height: 1026
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96e23d2d68a150590800000000000000
+      internalID: -7708726020809740695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_38
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2047
+        width: 2049
+        height: 1026
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a97a879d03a22d80800000000000000
+      internalID: -8276873886381213278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_39
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 2048
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fddce23a30572530800000000000000
+      internalID: 3830118218994605555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_40
+      rect:
+        serializedVersion: 2
+        x: 3143
+        y: 2119
+        width: 882
+        height: 882
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0e3eaed2b7336920800000000000000
+      internalID: 2982288619629067786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_41
+      rect:
+        serializedVersion: 2
+        x: 4161
+        y: 2113
+        width: 894
+        height: 894
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad1331ff8de00f6b0800000000000000
+      internalID: -5264691639240936998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_42
+      rect:
+        serializedVersion: 2
+        x: 5179
+        y: 2107
+        width: 906
+        height: 906
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18676bcbd32736d20800000000000000
+      internalID: 3270583363885758081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_43
+      rect:
+        serializedVersion: 2
+        x: 6198
+        y: 2102
+        width: 916
+        height: 916
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49c0dd23cf0910ef0800000000000000
+      internalID: -143674300239639404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_44
+      rect:
+        serializedVersion: 2
+        x: 7216
+        y: 2096
+        width: 928
+        height: 928
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7383c9d04921cf730800000000000000
+      internalID: 4034119793309923383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_45
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 1067
+        width: 938
+        height: 938
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb485165af57aaa40800000000000000
+      internalID: 5380242422894003387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_46
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 1062
+        width: 948
+        height: 948
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 255e8183debdb72d0800000000000000
+      internalID: -3279786091714386606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_47
+      rect:
+        serializedVersion: 2
+        x: 2081
+        y: 1057
+        width: 958
+        height: 958
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9d88f9a7320fe4e0800000000000000
+      internalID: -1950337675530039906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_48
+      rect:
+        serializedVersion: 2
+        x: 3101
+        y: 1053
+        width: 966
+        height: 966
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e7ec478632071bf0800000000000000
+      internalID: -353811612503840795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_49
+      rect:
+        serializedVersion: 2
+        x: 4120
+        y: 1048
+        width: 976
+        height: 976
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9a4daf9574014830800000000000000
+      internalID: 4053526042846775963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_50
+      rect:
+        serializedVersion: 2
+        x: 5140
+        y: 1044
+        width: 984
+        height: 984
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22fb9e97abb3266d0800000000000000
+      internalID: -2998768729780011230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_51
+      rect:
+        serializedVersion: 2
+        x: 6160
+        y: 1040
+        width: 992
+        height: 992
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7af81218ec3750fa0800000000000000
+      internalID: -5835130411421691993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_52
+      rect:
+        serializedVersion: 2
+        x: 7181
+        y: 1037
+        width: 998
+        height: 998
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52a9a4494daab4aa0800000000000000
+      internalID: -6175654634010797531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_53
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 9
+        width: 1006
+        height: 1006
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6af0898a52cf3dbd0800000000000000
+      internalID: -2606462520644857946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_54
+      rect:
+        serializedVersion: 2
+        x: 1030
+        y: 6
+        width: 1012
+        height: 1012
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 085332fd80a793b90800000000000000
+      internalID: -7261638745636260480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_55
+      rect:
+        serializedVersion: 2
+        x: 2052
+        y: 4
+        width: 1016
+        height: 1016
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cb7e90acb94a2e10800000000000000
+      internalID: 2173630844657105862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_56
+      rect:
+        serializedVersion: 2
+        x: 3073
+        y: 1
+        width: 1022
+        height: 1022
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f6af26505063cbc0800000000000000
+      internalID: -3764058965391989001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_ring_xl_64f_8192_57
+      rect:
+        serializedVersion: 2
+        x: 4095
+        y: 0
+        width: 4097
+        height: 1025
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb5cf31849e08c980800000000000000
+      internalID: -8518542664184904258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      sound_ring_xl_64f_8192_0: -1666795841017777268
+      sound_ring_xl_64f_8192_1: 5310978857400603710
+      sound_ring_xl_64f_8192_10: 4844854564943618343
+      sound_ring_xl_64f_8192_11: -1349655008422772549
+      sound_ring_xl_64f_8192_12: 1649952144253315900
+      sound_ring_xl_64f_8192_13: 881816462330072915
+      sound_ring_xl_64f_8192_14: 1800195660212851516
+      sound_ring_xl_64f_8192_15: -2022796316432650051
+      sound_ring_xl_64f_8192_16: 7855506329309725251
+      sound_ring_xl_64f_8192_17: -3563459959938368351
+      sound_ring_xl_64f_8192_18: 5732168370129077546
+      sound_ring_xl_64f_8192_19: -1430818933576410537
+      sound_ring_xl_64f_8192_2: -5073748582978057303
+      sound_ring_xl_64f_8192_20: 4934452277302442305
+      sound_ring_xl_64f_8192_21: -6935006953348792626
+      sound_ring_xl_64f_8192_22: 573169135597405901
+      sound_ring_xl_64f_8192_23: -4845099857052501110
+      sound_ring_xl_64f_8192_24: -5448961394922630391
+      sound_ring_xl_64f_8192_25: -5282428302981614707
+      sound_ring_xl_64f_8192_26: -5463265506690218774
+      sound_ring_xl_64f_8192_27: -1414410265873939935
+      sound_ring_xl_64f_8192_28: 520380680920783532
+      sound_ring_xl_64f_8192_29: 6151767570309975886
+      sound_ring_xl_64f_8192_3: 3866766160526757725
+      sound_ring_xl_64f_8192_30: 5726558885317250766
+      sound_ring_xl_64f_8192_31: 6879820390029324400
+      sound_ring_xl_64f_8192_32: 6238783907350815433
+      sound_ring_xl_64f_8192_33: -4176047468091399065
+      sound_ring_xl_64f_8192_34: -4500355039036721159
+      sound_ring_xl_64f_8192_35: -2279869983984718840
+      sound_ring_xl_64f_8192_36: 3826105541639763552
+      sound_ring_xl_64f_8192_37: -7708726020809740695
+      sound_ring_xl_64f_8192_38: -8276873886381213278
+      sound_ring_xl_64f_8192_39: 3830118218994605555
+      sound_ring_xl_64f_8192_4: -8197483244507572656
+      sound_ring_xl_64f_8192_40: 2982288619629067786
+      sound_ring_xl_64f_8192_41: -5264691639240936998
+      sound_ring_xl_64f_8192_42: 3270583363885758081
+      sound_ring_xl_64f_8192_43: -143674300239639404
+      sound_ring_xl_64f_8192_44: 4034119793309923383
+      sound_ring_xl_64f_8192_45: 5380242422894003387
+      sound_ring_xl_64f_8192_46: -3279786091714386606
+      sound_ring_xl_64f_8192_47: -1950337675530039906
+      sound_ring_xl_64f_8192_48: -353811612503840795
+      sound_ring_xl_64f_8192_49: 4053526042846775963
+      sound_ring_xl_64f_8192_5: 2310332298394113665
+      sound_ring_xl_64f_8192_50: -2998768729780011230
+      sound_ring_xl_64f_8192_51: -5835130411421691993
+      sound_ring_xl_64f_8192_52: -6175654634010797531
+      sound_ring_xl_64f_8192_53: -2606462520644857946
+      sound_ring_xl_64f_8192_54: -7261638745636260480
+      sound_ring_xl_64f_8192_55: 2173630844657105862
+      sound_ring_xl_64f_8192_56: -3764058965391989001
+      sound_ring_xl_64f_8192_57: -8518542664184904258
+      sound_ring_xl_64f_8192_6: -537161844366476018
+      sound_ring_xl_64f_8192_7: 2665438046481810194
+      sound_ring_xl_64f_8192_8: -7123745296328745632
+      sound_ring_xl_64f_8192_9: 3851484400992828808
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

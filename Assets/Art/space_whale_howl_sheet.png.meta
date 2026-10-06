@@ -1,0 +1,585 @@
+fileFormatVersion: 2
+guid: 0bc235793cfd5384388afbe77b2c55a4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2676415160580874592
+    second: space_whale_howl_sheet_0
+  - first:
+      213: -1039386987828189174
+    second: space_whale_howl_sheet_1
+  - first:
+      213: 406401792323560768
+    second: space_whale_howl_sheet_2
+  - first:
+      213: -717699796680585151
+    second: space_whale_howl_sheet_3
+  - first:
+      213: 6075703945284344918
+    second: space_whale_howl_sheet_4
+  - first:
+      213: 2514603629001983920
+    second: space_whale_howl_sheet_5
+  - first:
+      213: -7544843322698485636
+    second: space_whale_howl_sheet_6
+  - first:
+      213: 5618566915359621335
+    second: space_whale_howl_sheet_7
+  - first:
+      213: -3733569678552524593
+    second: space_whale_howl_sheet_8
+  - first:
+      213: 2866085518619929703
+    second: space_whale_howl_sheet_9
+  - first:
+      213: -772918545028422705
+    second: space_whale_howl_sheet_10
+  - first:
+      213: 5087624269775011911
+    second: space_whale_howl_sheet_11
+  - first:
+      213: -2979150882412258143
+    second: space_whale_howl_sheet_12
+  - first:
+      213: -1431891142747112292
+    second: space_whale_howl_sheet_13
+  - first:
+      213: -6796172712612560033
+    second: space_whale_howl_sheet_14
+  - first:
+      213: 6114642766708824249
+    second: space_whale_howl_sheet_15
+  - first:
+      213: -3664762709143560442
+    second: space_whale_howl_sheet_16
+  - first:
+      213: -5731127979597714061
+    second: space_whale_howl_sheet_17
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: space_whale_howl_sheet_0
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 245
+        width: 101
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ae5b1a77967bdad0800000000000000
+      internalID: -2676415160580874592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space_whale_howl_sheet_1
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 246
+        width: 101
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a08665e9a0b5391f0800000000000000
+      internalID: -1039386987828189174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space_whale_howl_sheet_2
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 245
+        width: 102
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0452783e644d3a500800000000000000
+      internalID: 406401792323560768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space_whale_howl_sheet_3
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 246
+        width: 101
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 140db7366d73a06f0800000000000000
+      internalID: -717699796680585151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space_whale_howl_sheet_4
+      rect:
+        serializedVersion: 2
+        x: 562
+        y: 245
+        width: 102
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65cdc1b3c8c315450800000000000000
+      internalID: 6075703945284344918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space_whale_howl_sheet_5
+      rect:
+        serializedVersion: 2
+        x: 698
+        y: 246
+        width: 100
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b742997daaa5e220800000000000000
+      internalID: 2514603629001983920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space_whale_howl_sheet_6
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 134
+        width: 100
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c703498e8f45b4790800000000000000
+      internalID: -7544843322698485636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space_whale_howl_sheet_7
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 133
+        width: 100
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d0c5c057d829fd40800000000000000
+      internalID: 5618566915359621335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space_whale_howl_sheet_8
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 133
+        width: 100
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc815bd9822bf2cc0800000000000000
+      internalID: -3733569678552524593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space_whale_howl_sheet_9
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 133
+        width: 100
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76c6b31189166c720800000000000000
+      internalID: 2866085518619929703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space_whale_howl_sheet_10
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 133
+        width: 100
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc3e44badaa0645f0800000000000000
+      internalID: -772918545028422705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space_whale_howl_sheet_11
+      rect:
+        serializedVersion: 2
+        x: 699
+        y: 133
+        width: 100
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7408896615fda9640800000000000000
+      internalID: 5087624269775011911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space_whale_howl_sheet_12
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 22
+        width: 100
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ac96818e0ee7a6d0800000000000000
+      internalID: -2979150882412258143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space_whale_howl_sheet_13
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 21
+        width: 100
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9cb7879796e02ce0800000000000000
+      internalID: -1431891142747112292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space_whale_howl_sheet_14
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 21
+        width: 100
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f538680fce42fa1a0800000000000000
+      internalID: -6796172712612560033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space_whale_howl_sheet_15
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 21
+        width: 100
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b8571613339bd450800000000000000
+      internalID: 6114642766708824249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space_whale_howl_sheet_16
+      rect:
+        serializedVersion: 2
+        x: 562
+        y: 21
+        width: 101
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60f56679bb5242dc0800000000000000
+      internalID: -3664762709143560442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space_whale_howl_sheet_17
+      rect:
+        serializedVersion: 2
+        x: 698
+        y: 21
+        width: 101
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37da6c5a771f670b0800000000000000
+      internalID: -5731127979597714061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      space_whale_howl_sheet_0: -2676415160580874592
+      space_whale_howl_sheet_1: -1039386987828189174
+      space_whale_howl_sheet_10: -772918545028422705
+      space_whale_howl_sheet_11: 5087624269775011911
+      space_whale_howl_sheet_12: -2979150882412258143
+      space_whale_howl_sheet_13: -1431891142747112292
+      space_whale_howl_sheet_14: -6796172712612560033
+      space_whale_howl_sheet_15: 6114642766708824249
+      space_whale_howl_sheet_16: -3664762709143560442
+      space_whale_howl_sheet_17: -5731127979597714061
+      space_whale_howl_sheet_2: 406401792323560768
+      space_whale_howl_sheet_3: -717699796680585151
+      space_whale_howl_sheet_4: 6075703945284344918
+      space_whale_howl_sheet_5: 2514603629001983920
+      space_whale_howl_sheet_6: -7544843322698485636
+      space_whale_howl_sheet_7: 5618566915359621335
+      space_whale_howl_sheet_8: -3733569678552524593
+      space_whale_howl_sheet_9: 2866085518619929703
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
