@@ -9,7 +9,7 @@ Tăng điểm số hiện tại của người chơi.
 
 Phát hiệu ứng âm thanh nhặt đồ (nếu có).
 
-Hủy đối tượng Ngôi sao bằng Destroy(gameObject).
+
 
 Điểm số (Score Tracker):
 
@@ -25,3 +25,8 @@ Kiểm tra logic vật lý các vật thể có thể đi xuyên qua nhau không
 Các cầu bí ẩn.
 
 Them hieu ung am thanh.
+
+
+Xy ly lai logic spawn cau.
+
+toc do, dan theo thoi gian.

@@ -6,13 +6,16 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     public float worldSpeed = 1f; // Tốc độ di chuyển của thế giới
+    public int CurrentScore => currentScore;
 
+    private int currentScore;
 
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
+            currentScore = 0;
         }
         else
         {
@@ -25,6 +28,20 @@ public class GameManager : MonoBehaviour
         if (Instance == this)
         {
             Instance = null;
+        }
+    }
+
+    public void AddScore(int amount)
+    {
+        if (amount <= 0)
+        {
+            return;
+        }
+
+        currentScore += amount;
+        if (UIController.Instance != null)
+        {
+            UIController.Instance.UpdatePointsDisplay(currentScore);
         }
     }
 

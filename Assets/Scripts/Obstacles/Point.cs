@@ -20,13 +20,13 @@ public class PointStar : MonoBehaviour
             return;
         }
 
-        if (UIController.Instance == null)
+        if (GameManager.Instance == null)
         {
-            Debug.LogError("Cannot collect point star: UIController is missing from the scene.", this);
+            Debug.LogError("Cannot collect point star: GameManager is missing from the scene.", this);
             return;
         }
 
-        UIController.Instance.AddPoints(pointValue);
+        GameManager.Instance.AddScore(pointValue);
         Destroy(gameObject);
     }
 }

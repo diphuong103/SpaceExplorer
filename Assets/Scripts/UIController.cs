@@ -13,14 +13,11 @@ public class UIController : MonoBehaviour
     [SerializeField] private TMP_Text PointsText;
     public GameObject pausePanel;
 
-    private int points;
-
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
-            UpdatePointsText();
             if (pausePanel != null)
             {
                 pausePanel.SetActive(false);
@@ -40,22 +37,16 @@ public class UIController : MonoBehaviour
         }
     }
 
-    public void AddPoints(int amount)
+    private void Start()
     {
-        if (amount <= 0)
-        {
-            return;
-        }
-
-        points += amount;
-        UpdatePointsText();
+        UpdatePointsDisplay(GameManager.Instance != null ? GameManager.Instance.CurrentScore : 0);
     }
 
-    private void UpdatePointsText()
+    public void UpdatePointsDisplay(int score)
     {
         if (PointsText != null)
         {
-            PointsText.text = points.ToString();
+            PointsText.text = score.ToString();
         }
     }
 

@@ -8,6 +8,12 @@ public class ObjectSpawn : MonoBehaviour
     [SerializeField] private Camera pointStarCamera;
     [SerializeField, Min(0f)] private float pointStarScreenPadding = 0.1f;
     [SerializeField] private PointStarSpawn[] pointStarSpawns;
+    [SerializeField] private GameObject[] powerUpPrefabs;
+    [SerializeField, Min(0.1f)] private float powerUpSpawnInterval = 5f;
+    [SerializeField, Min(1)] private int powerUpInitialSpawnCount = 1;
+    [SerializeField, Min(0)] private int powerUpSpawnIncrease = 1;
+    [SerializeField, Min(1)] private int powerUpMaxSpawnCount = 3;
+    [SerializeField, Min(0.1f)] private float powerUpLifetime = 10f;
 
     [SerializeField] private int waveNumber = 0;
     [SerializeField] private List<Wave> waves; // Danh sách các wave
@@ -40,8 +46,11 @@ public class ObjectSpawn : MonoBehaviour
     }
 
     private float whaleMiniSpawnTimer;
+    private float powerUpSpawnTimer;
     private int currentWhaleMiniSpawnCount;
-    private bool missingPointStarCameraLogged;
+    private int currentPowerUpSpawnCount;
+    private bool missingPickupCameraLogged;
+    private readonly List<GameObject> activePowerUps = new List<GameObject>();
 
     private void Start()
     {
@@ -49,11 +58,16 @@ public class ObjectSpawn : MonoBehaviour
             whaleMiniInitialSpawnCount,
             1,
             Mathf.Max(1, whaleMiniMaxSpawnCount));
+        currentPowerUpSpawnCount = Mathf.Clamp(
+            powerUpInitialSpawnCount,
+            1,
+            Mathf.Max(1, powerUpMaxSpawnCount));
     }
 
     void Update()
     {
         UpdatePointStarSpawning();
+        UpdatePowerUpSpawning();
         UpdateWhaleMiniSpawning();
 
         if (waves == null || waves.Count == 0) return;
@@ -98,10 +112,10 @@ public class ObjectSpawn : MonoBehaviour
 
         if (pointStarCamera == null)
         {
-            if (!missingPointStarCameraLogged)
+            if (!missingPickupCameraLogged)
             {
-                Debug.LogError("Cannot spawn point stars: assign a camera or tag the game camera as MainCamera.", this);
-                missingPointStarCameraLogged = true;
+                Debug.LogError("Cannot spawn pickups: assign a camera or tag the game camera as MainCamera.", this);
+                missingPickupCameraLogged = true;
             }
 
             return;
@@ -122,11 +136,64 @@ public class ObjectSpawn : MonoBehaviour
             }
 
             starSpawn.spawnTimer -= interval;
-            Instantiate(starSpawn.prefab, RandomPointStarPosition(starSpawn.prefab), Quaternion.identity);
+            Instantiate(starSpawn.prefab, RandomScreenPosition(starSpawn.prefab), Quaternion.identity);
         }
     }
 
-    private Vector3 RandomPointStarPosition(GameObject prefab)
+    private void UpdatePowerUpSpawning()
+    {
+        if (powerUpPrefabs == null || powerUpPrefabs.Length == 0)
+        {
+            return;
+        }
+
+        if (pointStarCamera == null)
+        {
+            pointStarCamera = Camera.main;
+        }
+
+        if (pointStarCamera == null)
+        {
+            if (!missingPickupCameraLogged)
+            {
+                Debug.LogError("Cannot spawn pickups: assign a camera or tag the game camera as MainCamera.", this);
+                missingPickupCameraLogged = true;
+            }
+
+            return;
+        }
+
+        powerUpSpawnTimer += Time.deltaTime;
+        if (powerUpSpawnTimer < Mathf.Max(0.1f, powerUpSpawnInterval))
+        {
+            return;
+        }
+
+        powerUpSpawnTimer = 0f;
+        activePowerUps.RemoveAll(powerUp => powerUp == null);
+
+        int availableSlots = Mathf.Max(0, powerUpMaxSpawnCount - activePowerUps.Count);
+        int spawnCount = Mathf.Min(currentPowerUpSpawnCount, availableSlots);
+        for (int i = 0; i < spawnCount; i++)
+        {
+            GameObject prefab = powerUpPrefabs[Random.Range(0, powerUpPrefabs.Length)];
+            if (prefab != null)
+            {
+                GameObject powerUp = Instantiate(prefab, RandomScreenPosition(prefab), Quaternion.identity);
+                activePowerUps.Add(powerUp);
+                Destroy(powerUp, powerUpLifetime);
+            }
+        }
+
+        if (spawnCount > 0)
+        {
+            currentPowerUpSpawnCount = Mathf.Min(
+                Mathf.Max(1, powerUpMaxSpawnCount),
+                currentPowerUpSpawnCount + Mathf.Max(0, powerUpSpawnIncrease));
+        }
+    }
+
+    private Vector3 RandomScreenPosition(GameObject prefab)
     {
         float spawnZ = transform.position.z;
         float cameraDepth = pointStarCamera.WorldToViewportPoint(

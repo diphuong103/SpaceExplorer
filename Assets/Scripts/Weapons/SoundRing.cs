@@ -4,6 +4,7 @@ public class SoundRing : MonoBehaviour
 {
     [SerializeField, Min(0f)] private float speed = 6f;
     [SerializeField, Min(0f)] private float lifeTime = 3f;
+    [SerializeField, Min(0f)] private float damage = 0.1f;
 
     private void Start()
     {
@@ -45,7 +46,7 @@ public class SoundRing : MonoBehaviour
         }
 
         hasHitPlayer = true;
-        player.ApplySoundWaveHit(Vector2.left);
+        player.ApplySoundWaveHit(Vector2.left, damage);
         return true;
     }
 }
