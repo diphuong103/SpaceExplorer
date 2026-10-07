@@ -1,0 +1,871 @@
+fileFormatVersion: 2
+guid: 9698d03a289017d44999beac222711c1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5176569167718326585
+    second: orbs_atlas_8x4_0
+  - first:
+      213: 3150616439747529930
+    second: orbs_atlas_8x4_1
+  - first:
+      213: -1760917383220937543
+    second: orbs_atlas_8x4_2
+  - first:
+      213: 3388690588884942609
+    second: orbs_atlas_8x4_3
+  - first:
+      213: -9097894459016325874
+    second: orbs_atlas_8x4_4
+  - first:
+      213: -8217016378771963300
+    second: orbs_atlas_8x4_5
+  - first:
+      213: -1807592786528269783
+    second: orbs_atlas_8x4_6
+  - first:
+      213: 6920693523591960830
+    second: orbs_atlas_8x4_7
+  - first:
+      213: -8228563710624795892
+    second: orbs_atlas_8x4_8
+  - first:
+      213: 1889293550684955581
+    second: orbs_atlas_8x4_9
+  - first:
+      213: -1781337942609231775
+    second: orbs_atlas_8x4_10
+  - first:
+      213: -7913854394226830844
+    second: orbs_atlas_8x4_11
+  - first:
+      213: -3683062127433914302
+    second: orbs_atlas_8x4_12
+  - first:
+      213: -7897358607471969533
+    second: orbs_atlas_8x4_13
+  - first:
+      213: 2027733924210762297
+    second: orbs_atlas_8x4_14
+  - first:
+      213: 295902688017043781
+    second: orbs_atlas_8x4_15
+  - first:
+      213: -3967604775304367668
+    second: orbs_atlas_8x4_16
+  - first:
+      213: -5467074296581310836
+    second: orbs_atlas_8x4_17
+  - first:
+      213: -7217004506559229325
+    second: orbs_atlas_8x4_18
+  - first:
+      213: 3893030543899324483
+    second: orbs_atlas_8x4_19
+  - first:
+      213: 2278118929796749626
+    second: orbs_atlas_8x4_20
+  - first:
+      213: 6140459951115454412
+    second: orbs_atlas_8x4_21
+  - first:
+      213: 290723395602616147
+    second: orbs_atlas_8x4_22
+  - first:
+      213: -6443576532413757319
+    second: orbs_atlas_8x4_23
+  - first:
+      213: -4365086141298371538
+    second: orbs_atlas_8x4_24
+  - first:
+      213: -3062763074895842441
+    second: orbs_atlas_8x4_25
+  - first:
+      213: -3745843368257281842
+    second: orbs_atlas_8x4_26
+  - first:
+      213: -7134682969275971543
+    second: orbs_atlas_8x4_27
+  - first:
+      213: 6493571343926391577
+    second: orbs_atlas_8x4_28
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: orbs_atlas_8x4_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 773
+        width: 248
+        height: 246
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ced8e2c4c12928b0800000000000000
+      internalID: -5176569167718326585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orbs_atlas_8x4_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acc48a295fc39bb20800000000000000
+      internalID: 3150616439747529930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orbs_atlas_8x4_2
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 0
+        width: 258
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bc3e4e38f6ff87e0800000000000000
+      internalID: -1760917383220937543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orbs_atlas_8x4_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11f3234f22c070f20800000000000000
+      internalID: 3388690588884942609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orbs_atlas_8x4_4
+      rect:
+        serializedVersion: 2
+        x: 1028
+        y: 773
+        width: 248
+        height: 246
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0556563139cdb180800000000000000
+      internalID: -9097894459016325874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orbs_atlas_8x4_5
+      rect:
+        serializedVersion: 2
+        x: 1289
+        y: 777
+        width: 238
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c520bbd932b47fd80800000000000000
+      internalID: -8217016378771963300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orbs_atlas_8x4_6
+      rect:
+        serializedVersion: 2
+        x: 1546
+        y: 778
+        width: 236
+        height: 236
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92a8c6c00f32ae6e0800000000000000
+      internalID: -1807592786528269783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orbs_atlas_8x4_7
+      rect:
+        serializedVersion: 2
+        x: 1801
+        y: 777
+        width: 238
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef89b01a71e3b0060800000000000000
+      internalID: 6920693523591960830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orbs_atlas_8x4_8
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 517
+        width: 248
+        height: 246
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c03f988e6e44ecd80800000000000000
+      internalID: -8228563710624795892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orbs_atlas_8x4_9
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db36305797e183a10800000000000000
+      internalID: 1889293550684955581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orbs_atlas_8x4_10
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1600ad1449a6747e0800000000000000
+      internalID: -1781337942609231775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orbs_atlas_8x4_11
+      rect:
+        serializedVersion: 2
+        x: 1028
+        y: 517
+        width: 248
+        height: 246
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40212fb9b575c2290800000000000000
+      internalID: -7913854394226830844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orbs_atlas_8x4_12
+      rect:
+        serializedVersion: 2
+        x: 1289
+        y: 521
+        width: 238
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2486b90428223ecc0800000000000000
+      internalID: -3683062127433914302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orbs_atlas_8x4_13
+      rect:
+        serializedVersion: 2
+        x: 1546
+        y: 522
+        width: 236
+        height: 236
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30b72c14032f66290800000000000000
+      internalID: -7897358607471969533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orbs_atlas_8x4_14
+      rect:
+        serializedVersion: 2
+        x: 1801
+        y: 521
+        width: 238
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 932679bb245f32c10800000000000000
+      internalID: 2027733924210762297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orbs_atlas_8x4_15
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 261
+        width: 248
+        height: 246
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 541d65f4de14b1400800000000000000
+      internalID: 295902688017043781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orbs_atlas_8x4_16
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc1f6d66a7c30f8c0800000000000000
+      internalID: -3967604775304367668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orbs_atlas_8x4_17
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c863a9f94ec0124b0800000000000000
+      internalID: -5467074296581310836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orbs_atlas_8x4_18
+      rect:
+        serializedVersion: 2
+        x: 1028
+        y: 261
+        width: 248
+        height: 246
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 372d42c73ac08db90800000000000000
+      internalID: -7217004506559229325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orbs_atlas_8x4_19
+      rect:
+        serializedVersion: 2
+        x: 1289
+        y: 265
+        width: 238
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3407ddc47a2d60630800000000000000
+      internalID: 3893030543899324483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orbs_atlas_8x4_20
+      rect:
+        serializedVersion: 2
+        x: 1546
+        y: 266
+        width: 236
+        height: 236
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a39d0aeb8118d9f10800000000000000
+      internalID: 2278118929796749626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orbs_atlas_8x4_21
+      rect:
+        serializedVersion: 2
+        x: 1801
+        y: 265
+        width: 238
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc7cfbfbacb473550800000000000000
+      internalID: 6140459951115454412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orbs_atlas_8x4_22
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 5
+        width: 248
+        height: 246
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35f0ac2536bd80400800000000000000
+      internalID: 290723395602616147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orbs_atlas_8x4_23
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9784f668841d396a0800000000000000
+      internalID: -6443576532413757319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orbs_atlas_8x4_24
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e241eed18491c63c0800000000000000
+      internalID: -4365086141298371538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orbs_atlas_8x4_25
+      rect:
+        serializedVersion: 2
+        x: 1028
+        y: 5
+        width: 248
+        height: 246
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77376a9e531ee75d0800000000000000
+      internalID: -3062763074895842441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orbs_atlas_8x4_26
+      rect:
+        serializedVersion: 2
+        x: 1289
+        y: 9
+        width: 238
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec0a5ca8d47140cc0800000000000000
+      internalID: -3745843368257281842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orbs_atlas_8x4_27
+      rect:
+        serializedVersion: 2
+        x: 1546
+        y: 10
+        width: 236
+        height: 236
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 928c64ff3a38cfc90800000000000000
+      internalID: -7134682969275971543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orbs_atlas_8x4_28
+      rect:
+        serializedVersion: 2
+        x: 1801
+        y: 9
+        width: 238
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 913736e9bbccd1a50800000000000000
+      internalID: 6493571343926391577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      orbs_atlas_8x4_0: -5176569167718326585
+      orbs_atlas_8x4_1: 3150616439747529930
+      orbs_atlas_8x4_10: -1781337942609231775
+      orbs_atlas_8x4_11: -7913854394226830844
+      orbs_atlas_8x4_12: -3683062127433914302
+      orbs_atlas_8x4_13: -7897358607471969533
+      orbs_atlas_8x4_14: 2027733924210762297
+      orbs_atlas_8x4_15: 295902688017043781
+      orbs_atlas_8x4_16: -3967604775304367668
+      orbs_atlas_8x4_17: -5467074296581310836
+      orbs_atlas_8x4_18: -7217004506559229325
+      orbs_atlas_8x4_19: 3893030543899324483
+      orbs_atlas_8x4_2: -1760917383220937543
+      orbs_atlas_8x4_20: 2278118929796749626
+      orbs_atlas_8x4_21: 6140459951115454412
+      orbs_atlas_8x4_22: 290723395602616147
+      orbs_atlas_8x4_23: -6443576532413757319
+      orbs_atlas_8x4_24: -4365086141298371538
+      orbs_atlas_8x4_25: -3062763074895842441
+      orbs_atlas_8x4_26: -3745843368257281842
+      orbs_atlas_8x4_27: -7134682969275971543
+      orbs_atlas_8x4_28: 6493571343926391577
+      orbs_atlas_8x4_3: 3388690588884942609
+      orbs_atlas_8x4_4: -9097894459016325874
+      orbs_atlas_8x4_5: -8217016378771963300
+      orbs_atlas_8x4_6: -1807592786528269783
+      orbs_atlas_8x4_7: 6920693523591960830
+      orbs_atlas_8x4_8: -8228563710624795892
+      orbs_atlas_8x4_9: 1889293550684955581
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

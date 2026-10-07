@@ -9,6 +9,9 @@ public class WhaleMini : MonoBehaviour
     [SerializeField, Min(0f)] private float waveDamage = 1f;
     [SerializeField, Min(0.1f)] private float waveHitInterval = 1f;
 
+    [SerializeField, Min(1)] private int health = 1;
+    private bool isDead;
+
     private Rigidbody2D body;
     private float waveHitTimer;
 
@@ -42,6 +45,25 @@ public class WhaleMini : MonoBehaviour
 
         gameObject.tag = "Obstacles";
     }
+
+
+
+    public void TakeDamage(int damage)
+    {
+        if (isDead || damage <= 0)
+        {
+            return;
+        }
+
+        health -= damage;
+        if (health <= 0)
+        {
+            isDead = true;
+            Destroy(gameObject);
+        }
+    }
+
+    
 
     private void Update()
     {

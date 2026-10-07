@@ -1,0 +1,533 @@
+fileFormatVersion: 2
+guid: 3c46c08128a26fd4b81616cadf0288d8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5463963325757753363
+    second: fx_shield_sheet_4x4_0
+  - first:
+      213: -4416581044584403845
+    second: fx_shield_sheet_4x4_1
+  - first:
+      213: -8654818521137824100
+    second: fx_shield_sheet_4x4_2
+  - first:
+      213: 9027730135093490429
+    second: fx_shield_sheet_4x4_3
+  - first:
+      213: 5805879315321654463
+    second: fx_shield_sheet_4x4_4
+  - first:
+      213: 8000959423437285586
+    second: fx_shield_sheet_4x4_5
+  - first:
+      213: 2868876711445923654
+    second: fx_shield_sheet_4x4_6
+  - first:
+      213: 3020689672142171663
+    second: fx_shield_sheet_4x4_7
+  - first:
+      213: 6910944845983750307
+    second: fx_shield_sheet_4x4_8
+  - first:
+      213: -4880107910069528405
+    second: fx_shield_sheet_4x4_9
+  - first:
+      213: 8636939872241801493
+    second: fx_shield_sheet_4x4_10
+  - first:
+      213: 6304456308995242434
+    second: fx_shield_sheet_4x4_11
+  - first:
+      213: 5218757663773527437
+    second: fx_shield_sheet_4x4_12
+  - first:
+      213: 5978323576738293000
+    second: fx_shield_sheet_4x4_13
+  - first:
+      213: -7091806527208522035
+    second: fx_shield_sheet_4x4_14
+  - first:
+      213: -2540778564689848566
+    second: fx_shield_sheet_4x4_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: fx_shield_sheet_4x4_0
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 1568
+        width: 448
+        height: 448
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3188d8902b5e3db40800000000000000
+      internalID: 5463963325757753363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fx_shield_sheet_4x4_1
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 1567
+        width: 450
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7ca2d3a0f625b2c0800000000000000
+      internalID: -4416581044584403845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fx_shield_sheet_4x4_2
+      rect:
+        serializedVersion: 2
+        x: 1054
+        y: 1566
+        width: 452
+        height: 452
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9ebb140968e3e780800000000000000
+      internalID: -8654818521137824100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fx_shield_sheet_4x4_3
+      rect:
+        serializedVersion: 2
+        x: 1566
+        y: 1565
+        width: 453
+        height: 453
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df236561ab0f84d70800000000000000
+      internalID: 9027730135093490429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fx_shield_sheet_4x4_4
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 1053
+        width: 454
+        height: 454
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbc0986f970a29050800000000000000
+      internalID: 5805879315321654463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fx_shield_sheet_4x4_5
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 1053
+        width: 453
+        height: 453
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d82b48643e190f60800000000000000
+      internalID: 8000959423437285586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fx_shield_sheet_4x4_6
+      rect:
+        serializedVersion: 2
+        x: 1054
+        y: 1054
+        width: 452
+        height: 452
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 647002a4b2c40d720800000000000000
+      internalID: 2868876711445923654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fx_shield_sheet_4x4_7
+      rect:
+        serializedVersion: 2
+        x: 1567
+        y: 1055
+        width: 450
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0ea9b4a045abe920800000000000000
+      internalID: 3020689672142171663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fx_shield_sheet_4x4_8
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 544
+        width: 448
+        height: 448
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a89d2fb8bb98ef50800000000000000
+      internalID: 6910944845983750307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fx_shield_sheet_4x4_9
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 545
+        width: 446
+        height: 446
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba85bb236bf564cb0800000000000000
+      internalID: -4880107910069528405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fx_shield_sheet_4x4_10
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 546
+        width: 444
+        height: 444
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5195167ad039cd770800000000000000
+      internalID: 8636939872241801493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fx_shield_sheet_4x4_11
+      rect:
+        serializedVersion: 2
+        x: 1571
+        y: 546
+        width: 443
+        height: 443
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c9b1af4c9ded7750800000000000000
+      internalID: 6304456308995242434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fx_shield_sheet_4x4_12
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 35
+        width: 442
+        height: 442
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8d811ee170cc6840800000000000000
+      internalID: 5218757663773527437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fx_shield_sheet_4x4_13
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 34
+        width: 443
+        height: 443
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80524d75e9547f250800000000000000
+      internalID: 5978323576738293000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fx_shield_sheet_4x4_14
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 34
+        width: 444
+        height: 444
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dce70f99987d49d90800000000000000
+      internalID: -7091806527208522035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fx_shield_sheet_4x4_15
+      rect:
+        serializedVersion: 2
+        x: 1569
+        y: 33
+        width: 446
+        height: 446
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a071cb66b575dbcd0800000000000000
+      internalID: -2540778564689848566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      fx_shield_sheet_4x4_0: 5463963325757753363
+      fx_shield_sheet_4x4_1: -4416581044584403845
+      fx_shield_sheet_4x4_10: 8636939872241801493
+      fx_shield_sheet_4x4_11: 6304456308995242434
+      fx_shield_sheet_4x4_12: 5218757663773527437
+      fx_shield_sheet_4x4_13: 5978323576738293000
+      fx_shield_sheet_4x4_14: -7091806527208522035
+      fx_shield_sheet_4x4_15: -2540778564689848566
+      fx_shield_sheet_4x4_2: -8654818521137824100
+      fx_shield_sheet_4x4_3: 9027730135093490429
+      fx_shield_sheet_4x4_4: 5805879315321654463
+      fx_shield_sheet_4x4_5: 8000959423437285586
+      fx_shield_sheet_4x4_6: 2868876711445923654
+      fx_shield_sheet_4x4_7: 3020689672142171663
+      fx_shield_sheet_4x4_8: 6910944845983750307
+      fx_shield_sheet_4x4_9: -4880107910069528405
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

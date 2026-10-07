@@ -5,6 +5,9 @@ public class ObjectSpawn : MonoBehaviour
 {
     [SerializeField] private Transform minPos; // Vị trí spawn tối thiểu
     [SerializeField] private Transform maxPos; // Vị trí spawn tối đa
+    [SerializeField] private Camera pointStarCamera;
+    [SerializeField, Min(0f)] private float pointStarScreenPadding = 0.1f;
+    [SerializeField] private PointStarSpawn[] pointStarSpawns;
 
     [SerializeField] private int waveNumber = 0;
     [SerializeField] private List<Wave> waves; // Danh sách các wave
@@ -28,8 +31,17 @@ public class ObjectSpawn : MonoBehaviour
         [HideInInspector] public int spawnedObjectCount;
     }
 
+    [System.Serializable]
+    private class PointStarSpawn
+    {
+        public GameObject prefab;
+        [Min(0.1f)] public float spawnInterval = 10f;
+        [HideInInspector] public float spawnTimer;
+    }
+
     private float whaleMiniSpawnTimer;
     private int currentWhaleMiniSpawnCount;
+    private bool missingPointStarCameraLogged;
 
     private void Start()
     {
@@ -41,6 +53,7 @@ public class ObjectSpawn : MonoBehaviour
 
     void Update()
     {
+        UpdatePointStarSpawning();
         UpdateWhaleMiniSpawning();
 
         if (waves == null || waves.Count == 0) return;
@@ -69,6 +82,80 @@ public class ObjectSpawn : MonoBehaviour
                 waveNumber = 0; // Quay lại wave đầu tiên nếu đã hết danh sách
             }
         }
+    }
+
+    private void UpdatePointStarSpawning()
+    {
+        if (pointStarSpawns == null || pointStarSpawns.Length == 0)
+        {
+            return;
+        }
+
+        if (pointStarCamera == null)
+        {
+            pointStarCamera = Camera.main;
+        }
+
+        if (pointStarCamera == null)
+        {
+            if (!missingPointStarCameraLogged)
+            {
+                Debug.LogError("Cannot spawn point stars: assign a camera or tag the game camera as MainCamera.", this);
+                missingPointStarCameraLogged = true;
+            }
+
+            return;
+        }
+
+        foreach (PointStarSpawn starSpawn in pointStarSpawns)
+        {
+            if (starSpawn == null || starSpawn.prefab == null)
+            {
+                continue;
+            }
+
+            starSpawn.spawnTimer += Time.deltaTime;
+            float interval = Mathf.Max(0.1f, starSpawn.spawnInterval);
+            if (starSpawn.spawnTimer < interval)
+            {
+                continue;
+            }
+
+            starSpawn.spawnTimer -= interval;
+            Instantiate(starSpawn.prefab, RandomPointStarPosition(starSpawn.prefab), Quaternion.identity);
+        }
+    }
+
+    private Vector3 RandomPointStarPosition(GameObject prefab)
+    {
+        float spawnZ = transform.position.z;
+        float cameraDepth = pointStarCamera.WorldToViewportPoint(
+            new Vector3(pointStarCamera.transform.position.x, pointStarCamera.transform.position.y, spawnZ)).z;
+
+        Vector3 bottomLeft = pointStarCamera.ViewportToWorldPoint(new Vector3(0f, 0f, cameraDepth));
+        Vector3 topRight = pointStarCamera.ViewportToWorldPoint(new Vector3(1f, 1f, cameraDepth));
+
+        Renderer prefabRenderer = prefab.GetComponentInChildren<Renderer>();
+        Vector3 spriteExtents = prefabRenderer != null ? prefabRenderer.bounds.extents : Vector3.zero;
+        float horizontalPadding = spriteExtents.x + pointStarScreenPadding;
+        float verticalPadding = spriteExtents.y + pointStarScreenPadding;
+
+        float minX = bottomLeft.x + horizontalPadding;
+        float maxX = topRight.x - horizontalPadding;
+        float minY = bottomLeft.y + verticalPadding;
+        float maxY = topRight.y - verticalPadding;
+
+        if (minX > maxX)
+        {
+            minX = maxX = (bottomLeft.x + topRight.x) * 0.5f;
+        }
+
+        if (minY > maxY)
+        {
+            minY = maxY = (bottomLeft.y + topRight.y) * 0.5f;
+        }
+
+        return new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), spawnZ);
     }
 
     void SpawnObject()

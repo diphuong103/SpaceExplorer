@@ -10,13 +10,17 @@ public class UIController : MonoBehaviour
     [SerializeField] private TMP_Text energyText;
     [SerializeField] private Slider healthSlider;
     [SerializeField] private TMP_Text healthText;
+    [SerializeField] private TMP_Text PointsText;
     public GameObject pausePanel;
+
+    private int points;
 
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
+            UpdatePointsText();
             if (pausePanel != null)
             {
                 pausePanel.SetActive(false);
@@ -33,6 +37,25 @@ public class UIController : MonoBehaviour
         if (Instance == this)
         {
             Instance = null;
+        }
+    }
+
+    public void AddPoints(int amount)
+    {
+        if (amount <= 0)
+        {
+            return;
+        }
+
+        points += amount;
+        UpdatePointsText();
+    }
+
+    private void UpdatePointsText()
+    {
+        if (PointsText != null)
+        {
+            PointsText.text = points.ToString();
         }
     }
 

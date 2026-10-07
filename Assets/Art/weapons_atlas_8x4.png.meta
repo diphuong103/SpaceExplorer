@@ -1,0 +1,689 @@
+fileFormatVersion: 2
+guid: fbccdeebdd42280458b43f355a3e7dd7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -9044607561080755164
+    second: weapons_atlas_8x4_0
+  - first:
+      213: 1557626002914242737
+    second: weapons_atlas_8x4_1
+  - first:
+      213: -153335867268845924
+    second: weapons_atlas_8x4_2
+  - first:
+      213: -1146157683588909811
+    second: weapons_atlas_8x4_3
+  - first:
+      213: -1164958657044742257
+    second: weapons_atlas_8x4_4
+  - first:
+      213: 6337183953547409305
+    second: weapons_atlas_8x4_5
+  - first:
+      213: -3124015179067691136
+    second: weapons_atlas_8x4_6
+  - first:
+      213: -6136790267254080213
+    second: weapons_atlas_8x4_7
+  - first:
+      213: 3749209904230576031
+    second: weapons_atlas_8x4_8
+  - first:
+      213: 8410150946874674380
+    second: weapons_atlas_8x4_9
+  - first:
+      213: 476513068976242552
+    second: weapons_atlas_8x4_10
+  - first:
+      213: -868829378019937034
+    second: weapons_atlas_8x4_11
+  - first:
+      213: -2682362676713255046
+    second: weapons_atlas_8x4_12
+  - first:
+      213: -6607887303134157918
+    second: weapons_atlas_8x4_13
+  - first:
+      213: 7680649235465520217
+    second: weapons_atlas_8x4_14
+  - first:
+      213: 1561347587295916231
+    second: weapons_atlas_8x4_15
+  - first:
+      213: 1582104810961452711
+    second: weapons_atlas_8x4_16
+  - first:
+      213: -8938743051596442418
+    second: weapons_atlas_8x4_17
+  - first:
+      213: -2379982303791399932
+    second: weapons_atlas_8x4_18
+  - first:
+      213: 5109038551699069318
+    second: weapons_atlas_8x4_19
+  - first:
+      213: -1253838225890960708
+    second: weapons_atlas_8x4_20
+  - first:
+      213: -4581626659020728906
+    second: weapons_atlas_8x4_21
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: weapons_atlas_8x4_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 773
+        width: 248
+        height: 246
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42c28f4f7591b7280800000000000000
+      internalID: -9044607561080755164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: weapons_atlas_8x4_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b07d94d89ccd9510800000000000000
+      internalID: 1557626002914242737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: weapons_atlas_8x4_2
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 255
+        width: 258
+        height: 769
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9e2d1457dd3fddf0800000000000000
+      internalID: -153335867268845924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: weapons_atlas_8x4_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d05391dc8a70810f0800000000000000
+      internalID: -1146157683588909811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: weapons_atlas_8x4_4
+      rect:
+        serializedVersion: 2
+        x: 1028
+        y: 773
+        width: 248
+        height: 246
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8ff4dc064c35dfe0800000000000000
+      internalID: -1164958657044742257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: weapons_atlas_8x4_5
+      rect:
+        serializedVersion: 2
+        x: 1289
+        y: 777
+        width: 238
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 997bf7bda3332f750800000000000000
+      internalID: 6337183953547409305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: weapons_atlas_8x4_6
+      rect:
+        serializedVersion: 2
+        x: 1546
+        y: 778
+        width: 236
+        height: 236
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08fedb21fb445a4d0800000000000000
+      internalID: -3124015179067691136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: weapons_atlas_8x4_7
+      rect:
+        serializedVersion: 2
+        x: 1801
+        y: 777
+        width: 238
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2dfe3b14cdb5daa0800000000000000
+      internalID: -6136790267254080213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: weapons_atlas_8x4_8
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 517
+        width: 248
+        height: 246
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9f2a023b8ed70430800000000000000
+      internalID: 3749209904230576031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: weapons_atlas_8x4_9
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccc41ef2abbd6b470800000000000000
+      internalID: 8410150946874674380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: weapons_atlas_8x4_10
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87ff82f8c1aec9600800000000000000
+      internalID: 476513068976242552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: weapons_atlas_8x4_11
+      rect:
+        serializedVersion: 2
+        x: 1028
+        y: 517
+        width: 248
+        height: 246
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f4b2b0b84c41f3f0800000000000000
+      internalID: -868829378019937034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: weapons_atlas_8x4_12
+      rect:
+        serializedVersion: 2
+        x: 1289
+        y: 521
+        width: 238
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7f8db77b5556cad0800000000000000
+      internalID: -2682362676713255046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: weapons_atlas_8x4_13
+      rect:
+        serializedVersion: 2
+        x: 1546
+        y: 522
+        width: 236
+        height: 236
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a3efd402811c44a0800000000000000
+      internalID: -6607887303134157918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: weapons_atlas_8x4_14
+      rect:
+        serializedVersion: 2
+        x: 1801
+        y: 521
+        width: 238
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9544c4c29c5279a60800000000000000
+      internalID: 7680649235465520217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: weapons_atlas_8x4_15
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 261
+        width: 248
+        height: 246
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c0bfa7bb550ba510800000000000000
+      internalID: 1561347587295916231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: weapons_atlas_8x4_16
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ae3bc671f3c4f510800000000000000
+      internalID: 1582104810961452711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: weapons_atlas_8x4_17
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec45a17dd8433f380800000000000000
+      internalID: -8938743051596442418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: weapons_atlas_8x4_18
+      rect:
+        serializedVersion: 2
+        x: 1028
+        y: 261
+        width: 248
+        height: 246
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40c3cc254ba98fed0800000000000000
+      internalID: -2379982303791399932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: weapons_atlas_8x4_19
+      rect:
+        serializedVersion: 2
+        x: 1289
+        y: 265
+        width: 238
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6899cc17e73f6e640800000000000000
+      internalID: 5109038551699069318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: weapons_atlas_8x4_20
+      rect:
+        serializedVersion: 2
+        x: 1546
+        y: 266
+        width: 236
+        height: 236
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cba96f3d6c8799ee0800000000000000
+      internalID: -1253838225890960708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: weapons_atlas_8x4_21
+      rect:
+        serializedVersion: 2
+        x: 1801
+        y: 265
+        width: 238
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b51c9ff3daca60c0800000000000000
+      internalID: -4581626659020728906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      weapons_atlas_8x4_0: -9044607561080755164
+      weapons_atlas_8x4_1: 1557626002914242737
+      weapons_atlas_8x4_10: 476513068976242552
+      weapons_atlas_8x4_11: -868829378019937034
+      weapons_atlas_8x4_12: -2682362676713255046
+      weapons_atlas_8x4_13: -6607887303134157918
+      weapons_atlas_8x4_14: 7680649235465520217
+      weapons_atlas_8x4_15: 1561347587295916231
+      weapons_atlas_8x4_16: 1582104810961452711
+      weapons_atlas_8x4_17: -8938743051596442418
+      weapons_atlas_8x4_18: -2379982303791399932
+      weapons_atlas_8x4_19: 5109038551699069318
+      weapons_atlas_8x4_2: -153335867268845924
+      weapons_atlas_8x4_20: -1253838225890960708
+      weapons_atlas_8x4_21: -4581626659020728906
+      weapons_atlas_8x4_3: -1146157683588909811
+      weapons_atlas_8x4_4: -1164958657044742257
+      weapons_atlas_8x4_5: 6337183953547409305
+      weapons_atlas_8x4_6: -3124015179067691136
+      weapons_atlas_8x4_7: -6136790267254080213
+      weapons_atlas_8x4_8: 3749209904230576031
+      weapons_atlas_8x4_9: 8410150946874674380
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
