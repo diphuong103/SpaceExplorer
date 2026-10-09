@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float moveSpeed = 8f;
     [SerializeField] private float boostMultiplier = 1.5f;
 
-    [Header("Shooting Settings")]
     [Header("Energy Settings")]
     [SerializeField] private float energy;
     [SerializeField] private float maxEnergy;

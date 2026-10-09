@@ -20,14 +20,6 @@ public class PhaserBullet : MonoBehaviour
         }
     }
 
-    public void Initialize(float bulletSpeed, int bulletDamage)
-    {
-        speed = Mathf.Max(0f, bulletSpeed);
-        damage = Mathf.Max(1, bulletDamage);
-        hasHit = false;
-        body.linearVelocity = Vector2.right * speed;
-    }
-
     private void Update()
     {
         if (mainCamera == null)
@@ -35,25 +27,20 @@ public class PhaserBullet : MonoBehaviour
             mainCamera = Camera.main;
         }
 
-        if (mainCamera != null && IsAtRightScreenEdge())
+        if (mainCamera != null && IsOutsideCamera())
         {
             Destroy(gameObject);
         }
     }
 
-    private bool IsAtRightScreenEdge()
+    private bool IsOutsideCamera()
     {
-        Collider2D bulletCollider = GetComponent<Collider2D>();
-        float bulletRightEdge = bulletCollider != null
-            ? bulletCollider.bounds.max.x
-            : transform.position.x;
-
-        float viewportY = mainCamera.WorldToViewportPoint(transform.position).y;
-        float cameraDepth = mainCamera.WorldToViewportPoint(transform.position).z;
-        float screenRightEdge = mainCamera.ViewportToWorldPoint(
-            new Vector3(1f, viewportY, cameraDepth)).x;
-
-        return bulletRightEdge >= screenRightEdge;
+        Vector3 viewportPosition = mainCamera.WorldToViewportPoint(transform.position);
+        return viewportPosition.z < 0f
+            || viewportPosition.x < 0f
+            || viewportPosition.x > 1f
+            || viewportPosition.y < 0f
+            || viewportPosition.y > 1f;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -88,5 +75,13 @@ public class PhaserBullet : MonoBehaviour
             whaleMini.TakeDamage(damage);
             Destroy(gameObject);
         }
+    }
+
+    public void Initialize(float bulletSpeed, int bulletDamage, Vector2 direction)
+    {
+        speed = Mathf.Max(0f, bulletSpeed);
+        damage = Mathf.Max(1, bulletDamage);
+        hasHit = false;
+        body.linearVelocity = direction.normalized * speed;
     }
 }
