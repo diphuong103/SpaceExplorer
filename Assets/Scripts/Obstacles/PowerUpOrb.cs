@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class PowerUpOrb : MonoBehaviour
 {
+    [SerializeField] private PowerUpType powerUpType;
+
     private bool collected;
 
     private void Awake()
@@ -25,12 +27,23 @@ public class PowerUpOrb : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collected || other.GetComponentInParent<PlayerController>() == null)
+        if (collected)
+        {
+            return;
+        }
+
+        PlayerController player = other.GetComponentInParent<PlayerController>();
+        if (player == null)
         {
             return;
         }
 
         collected = true;
+        if (powerUpType != PowerUpType.None)
+        {
+            player.ActivatePowerUp(powerUpType);
+        }
+
         Destroy(gameObject);
     }
 }

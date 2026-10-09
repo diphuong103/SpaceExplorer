@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class WhaleMini : MonoBehaviour
@@ -10,13 +11,27 @@ public class WhaleMini : MonoBehaviour
     [SerializeField, Min(0.1f)] private float waveHitInterval = 1f;
 
     [SerializeField, Min(1)] private int health = 1;
+    [Header("Hit Effects")]
+    [SerializeField, Min(0f)] private float hitFlashDuration = 0.12f;
+    [SerializeField] private Material colorMaterial;
+    [SerializeField] private GameObject destroyEffectPrefab;
+
     private bool isDead;
 
     private Rigidbody2D body;
+    private SpriteRenderer spriteRenderer;
+    private Material originalMaterial;
+    private Coroutine hitFlashCoroutine;
     private float waveHitTimer;
 
     private void Awake()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null)
+        {
+            originalMaterial = spriteRenderer.material;
+        }
+
         body = GetComponent<Rigidbody2D>();
         if (body == null)
         {
@@ -34,9 +49,7 @@ public class WhaleMini : MonoBehaviour
         {
             bodyCollider = gameObject.AddComponent<BoxCollider2D>();
         }
-
         bodyCollider.isTrigger = false;
-        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer != null && spriteRenderer.sprite != null)
         {
             bodyCollider.size = spriteRenderer.sprite.bounds.size;
@@ -56,23 +69,67 @@ public class WhaleMini : MonoBehaviour
         }
 
         health -= damage;
+        FlashOnHit();
+
         if (health <= 0)
         {
             isDead = true;
-            Destroy(gameObject);
+
+            if (destroyEffectPrefab != null)
+            {
+                Instantiate(destroyEffectPrefab, transform.position, Quaternion.identity);
+            }
+
+            Destroy(gameObject, hitFlashDuration);
         }
     }
 
-    
+    private void FlashOnHit()
+    {
+        if (spriteRenderer == null || colorMaterial == null || hitFlashDuration <= 0f)
+        {
+            return;
+        }
+
+        if (hitFlashCoroutine != null)
+        {
+            StopCoroutine(hitFlashCoroutine);
+        }
+
+        hitFlashCoroutine = StartCoroutine(ResetMaterialRoutine());
+    }
+
+    private IEnumerator ResetMaterialRoutine()
+    {
+        spriteRenderer.material = colorMaterial;
+        yield return new WaitForSeconds(hitFlashDuration);
+
+        if (spriteRenderer != null && originalMaterial != null)
+        {
+            spriteRenderer.material = originalMaterial;
+        }
+
+        hitFlashCoroutine = null;
+    }
 
     private void Update()
     {
+        if (isDead)
+        {
+            return;
+        }
+
         waveHitTimer -= Time.deltaTime;
         TryHitPlayerWithWave();
     }
 
     private void FixedUpdate()
     {
+        if (isDead)
+        {
+            return;
+        }
+
         float worldSpeed = GameManager.Instance != null ? GameManager.Instance.worldSpeed : 1f;
         float boost = PlayerController.Instance != null ? PlayerController.Instance.boost : 1f;
         float speed = Mathf.Max(0f, worldSpeed * boost * speedMultiplier);

@@ -14,14 +14,26 @@ public class Whale : MonoBehaviour
     [SerializeField, Min(0f)] private float chargeDelay = 0.5f;
     [SerializeField, Min(0f)] private float fadeOutDuration = 1f;
 
+    [Header("Hit Effects")]
+    [SerializeField, Min(0f)] private float hitFlashDuration = 0.12f;
+    [SerializeField] private Material colorMaterial;
+    [SerializeField] private GameObject destroyEffectPrefab;
+
     private SpriteRenderer spriteRenderer;
+    private Material originalMaterial;
     private Rigidbody2D body;
     private Coroutine sequenceCoroutine;
+    private Coroutine hitFlashCoroutine;
     private bool isDead;
 
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null)
+        {
+            originalMaterial = spriteRenderer.material;
+        }
+
         body = GetComponent<Rigidbody2D>();
         if (body == null)
         {
@@ -146,6 +158,8 @@ public class Whale : MonoBehaviour
         }
 
         health -= damage;
+        FlashOnHit();
+
         if (health <= 0)
         {
             isDead = true;
@@ -155,7 +169,40 @@ public class Whale : MonoBehaviour
                 sequenceCoroutine = null;
             }
 
-            Destroy(gameObject);
+            if (destroyEffectPrefab != null)
+            {
+                Instantiate(destroyEffectPrefab, transform.position, Quaternion.identity);
+            }
+
+            Destroy(gameObject, hitFlashDuration);
         }
+    }
+
+    private void FlashOnHit()
+    {
+        if (spriteRenderer == null || colorMaterial == null || hitFlashDuration <= 0f)
+        {
+            return;
+        }
+
+        if (hitFlashCoroutine != null)
+        {
+            StopCoroutine(hitFlashCoroutine);
+        }
+
+        hitFlashCoroutine = StartCoroutine(ResetMaterialRoutine());
+    }
+
+    private IEnumerator ResetMaterialRoutine()
+    {
+        spriteRenderer.material = colorMaterial;
+        yield return new WaitForSeconds(hitFlashDuration);
+
+        if (spriteRenderer != null && originalMaterial != null)
+        {
+            spriteRenderer.material = originalMaterial;
+        }
+
+        hitFlashCoroutine = null;
     }
 }

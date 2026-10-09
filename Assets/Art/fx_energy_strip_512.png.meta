@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: aca31ae91eadb1c44817afd1df68c85d
+guid: 2ed734f35adeca54abecd0d9a7bdf312
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6836654097350756656
-    second: fx_heal_sheet_4x4_0
+      213: 4014820364170610471
+    second: fx_energy_strip_512_0
+  - first:
+      213: -2414302157040697721
+    second: fx_energy_strip_512_1
+  - first:
+      213: -3291902963938920716
+    second: fx_energy_strip_512_2
+  - first:
+      213: 4670537253602415756
+    second: fx_energy_strip_512_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fx_heal_sheet_4x4_0
+      name: fx_energy_strip_512_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 2048
-        height: 2048
+        x: 114
+        y: 114
+        width: 284
+        height: 284
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +124,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0398fccedaca0ee50800000000000000
-      internalID: 6836654097350756656
+      spriteID: 727c46b89d187b730800000000000000
+      internalID: 4014820364170610471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fx_energy_strip_512_1
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 6
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78e312dcafcae7ed0800000000000000
+      internalID: -2414302157040697721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fx_energy_strip_512_2
+      rect:
+        serializedVersion: 2
+        x: 1023
+        y: 0
+        width: 6146
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f67d5f02bfc052d0800000000000000
+      internalID: -3291902963938920716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fx_energy_strip_512_3
+      rect:
+        serializedVersion: 2
+        x: 7174
+        y: 6
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c845337f2e411d040800000000000000
+      internalID: 4670537253602415756
       vertices: []
       indices: 
       edges: []
@@ -135,7 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      fx_heal_sheet_4x4_0: 6836654097350756656
+      fx_energy_strip_512_0: 4014820364170610471
+      fx_energy_strip_512_1: -2414302157040697721
+      fx_energy_strip_512_2: -3291902963938920716
+      fx_energy_strip_512_3: 4670537253602415756
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

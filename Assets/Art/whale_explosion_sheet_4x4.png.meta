@@ -1,0 +1,715 @@
+fileFormatVersion: 2
+guid: 26e3fa52b77dd4a4782260211d9f9400
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8376219923931212325
+    second: whale_explosion_sheet_4x4_0
+  - first:
+      213: -7996433809138552644
+    second: whale_explosion_sheet_4x4_1
+  - first:
+      213: -499272595321936954
+    second: whale_explosion_sheet_4x4_2
+  - first:
+      213: -7779709244202719480
+    second: whale_explosion_sheet_4x4_3
+  - first:
+      213: -6861882233421050222
+    second: whale_explosion_sheet_4x4_4
+  - first:
+      213: -977297297418026304
+    second: whale_explosion_sheet_4x4_5
+  - first:
+      213: -3198220357090414026
+    second: whale_explosion_sheet_4x4_6
+  - first:
+      213: 2682929472037863365
+    second: whale_explosion_sheet_4x4_7
+  - first:
+      213: -1876107763872630605
+    second: whale_explosion_sheet_4x4_8
+  - first:
+      213: -2312139052887872276
+    second: whale_explosion_sheet_4x4_9
+  - first:
+      213: 5014537078956848655
+    second: whale_explosion_sheet_4x4_10
+  - first:
+      213: -575057948981921725
+    second: whale_explosion_sheet_4x4_11
+  - first:
+      213: -4180802594539007783
+    second: whale_explosion_sheet_4x4_12
+  - first:
+      213: 1368505741781504991
+    second: whale_explosion_sheet_4x4_13
+  - first:
+      213: 3966534187589853278
+    second: whale_explosion_sheet_4x4_14
+  - first:
+      213: 2615297129847641394
+    second: whale_explosion_sheet_4x4_15
+  - first:
+      213: 1606030257997757134
+    second: whale_explosion_sheet_4x4_16
+  - first:
+      213: -1351437291022782316
+    second: whale_explosion_sheet_4x4_17
+  - first:
+      213: -7877160370975436147
+    second: whale_explosion_sheet_4x4_18
+  - first:
+      213: -8765898675326685222
+    second: whale_explosion_sheet_4x4_19
+  - first:
+      213: 3939768693089188017
+    second: whale_explosion_sheet_4x4_20
+  - first:
+      213: 3579286650917057195
+    second: whale_explosion_sheet_4x4_21
+  - first:
+      213: 8925679532644421066
+    second: whale_explosion_sheet_4x4_22
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: whale_explosion_sheet_4x4_0
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 1626
+        width: 332
+        height: 332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd5d789bb50b1cb80800000000000000
+      internalID: -8376219923931212325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whale_explosion_sheet_4x4_1
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 1573
+        width: 438
+        height: 438
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb07f5841d5f60190800000000000000
+      internalID: -7996433809138552644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whale_explosion_sheet_4x4_2
+      rect:
+        serializedVersion: 2
+        x: 1039
+        y: 1551
+        width: 482
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c3afb5483a3219f0800000000000000
+      internalID: -499272595321936954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whale_explosion_sheet_4x4_3
+      rect:
+        serializedVersion: 2
+        x: 1551
+        y: 1551
+        width: 482
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 807697b39abe80490800000000000000
+      internalID: -7779709244202719480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whale_explosion_sheet_4x4_4
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 1041
+        width: 478
+        height: 478
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29ecf5ae672b5c0a0800000000000000
+      internalID: -6861882233421050222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whale_explosion_sheet_4x4_5
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 1036
+        width: 488
+        height: 488
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c203733941ff62f0800000000000000
+      internalID: -977297297418026304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whale_explosion_sheet_4x4_6
+      rect:
+        serializedVersion: 2
+        x: 1033
+        y: 1033
+        width: 494
+        height: 494
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 632f336b783ad93d0800000000000000
+      internalID: -3198220357090414026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whale_explosion_sheet_4x4_7
+      rect:
+        serializedVersion: 2
+        x: 1543
+        y: 1031
+        width: 498
+        height: 498
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5cf3e3ad32eab3520800000000000000
+      internalID: 2682929472037863365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whale_explosion_sheet_4x4_8
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 518
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b8f406cde9b6f5e0800000000000000
+      internalID: -1876107763872630605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whale_explosion_sheet_4x4_9
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 518
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cec6f4918c1a9efd0800000000000000
+      internalID: -2312139052887872276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whale_explosion_sheet_4x4_10
+      rect:
+        serializedVersion: 2
+        x: 1031
+        y: 519
+        width: 498
+        height: 498
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f067f38b7e6379540800000000000000
+      internalID: 5014537078956848655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whale_explosion_sheet_4x4_11
+      rect:
+        serializedVersion: 2
+        x: 1546
+        y: 522
+        width: 492
+        height: 492
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 348faa997dbf408f0800000000000000
+      internalID: -575057948981921725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whale_explosion_sheet_4x4_12
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 4
+        width: 486
+        height: 495
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d0987ce03ecaf5c0800000000000000
+      internalID: -4180802594539007783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whale_explosion_sheet_4x4_13
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 57
+        width: 438
+        height: 398
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd318f3b8b8edf210800000000000000
+      internalID: 1368505741781504991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whale_explosion_sheet_4x4_14
+      rect:
+        serializedVersion: 2
+        x: 1352
+        y: 442
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e506cb8f3d5fb0730800000000000000
+      internalID: 3966534187589853278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whale_explosion_sheet_4x4_15
+      rect:
+        serializedVersion: 2
+        x: 1083
+        y: 116
+        width: 383
+        height: 319
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 235daa612e66b4420800000000000000
+      internalID: 2615297129847641394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whale_explosion_sheet_4x4_16
+      rect:
+        serializedVersion: 2
+        x: 1195
+        y: 425
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eca3c72b204c94610800000000000000
+      internalID: 1606030257997757134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whale_explosion_sheet_4x4_17
+      rect:
+        serializedVersion: 2
+        x: 1151
+        y: 107
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 490fe5ca1fabe3de0800000000000000
+      internalID: -1351437291022782316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whale_explosion_sheet_4x4_18
+      rect:
+        serializedVersion: 2
+        x: 1361
+        y: 83
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d829939a064bea290800000000000000
+      internalID: -7877160370975436147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whale_explosion_sheet_4x4_19
+      rect:
+        serializedVersion: 2
+        x: 1273
+        y: 69
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adfe5183995495680800000000000000
+      internalID: -8765898675326685222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whale_explosion_sheet_4x4_20
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 14
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b839c8a0cedca630800000000000000
+      internalID: 3939768693089188017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whale_explosion_sheet_4x4_21
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 12
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba27531ce3e2ca130800000000000000
+      internalID: 3579286650917057195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whale_explosion_sheet_4x4_22
+      rect:
+        serializedVersion: 2
+        x: 829
+        y: 12
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acdce32ae326edb70800000000000000
+      internalID: 8925679532644421066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      whale_explosion_sheet_4x4_0: -8376219923931212325
+      whale_explosion_sheet_4x4_1: -7996433809138552644
+      whale_explosion_sheet_4x4_10: 5014537078956848655
+      whale_explosion_sheet_4x4_11: -575057948981921725
+      whale_explosion_sheet_4x4_12: -4180802594539007783
+      whale_explosion_sheet_4x4_13: 1368505741781504991
+      whale_explosion_sheet_4x4_14: 3966534187589853278
+      whale_explosion_sheet_4x4_15: 2615297129847641394
+      whale_explosion_sheet_4x4_16: 1606030257997757134
+      whale_explosion_sheet_4x4_17: -1351437291022782316
+      whale_explosion_sheet_4x4_18: -7877160370975436147
+      whale_explosion_sheet_4x4_19: -8765898675326685222
+      whale_explosion_sheet_4x4_2: -499272595321936954
+      whale_explosion_sheet_4x4_20: 3939768693089188017
+      whale_explosion_sheet_4x4_21: 3579286650917057195
+      whale_explosion_sheet_4x4_22: 8925679532644421066
+      whale_explosion_sheet_4x4_3: -7779709244202719480
+      whale_explosion_sheet_4x4_4: -6861882233421050222
+      whale_explosion_sheet_4x4_5: -977297297418026304
+      whale_explosion_sheet_4x4_6: -3198220357090414026
+      whale_explosion_sheet_4x4_7: 2682929472037863365
+      whale_explosion_sheet_4x4_8: -1876107763872630605
+      whale_explosion_sheet_4x4_9: -2312139052887872276
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

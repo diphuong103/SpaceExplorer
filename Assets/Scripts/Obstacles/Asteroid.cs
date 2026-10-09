@@ -74,7 +74,22 @@ public class Asteroid : MonoBehaviour
         if (health <= 0)
         {
             isDestroyed = true;
+
+            if (destroyEffectPrefab != null)
+            {
+                Instantiate(destroyEffectPrefab, transform.position, Quaternion.identity);
+            }
+
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.PlaySound(AudioManager.Instance.Boom2);
+            }
+
             Destroy(gameObject, hitFlashDuration);
+        }
+        else if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlaySound(AudioManager.Instance.HitRock);
         }
     }
 
@@ -86,31 +101,7 @@ public class Asteroid : MonoBehaviour
         {
             StopCoroutine(hitFlashCoroutine);
         }
-        health--;
         hitFlashCoroutine = StartCoroutine(ResetMaterialRoutine());
-
-        if(health <= 0)
-        {
-            // Tạo hiệu ứng phá hủy nếu prefab được gán
-            if (destroyEffectPrefab != null)
-            {
-                Instantiate(destroyEffectPrefab, transform.position, Quaternion.identity);
-            }
-
-            // Phát âm thanh khi Asteroid bị phá hủy
-            if (AudioManager.Instance != null)
-            {
-                AudioManager.Instance.PlaySound(AudioManager.Instance.Boom2);
-            }
-        }
-        else
-        {
-            // Phát âm thanh khi Asteroid bị trúng đạn nhưng chưa bị phá hủy
-            if (AudioManager.Instance != null)
-            {
-                AudioManager.Instance.PlaySound(AudioManager.Instance.HitRock);
-            }
-        }
     }
 
     // Coroutine đổi Material sang màu trắng rồi khôi phục lại

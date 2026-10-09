@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
     private Coroutine hitFlashCoroutine;
     private Vector2 soundWaveKnockbackVelocity;
     private float soundWaveKnockbackRemaining;
+    private PlayerBuffManager buffManager;
 
     public float boost => isBoosting ? boostMultiplier : 1f;
     private readonly int moveXHash = Animator.StringToHash("moveX");
@@ -47,6 +48,26 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        PlayerBuffManager[] buffManagers = GetComponentsInChildren<PlayerBuffManager>(true);
+        for (int i = 0; i < buffManagers.Length; i++)
+        {
+            if (buffManagers[i].transform != transform)
+            {
+                buffManager = buffManagers[i];
+                break;
+            }
+        }
+
+        if (buffManager == null)
+        {
+            buffManager = GetComponent<PlayerBuffManager>();
+        }
+
+        if (buffManagers.Length > 1)
+        {
+            Debug.LogWarning("Multiple PlayerBuffManager components found. Using the manager on a child object when available.", this);
+        }
+
         spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer != null)
         {
@@ -56,6 +77,12 @@ public class PlayerController : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            if (engineEffect != null)
+            {
+                ParticleSystem.MainModule engineMain = engineEffect.main;
+                engineMain.loop = true;
+                engineEffect.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+            }
         }
         else
         {
@@ -76,6 +103,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         HandleInput();
+        UpdateWarpDriveEffect();
         UpdateAnimation();
     }
 
@@ -105,7 +133,8 @@ public class PlayerController : MonoBehaviour
 
     private void HandleMovement()
     {
-        float currentSpeed = isBoosting ? moveSpeed * boostMultiplier : moveSpeed;
+        float buffMultiplier = buffManager != null ? buffManager.SpeedMultiplier : 1f;
+        float currentSpeed = moveSpeed * boost * buffMultiplier;
         Vector2 knockbackVelocity = Vector2.zero;
 
         if (soundWaveKnockbackRemaining > 0f && soundWaveKnockbackDuration > 0f)
@@ -116,6 +145,38 @@ public class PlayerController : MonoBehaviour
         }
 
         rb.linearVelocity = playerDirection * currentSpeed + knockbackVelocity;
+    }
+
+    private void UpdateWarpDriveEffect()
+    {
+        bool shouldPlay = buffManager != null
+            && buffManager.IsActive(PowerUpType.WarpDrive)
+            && !isBoosting;
+
+        if (engineEffect == null)
+        {
+            return;
+        }
+
+        if (shouldPlay && !engineEffect.isPlaying)
+        {
+            engineEffect.Play(true);
+        }
+        else if (!shouldPlay && engineEffect.isPlaying)
+        {
+            engineEffect.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+        }
+    }
+
+    public void ActivatePowerUp(PowerUpType type)
+    {
+        if (buffManager == null)
+        {
+            Debug.LogError("Cannot activate power-up: PlayerBuffManager is missing from the Player.", this);
+            return;
+        }
+
+        buffManager.Activate(type);
     }
 
     public void ApplySoundWaveHit(Vector2 knockbackDirection, float damage = 0f)
@@ -168,7 +229,6 @@ public class PlayerController : MonoBehaviour
         if (isBoosting)
         {
             energy -= Time.fixedDeltaTime * 10f; // Trừ năng lượng khi tăng tốc
-            engineEffect.Play();
             if (energy <= 0f)
             {
                 energy = 0f;
