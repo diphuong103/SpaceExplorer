@@ -45,6 +45,7 @@ public class PlayerController : MonoBehaviour
     private readonly int boostingHash = Animator.StringToHash("Boosting");
 
     public bool IsBoosting => isBoosting;
+    public int ScoreMultiplier => buffManager != null ? buffManager.ScoreMultiplier : 1;
 
     private void Awake()
     {
@@ -179,9 +180,31 @@ public class PlayerController : MonoBehaviour
         buffManager.Activate(type);
     }
 
+    public void RestoreEnergy(float amount)
+    {
+        if (amount <= 0f || isDead)
+        {
+            return;
+        }
+
+        energy = Mathf.Min(energy + amount, maxEnergy);
+        UpdateUI();
+    }
+
+    public void RestoreHealth(float amount)
+    {
+        if (amount <= 0f || isDead)
+        {
+            return;
+        }
+
+        health = Mathf.Min(health + amount, maxHealth);
+        UpdateUI();
+    }
+
     public void ApplySoundWaveHit(Vector2 knockbackDirection, float damage = 0f)
     {
-        if (isDead)
+        if (isDead || (buffManager != null && buffManager.IsActive(PowerUpType.Shield)))
         {
             return;
         }
@@ -283,7 +306,9 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        bool shotFired = PhaserWeapon.Instance.Shoot();
+        bool shotFired = buffManager != null && buffManager.IsActive(PowerUpType.NovaSpread)
+            ? PhaserWeapon.Instance.ShootSpread(buffManager.SpreadBulletCount, buffManager.SpreadAngle)
+            : PhaserWeapon.Instance.Shoot();
         if (shotFired && AudioManager.Instance != null)
         {
             AudioManager.Instance.Block();
@@ -300,7 +325,7 @@ public class PlayerController : MonoBehaviour
 
     private void TakeDamage(float damage)
     {
-        if (isDead)
+        if (isDead || (buffManager != null && buffManager.IsActive(PowerUpType.Shield)))
         {
             return;
         }

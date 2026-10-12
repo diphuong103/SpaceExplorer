@@ -70,10 +70,14 @@ public class UIController : MonoBehaviour
     {
         if (maxHealth <= 0) return; // Tránh lỗi chia cho 0
 
+        if (healthSlider != null)
+        {
+            healthSlider.maxValue = maxHealth;
+            healthSlider.value = currentHealth;
+        }
+
         if (healthText != null)
         {
-            healthSlider.value = Mathf.RoundToInt(currentHealth);
-            healthSlider.maxValue = Mathf.RoundToInt(maxHealth);
             healthText.text = $"{Mathf.CeilToInt(currentHealth)}/{Mathf.CeilToInt(maxHealth)}";
         }
     }

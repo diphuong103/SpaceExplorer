@@ -38,7 +38,10 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        currentScore += amount;
+        int scoreMultiplier = PlayerController.Instance != null
+            ? PlayerController.Instance.ScoreMultiplier
+            : 1;
+        currentScore += amount * Mathf.Max(1, scoreMultiplier);
         if (UIController.Instance != null)
         {
             UIController.Instance.UpdatePointsDisplay(currentScore);
