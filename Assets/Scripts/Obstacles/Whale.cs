@@ -6,6 +6,10 @@ public class Whale : MonoBehaviour
     [Header("--- Whale Stats ---")]
     [SerializeField, Min(1)] private int health = 1;
 
+    [Header("Score")]
+    [SerializeField, Min(0), Tooltip("Điểm thưởng khi Whale bị hạ.")]
+    private int scoreReward = 5;
+
     [Header("--- Sequence Settings ---")]
     [SerializeField] private float stopX = 3.5f;
     [SerializeField] private Sprite howlSprite;
@@ -163,6 +167,15 @@ public class Whale : MonoBehaviour
         if (health <= 0)
         {
             isDead = true;
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.AddScore(scoreReward);
+            }
+            else
+            {
+                Debug.LogError("Cannot award Whale points: GameManager is missing from the scene.", this);
+            }
+
             if (sequenceCoroutine != null)
             {
                 StopCoroutine(sequenceCoroutine);
@@ -174,7 +187,16 @@ public class Whale : MonoBehaviour
                 Instantiate(destroyEffectPrefab, transform.position, Quaternion.identity);
             }
 
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.PlayEnemyDestroyed();
+            }
+
             Destroy(gameObject, hitFlashDuration);
+        }
+        else if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlayEnemyHit();
         }
     }
 

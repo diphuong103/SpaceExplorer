@@ -52,33 +52,50 @@ public class UIController : MonoBehaviour
 
     public void UpdateEnergySlider(float currentEnergy, float maxEnergy)
     {
-        if (maxEnergy <= 0) return; // Tránh lỗi chia cho 0
+        if (maxEnergy <= 0f)
+        {
+            return;
+        }
+
+        float clampedEnergy = Mathf.Clamp(currentEnergy, 0f, maxEnergy);
 
         if (energySlider != null)
         {
-            energySlider.value = currentEnergy / maxEnergy;
+            energySlider.minValue = 0f;
+            energySlider.maxValue = 1f;
+            energySlider.value = clampedEnergy / maxEnergy;
         }
 
         if (energyText != null)
         {
-            // Làm tròn số nguyên (Mathf.CeilToInt) để chữ không bị hiển thị số thập phân dài ngoẵng
-            energyText.text = $"{Mathf.CeilToInt(currentEnergy)}/{Mathf.CeilToInt(maxEnergy)}";
+            energyText.text = $"{FormatResourceValue(clampedEnergy)}/{FormatResourceValue(maxEnergy)}";
         }
     }
 
     public void UpdateHealthText(float currentHealth, float maxHealth)
     {
-        if (maxHealth <= 0) return; // Tránh lỗi chia cho 0
+        if (maxHealth <= 0f)
+        {
+            return;
+        }
+
+        float clampedHealth = Mathf.Clamp(currentHealth, 0f, maxHealth);
 
         if (healthSlider != null)
         {
+            healthSlider.minValue = 0f;
             healthSlider.maxValue = maxHealth;
-            healthSlider.value = currentHealth;
+            healthSlider.value = clampedHealth;
         }
 
         if (healthText != null)
         {
-            healthText.text = $"{Mathf.CeilToInt(currentHealth)}/{Mathf.CeilToInt(maxHealth)}";
+            healthText.text = $"{FormatResourceValue(clampedHealth)}/{FormatResourceValue(maxHealth)}";
         }
+    }
+
+    private static string FormatResourceValue(float value)
+    {
+        return value.ToString("0.#");
     }
 }

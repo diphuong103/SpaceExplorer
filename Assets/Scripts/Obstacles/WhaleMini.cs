@@ -11,6 +11,10 @@ public class WhaleMini : MonoBehaviour
     [SerializeField, Min(0.1f)] private float waveHitInterval = 1f;
 
     [SerializeField, Min(1)] private int health = 1;
+
+    [Header("Score")]
+    [SerializeField, Min(0), Tooltip("Điểm thưởng khi WhaleMini bị hạ.")]
+    private int scoreReward = 1;
     [Header("Hit Effects")]
     [SerializeField, Min(0f)] private float hitFlashDuration = 0.12f;
     [SerializeField] private Material colorMaterial;
@@ -74,13 +78,30 @@ public class WhaleMini : MonoBehaviour
         if (health <= 0)
         {
             isDead = true;
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.AddScore(scoreReward);
+            }
+            else
+            {
+                Debug.LogError("Cannot award WhaleMini points: GameManager is missing from the scene.", this);
+            }
 
             if (destroyEffectPrefab != null)
             {
                 Instantiate(destroyEffectPrefab, transform.position, Quaternion.identity);
             }
 
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.PlayEnemyDestroyed();
+            }
+
             Destroy(gameObject, hitFlashDuration);
+        }
+        else if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlayEnemyHit();
         }
     }
 

@@ -1,4 +1,7 @@
  Thêm âm thanh nhặt sao và nhặt orb. Hiện Point.cs và PowerUpOrb.cs xử lý nhặt vật phẩm nhưng chưa phát âm thanh.
- Rà soát nhịp độ spawn: kiểm tra tần suất, số lượng tối đa và mức tăng dần của sao, orb, WhaleMini và các wave quái trong ObjectSpawn.cs; xác nhận các loại orb xuất hiện đúng như dự định.
- Kiểm tra độ khó tăng theo thời gian: ghi chú dự án có mục tăng tốc độ và mật độ đạn theo thời gian; cần xác định thông số nào sẽ tăng và kiểm thử để tránh độ khó tăng quá nhanh.
+
+ Rà soát nhịp độ spawn: kiểm tra tần suất, số lượng tối đa và mức tăng dần của sao, orb,
+  WhaleMini và các wave quái trong ObjectSpawn.cs; xác nhận các loại orb xuất hiện đúng như dự định.
+ Kiểm tra độ khó tăng theo thời gian: ghi chú dự án có mục tăng tốc độ và mật độ đạn theo thời gian;
+  cần xác định thông số nào sẽ tăng và kiểm thử để tránh độ khó tăng quá nhanh.
   Cân bằng thông số và kiểm tra UI: thời lượng buff, sát thương, phạm vi, icon/đếm ngược và trạng thái năng lượng/máu sau khi nhặt.

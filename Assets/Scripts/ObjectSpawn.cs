@@ -7,10 +7,12 @@ public class ObjectSpawn : MonoBehaviour
     [SerializeField] private Transform maxPos; // Vị trí spawn tối đa
     [SerializeField] private Camera pointStarCamera;
     [SerializeField, Min(0f)] private float pointStarScreenPadding = 0.1f;
+    [SerializeField, Min(1)] private int maxActivePointStars = 4;
+    [SerializeField, Min(1f)] private float difficultyRampDuration = 120f;
     [SerializeField] private PointStarSpawn[] pointStarSpawns;
     [SerializeField] private GameObject[] powerUpPrefabs;
-    [SerializeField, Min(0.1f)] private float powerUpSpawnInterval = 5f;
-    [SerializeField, Min(1)] private int powerUpInitialSpawnCount = 1;
+    [SerializeField, Min(0.1f)] private float powerUpSpawnInterval = 15f;
+    [SerializeField, Min(1)] private int powerUpInitialSpawnCount = 2;
     [SerializeField, Min(0)] private int powerUpSpawnIncrease = 1;
     [SerializeField, Min(1)] private int powerUpMaxSpawnCount = 3;
     [SerializeField, Min(0.1f)] private float powerUpLifetime = 10f;
@@ -21,7 +23,8 @@ public class ObjectSpawn : MonoBehaviour
     [SerializeField, Min(0.1f)] private float whaleMiniSpawnInterval = 10f;
     [SerializeField, Min(1)] private int whaleMiniInitialSpawnCount = 1;
     [SerializeField, Min(0)] private int whaleMiniSpawnIncrease = 1;
-    [SerializeField, Min(1)] private int whaleMiniMaxSpawnCount = 5;
+    [SerializeField, Min(1)] private int whaleMiniMaxSpawnCount = 3;
+    [SerializeField, Min(1)] private int whaleMiniMaxActiveCount = 6;
     [SerializeField, Min(0f)] private float whaleMiniHorizontalSpawnRange = 4f;
 
     [System.Serializable]
@@ -40,60 +43,78 @@ public class ObjectSpawn : MonoBehaviour
     [System.Serializable]
     private class PointStarSpawn
     {
-        public GameObject prefab;
+        public GameObject prefab = null;
         [Min(0.1f)] public float spawnInterval = 10f;
         [HideInInspector] public float spawnTimer;
     }
 
     private float whaleMiniSpawnTimer;
     private float powerUpSpawnTimer;
-    private int currentWhaleMiniSpawnCount;
+    private float difficultyElapsedTime;
     private int currentPowerUpSpawnCount;
     private bool missingPickupCameraLogged;
+    private bool invalidPowerUpPrefabLogged;
+    private readonly List<GameObject> activePointStars = new List<GameObject>();
     private readonly List<GameObject> activePowerUps = new List<GameObject>();
+    private readonly List<GameObject> activeWhaleMinis = new List<GameObject>();
 
     private void Start()
     {
-        currentWhaleMiniSpawnCount = Mathf.Clamp(
-            whaleMiniInitialSpawnCount,
-            1,
-            Mathf.Max(1, whaleMiniMaxSpawnCount));
         currentPowerUpSpawnCount = Mathf.Clamp(
             powerUpInitialSpawnCount,
             1,
             Mathf.Max(1, powerUpMaxSpawnCount));
+
+        if (powerUpPrefabs == null)
+        {
+            return;
+        }
+
+        foreach (GameObject prefab in powerUpPrefabs)
+        {
+            if (prefab != null && prefab.GetComponentInChildren<PowerUpOrb>(true) == null)
+            {
+                Debug.LogError($"Power-up prefab '{prefab.name}' does not contain a PowerUpOrb component.", prefab);
+                invalidPowerUpPrefabLogged = true;
+            }
+        }
     }
 
     void Update()
     {
+        difficultyElapsedTime += Time.deltaTime;
         UpdatePointStarSpawning();
         UpdatePowerUpSpawning();
         UpdateWhaleMiniSpawning();
 
-        if (waves == null || waves.Count == 0) return;
+        if (waves == null || waves.Count == 0)
+        {
+            return;
+        }
 
         waveNumber = Mathf.Clamp(waveNumber, 0, waves.Count - 1);
         Wave currentWave = waves[waveNumber];
-
-        float boost = PlayerController.Instance != null ? PlayerController.Instance.boost : 1f;
-        currentWave.spawnTimer += Time.deltaTime * boost;
-
-        if (currentWave.spawnTimer >= currentWave.spawnInterval)
+        if (currentWave == null || !HasValidPrefab(currentWave))
         {
-            currentWave.spawnTimer = 0f;
-            SpawnObject();
+            AdvanceWave();
+            return;
         }
 
-        // Kiểm tra xem wave hiện tại đã spawn đủ số lượng chưa
-        if (currentWave.spawnedObjectCount >= currentWave.objectPerWave)
+        currentWave.spawnTimer += Time.deltaTime;
+        float spawnInterval = GetWaveSpawnInterval(currentWave);
+        if (currentWave.spawnTimer < spawnInterval)
         {
-            // Reset đếm số lượng của wave hiện tại về 0 cho lượt quay lại sau
-            currentWave.spawnedObjectCount = 0;
+            return;
+        }
 
-            waveNumber++;
-            if (waveNumber >= waves.Count)
+        currentWave.spawnTimer -= spawnInterval;
+        if (SpawnObject(currentWave))
+        {
+            currentWave.spawnedObjectCount++;
+            if (currentWave.spawnedObjectCount >= GetWaveObjectTarget(currentWave))
             {
-                waveNumber = 0; // Quay lại wave đầu tiên nếu đã hết danh sách
+                currentWave.spawnedObjectCount = 0;
+                AdvanceWave();
             }
         }
     }
@@ -121,6 +142,7 @@ public class ObjectSpawn : MonoBehaviour
             return;
         }
 
+        activePointStars.RemoveAll(star => star == null);
         foreach (PointStarSpawn starSpawn in pointStarSpawns)
         {
             if (starSpawn == null || starSpawn.prefab == null)
@@ -129,15 +151,31 @@ public class ObjectSpawn : MonoBehaviour
             }
 
             starSpawn.spawnTimer += Time.deltaTime;
-            float interval = Mathf.Max(0.1f, starSpawn.spawnInterval);
+            float interval = GetPointStarSpawnInterval(starSpawn);
             if (starSpawn.spawnTimer < interval)
             {
                 continue;
             }
 
-            starSpawn.spawnTimer -= interval;
-            Instantiate(starSpawn.prefab, RandomScreenPosition(starSpawn.prefab), Quaternion.identity);
+            starSpawn.spawnTimer = 0f;
+            if (activePointStars.Count >= Mathf.Max(1, maxActivePointStars))
+            {
+                continue;
+            }
+
+            GameObject star = Instantiate(
+                starSpawn.prefab,
+                RandomScreenPosition(starSpawn.prefab),
+                Quaternion.identity);
+            activePointStars.Add(star);
         }
+    }
+
+    private float GetPointStarSpawnInterval(PointStarSpawn starSpawn)
+    {
+        float baseInterval = Mathf.Max(0.1f, starSpawn.spawnInterval);
+        float minimumInterval = Mathf.Max(3f, baseInterval - 2f);
+        return Mathf.Lerp(baseInterval, minimumInterval, GetDifficultyProgress());
     }
 
     private void UpdatePowerUpSpawning()
@@ -172,17 +210,44 @@ public class ObjectSpawn : MonoBehaviour
         powerUpSpawnTimer = 0f;
         activePowerUps.RemoveAll(powerUp => powerUp == null);
 
+        List<GameObject> availablePrefabs = new List<GameObject>();
+        HashSet<PowerUpType> availableTypes = new HashSet<PowerUpType>();
+        foreach (GameObject prefab in powerUpPrefabs)
+        {
+            if (prefab == null)
+            {
+                continue;
+            }
+
+            PowerUpOrb orb = prefab.GetComponentInChildren<PowerUpOrb>(true);
+            if (orb == null)
+            {
+                if (!invalidPowerUpPrefabLogged)
+                {
+                    Debug.LogError($"Power-up prefab '{prefab.name}' does not contain a PowerUpOrb component.", prefab);
+                    invalidPowerUpPrefabLogged = true;
+                }
+
+                continue;
+            }
+
+            if (orb.Type != PowerUpType.None && availableTypes.Add(orb.Type))
+            {
+                availablePrefabs.Add(prefab);
+            }
+        }
+
         int availableSlots = Mathf.Max(0, powerUpMaxSpawnCount - activePowerUps.Count);
-        int spawnCount = Mathf.Min(currentPowerUpSpawnCount, availableSlots);
+        int spawnCount = Mathf.Min(currentPowerUpSpawnCount, availableSlots, availablePrefabs.Count);
         for (int i = 0; i < spawnCount; i++)
         {
-            GameObject prefab = powerUpPrefabs[Random.Range(0, powerUpPrefabs.Length)];
-            if (prefab != null)
-            {
-                GameObject powerUp = Instantiate(prefab, RandomScreenPosition(prefab), Quaternion.identity);
-                activePowerUps.Add(powerUp);
-                Destroy(powerUp, powerUpLifetime);
-            }
+            int prefabIndex = Random.Range(0, availablePrefabs.Count);
+            GameObject prefab = availablePrefabs[prefabIndex];
+            availablePrefabs.RemoveAt(prefabIndex);
+
+            GameObject powerUp = Instantiate(prefab, RandomScreenPosition(prefab), Quaternion.identity);
+            activePowerUps.Add(powerUp);
+            Destroy(powerUp, powerUpLifetime);
         }
 
         if (spawnCount > 0)
@@ -225,22 +290,131 @@ public class ObjectSpawn : MonoBehaviour
         return new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), spawnZ);
     }
 
-    void SpawnObject()
+    private bool SpawnObject(Wave currentWave)
     {
-        Wave currentWave = waves[waveNumber];
-
         if (currentWave.prefabs == null || currentWave.prefabs.Length == 0)
-            return;
-
-        // Chọn ngẫu nhiên 1 prefab trong mảng prefabs
-        int randomIndex = Random.Range(0, currentWave.prefabs.Length);
-        GameObject selectedPrefab = currentWave.prefabs[randomIndex];
-
-        if (selectedPrefab != null)
         {
-            Instantiate(selectedPrefab, RandomSpawnPoint(), Quaternion.identity);
-            currentWave.spawnedObjectCount++;
+            return false;
         }
+
+        int validPrefabCount = 0;
+        foreach (GameObject prefab in currentWave.prefabs)
+        {
+            if (prefab != null)
+            {
+                validPrefabCount++;
+            }
+        }
+
+        if (validPrefabCount == 0)
+        {
+            return false;
+        }
+
+        int selectedIndex = Random.Range(0, validPrefabCount);
+        GameObject selectedPrefab = null;
+        foreach (GameObject prefab in currentWave.prefabs)
+        {
+            if (prefab == null)
+            {
+                continue;
+            }
+
+            if (selectedIndex == 0)
+            {
+                selectedPrefab = prefab;
+                break;
+            }
+
+            selectedIndex--;
+        }
+
+        Instantiate(selectedPrefab, RandomSpawnPoint(), Quaternion.identity);
+        return true;
+    }
+
+    private float GetWaveSpawnInterval(Wave wave)
+    {
+        float baseInterval = Mathf.Max(0.1f, wave.spawnInterval);
+        float minimumInterval = baseInterval;
+        if (IsAsteroidWave(wave))
+        {
+            minimumInterval = Mathf.Min(baseInterval, 0.65f);
+        }
+        else if (IsWhaleWave(wave))
+        {
+            minimumInterval = Mathf.Min(baseInterval, 3.5f);
+        }
+
+        return Mathf.Lerp(baseInterval, minimumInterval, GetDifficultyProgress());
+    }
+
+    private int GetWaveObjectTarget(Wave wave)
+    {
+        int baseCount = Mathf.Max(1, wave.objectPerWave);
+        if (!IsAsteroidWave(wave))
+        {
+            return baseCount;
+        }
+
+        int elapsedDifficultySteps = Mathf.FloorToInt(difficultyElapsedTime / 60f);
+        return baseCount + Mathf.Clamp(elapsedDifficultySteps, 0, 2);
+    }
+
+    private static bool IsAsteroidWave(Wave wave)
+    {
+        return WaveContains<Asteroid>(wave);
+    }
+
+    private static bool IsWhaleWave(Wave wave)
+    {
+        return WaveContains<Whale>(wave) || WaveContains<WhaleMini>(wave);
+    }
+
+    private static bool WaveContains<T>(Wave wave) where T : Component
+    {
+        if (wave.prefabs == null)
+        {
+            return false;
+        }
+
+        foreach (GameObject prefab in wave.prefabs)
+        {
+            if (prefab != null && prefab.GetComponentInChildren<T>(true) != null)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private static bool HasValidPrefab(Wave wave)
+    {
+        if (wave.prefabs == null)
+        {
+            return false;
+        }
+
+        foreach (GameObject prefab in wave.prefabs)
+        {
+            if (prefab != null)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private void AdvanceWave()
+    {
+        waveNumber = (waveNumber + 1) % waves.Count;
+    }
+
+    private float GetDifficultyProgress()
+    {
+        return Mathf.Clamp01(difficultyElapsedTime / Mathf.Max(1f, difficultyRampDuration));
     }
 
     private void UpdateWhaleMiniSpawning()
@@ -251,6 +425,8 @@ public class ObjectSpawn : MonoBehaviour
         }
 
         float interval = Mathf.Max(0.1f, whaleMiniSpawnInterval);
+        float minimumInterval = Mathf.Min(interval, 7f);
+        interval = Mathf.Lerp(interval, minimumInterval, GetDifficultyProgress());
         whaleMiniSpawnTimer += Time.deltaTime;
         if (whaleMiniSpawnTimer < interval)
         {
@@ -259,15 +435,29 @@ public class ObjectSpawn : MonoBehaviour
 
         whaleMiniSpawnTimer -= interval;
 
-        for (int i = 0; i < currentWhaleMiniSpawnCount; i++)
+        activeWhaleMinis.RemoveAll(whaleMini => whaleMini == null);
+        int maximumActiveCount = Mathf.Max(1, whaleMiniMaxActiveCount);
+        int availableSlots = Mathf.Max(0, maximumActiveCount - activeWhaleMinis.Count);
+        int spawnCount = Mathf.Min(GetCurrentWhaleMiniSpawnCount(), availableSlots);
+        for (int i = 0; i < spawnCount; i++)
         {
-            Instantiate(whaleMiniPrefab, RandomWhaleMiniSpawnPoint(), Quaternion.identity);
+            GameObject whaleMini = Instantiate(
+                whaleMiniPrefab,
+                RandomWhaleMiniSpawnPoint(),
+                Quaternion.identity);
+            activeWhaleMinis.Add(whaleMini);
         }
+    }
 
+    private int GetCurrentWhaleMiniSpawnCount()
+    {
+        int increasePerStep = Mathf.Max(0, whaleMiniSpawnIncrease);
+        int elapsedDifficultySteps = Mathf.FloorToInt(difficultyElapsedTime / 60f);
         int maximumSpawnCount = Mathf.Max(1, whaleMiniMaxSpawnCount);
-        currentWhaleMiniSpawnCount = Mathf.Min(
-            maximumSpawnCount,
-            currentWhaleMiniSpawnCount + Mathf.Max(0, whaleMiniSpawnIncrease));
+        return Mathf.Clamp(
+            whaleMiniInitialSpawnCount + elapsedDifficultySteps * increasePerStep,
+            1,
+            maximumSpawnCount);
     }
 
     private Vector2 RandomWhaleMiniSpawnPoint()

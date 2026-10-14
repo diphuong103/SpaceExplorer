@@ -10,7 +10,7 @@ public class PlayerBuffManager : MonoBehaviour
     {
         [Tooltip("Chọn loại orb. Tên trong danh sách đã được nhóm theo chức năng.")]
         public PowerUpType type;
-        [Tooltip("Thời gian hiệu ứng tồn tại. Dùng cho tăng tốc, khiên và hiệu ứng hình ảnh.")]
+        [Tooltip("Thời lượng buff; với hồi máu/năng lượng, đây là thời gian hiển thị phản hồi trên HUD.")]
         [Min(0f)] public float duration = 8f;
         [Tooltip("Hệ số tốc độ di chuyển khi hiệu ứng đang hoạt động.")]
         [Min(0f)] public float speedMultiplier = 1f;
@@ -31,15 +31,15 @@ public class PlayerBuffManager : MonoBehaviour
         [Tooltip("Sát thương mỗi lần laser chạm mục tiêu.")]
         [Min(1)] public int laserDamage = 1;
         [Tooltip("Khoảng thời gian giữa các lần gây sát thương của laser.")]
-        [Min(0.01f)] public float laserDamageInterval = 0.25f;
+        [Min(0.01f)] public float laserDamageInterval = 0.5f;
         [Tooltip("Chiều dài tia laser theo đơn vị trong game.")]
-        [Min(0f)] public float laserRange = 30f;
+        [Min(0f)] public float laserRange = 16f;
         [Tooltip("Prefab hoặc GameObject hiệu ứng hình ảnh.")]
-        public GameObject visualEffect;
+        public GameObject visualEffect = null;
         [Tooltip("Icon hiển thị trên Canvas của Player khi hiệu ứng đang hoạt động.")]
-        public Sprite icon;
+        public Sprite icon = null;
         [Tooltip("Vị trí local của hiệu ứng so với Player.")]
-        public Vector3 visualEffectLocalPosition;
+        public Vector3 visualEffectLocalPosition = Vector3.zero;
         [Tooltip("Ẩn hiệu ứng hình ảnh này khi đang tăng tốc bằng chuột phải.")]
         public bool hideVisualWhileMouseBoosting;
     }
@@ -54,7 +54,7 @@ public class PlayerBuffManager : MonoBehaviour
         new BuffSetting { type = PowerUpType.NovaSpread, spreadBulletCount = 3, spreadAngle = 30f },
         new BuffSetting { type = PowerUpType.QuantumScore, duration = 8f, scoreMultiplier = 2 },
         new BuffSetting { type = PowerUpType.ViperHoming },
-        new BuffSetting { type = PowerUpType.HyperionBeam, laserDamage = 1, laserDamageInterval = 0.25f, laserRange = 30f },
+        new BuffSetting { type = PowerUpType.HyperionBeam, duration = 8f, laserDamage = 1, laserDamageInterval = 0.5f, laserRange = 16f },
         new BuffSetting { type = PowerUpType.Wipe }
     };
 
@@ -188,6 +188,18 @@ public class PlayerBuffManager : MonoBehaviour
         BuffSetting buff = buffs[index];
         switch (type)
         {
+            case PowerUpType.HyperionBeam:
+                if (AudioManager.Instance != null)
+                {
+                    AudioManager.Instance.PlayLaserActivation();
+                }
+                break;
+            case PowerUpType.Shield:
+                if (AudioManager.Instance != null)
+                {
+                    AudioManager.Instance.PlayShieldActivation();
+                }
+                break;
             case PowerUpType.Energy:
                 player.RestoreEnergy(buff.energyRestoreAmount);
                 DamageNearbyTargetsWithEnergyPulse(buff);
@@ -320,7 +332,9 @@ public class PlayerBuffManager : MonoBehaviour
 
         if (visualEffect == null)
         {
-            if (shouldBeActive && !missingVisualWarningLogged[index])
+            if (shouldBeActive
+                && RequiresAssignedVisualEffect(buff.type)
+                && !missingVisualWarningLogged[index])
             {
                 Debug.LogWarning($"No visual effect is assigned for {buff.type} on PlayerBuffManager.", this);
                 missingVisualWarningLogged[index] = true;
@@ -338,6 +352,13 @@ public class PlayerBuffManager : MonoBehaviour
         {
             PhaserWeapon.Instance.ConfigureLaserVisual(visualEffect, buff.laserRange);
         }
+    }
+
+    private static bool RequiresAssignedVisualEffect(PowerUpType type)
+    {
+        return type != PowerUpType.WarpDrive
+            && type != PowerUpType.NovaSpread
+            && type != PowerUpType.QuantumScore;
     }
 
     private void CreateBuffCanvas()

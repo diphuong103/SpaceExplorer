@@ -3,6 +3,11 @@ using UnityEngine;
 public class PowerUpOrb : MonoBehaviour
 {
     [SerializeField] private PowerUpType powerUpType;
+    [Header("Score")]
+    [SerializeField, Min(0), Tooltip("Điểm cộng khi Player nhặt orb này.")]
+    private int scoreOnPickup = 1;
+
+    public PowerUpType Type => powerUpType;
 
     private bool collected;
 
@@ -42,6 +47,20 @@ public class PowerUpOrb : MonoBehaviour
         if (powerUpType != PowerUpType.None)
         {
             player.ActivatePowerUp(powerUpType);
+        }
+
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.AddScore(scoreOnPickup);
+        }
+        else
+        {
+            Debug.LogError("Cannot award orb points: GameManager is missing from the scene.", this);
+        }
+
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlayPowerUpPickup();
         }
 
         Destroy(gameObject);

@@ -5,6 +5,9 @@ public class Asteroid : MonoBehaviour
 {
     [SerializeField] private Sprite[] sprites; 
     [SerializeField, Min(1)] private int health = 4;
+    [Header("Score")]
+    [SerializeField, Min(0), Tooltip("Điểm thưởng khi tiểu hành tinh bị phá hủy.")]
+    private int scoreReward = 1;
     [SerializeField, Min(0f)] private float hitFlashDuration = 0.12f;
 
     [Header("Material Flash")]
@@ -75,6 +78,15 @@ public class Asteroid : MonoBehaviour
         {
             isDestroyed = true;
 
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.AddScore(scoreReward);
+            }
+            else
+            {
+                Debug.LogError("Cannot award asteroid points: GameManager is missing from the scene.", this);
+            }
+
             if (destroyEffectPrefab != null)
             {
                 Instantiate(destroyEffectPrefab, transform.position, Quaternion.identity);
@@ -82,14 +94,14 @@ public class Asteroid : MonoBehaviour
 
             if (AudioManager.Instance != null)
             {
-                AudioManager.Instance.PlaySound(AudioManager.Instance.Boom2);
+                AudioManager.Instance.PlayAsteroidDestroyed();
             }
 
             Destroy(gameObject, hitFlashDuration);
         }
         else if (AudioManager.Instance != null)
         {
-            AudioManager.Instance.PlaySound(AudioManager.Instance.HitRock);
+            AudioManager.Instance.PlayAsteroidHit();
         }
     }
 

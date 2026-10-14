@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class PointStar : MonoBehaviour
 {
-    [SerializeField, Min(0)] private int pointValue = 1;
+    [Header("Score")]
+    [SerializeField, Min(0), Tooltip("Điểm cộng khi Player nhặt sao này.")]
+    private int pointValue = 1;
     [SerializeField, Min(0.1f)] private float visibleDuration = 10f;
 
     public int PointValue => pointValue;
@@ -20,13 +22,24 @@ public class PointStar : MonoBehaviour
             return;
         }
 
-        if (GameManager.Instance == null)
+        if (GameManager.Instance != null)
         {
-            Debug.LogError("Cannot collect point star: GameManager is missing from the scene.", this);
-            return;
+            GameManager.Instance.AddScore(pointValue);
+        }
+        else
+        {
+            Debug.LogError("Cannot award points: GameManager is missing from the scene.", this);
         }
 
-        GameManager.Instance.AddScore(pointValue);
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlayPointPickup();
+        }
+        else
+        {
+            Debug.LogError("Cannot play point pickup sound: AudioManager is missing from the scene.", this);
+        }
+
         Destroy(gameObject);
     }
 }
