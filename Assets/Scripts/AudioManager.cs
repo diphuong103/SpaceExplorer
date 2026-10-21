@@ -25,10 +25,11 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip enemyHitClip;
     [SerializeField] private AudioClip enemyDestroyedClip;
 
-    void Awake()
+    private void Awake()
     {
         if (Instance == null)
         {
+            // Cho phép các component trong scene dùng chung AudioSource và AudioClip.
             Instance = this;
         }
         else
@@ -114,6 +115,7 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
+        // PlayOneShot cho phép hiệu ứng chồng âm trên AudioSource đã gán trong Inspector.
         shoot.PlayOneShot(clip);
     }
 
@@ -127,6 +129,3 @@ public class AudioManager : MonoBehaviour
         PlaySound(hit);
     }
 }
-
-
-// Test git 

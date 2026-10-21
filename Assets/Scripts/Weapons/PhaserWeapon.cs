@@ -24,11 +24,13 @@ public class PhaserWeapon : MonoBehaviour
 
         if (bulletPrefab == null)
         {
+            // Nếu chưa gán prefab ở Inspector, thử tìm PhaserBullet trong các object con của weapon.
             bulletPrefab = GetComponentInChildren<PhaserBullet>(true);
         }
 
         if (bulletPrefab != null && bulletPrefab.transform.IsChildOf(transform))
         {
+            // Bullet làm template con phải tắt để chỉ các bản sao được bắn mới hoạt động.
             bulletPrefab.gameObject.SetActive(false);
         }
     }
@@ -148,6 +150,7 @@ public class PhaserWeapon : MonoBehaviour
 
     private void SpawnBullet(Vector2 direction)
     {
+        // Tạo bản sao từ prefab tại FirePoint, rồi khởi tạo vận tốc/sát thương trước khi bật object.
         Transform spawnPoint = firePoint != null ? firePoint : transform;
         Quaternion rotation = Quaternion.FromToRotation(Vector3.right, direction);
         PhaserBullet bullet = Instantiate(bulletPrefab, spawnPoint.position, rotation);

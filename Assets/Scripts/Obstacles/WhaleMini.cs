@@ -27,6 +27,7 @@ public class WhaleMini : MonoBehaviour
     private Material originalMaterial;
     private Coroutine hitFlashCoroutine;
     private float waveHitTimer;
+    private bool hasStageTwoMultipliers;
 
     private void Awake()
     {
@@ -61,9 +62,26 @@ public class WhaleMini : MonoBehaviour
         }
 
         gameObject.tag = "Obstacles";
+
+        if (GameManager.Instance != null && GameManager.Instance.IsStageTwoActive)
+        {
+            ApplyStageTwoMultipliers(
+                GameManager.Instance.StageTwoEnemyHealthMultiplier,
+                GameManager.Instance.StageTwoEnemyDamageMultiplier);
+        }
     }
 
+    public void ApplyStageTwoMultipliers(float healthMultiplier, float damageMultiplier)
+    {
+        if (hasStageTwoMultipliers)
+        {
+            return;
+        }
 
+        health = Mathf.CeilToInt(health * Mathf.Max(1f, healthMultiplier));
+        waveDamage *= Mathf.Max(1f, damageMultiplier);
+        hasStageTwoMultipliers = true;
+    }
 
     public void TakeDamage(int damage)
     {

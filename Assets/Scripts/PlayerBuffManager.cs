@@ -104,6 +104,7 @@ public class PlayerBuffManager : MonoBehaviour
 
     private void Awake()
     {
+        // Hỗ trợ đặt component này trực tiếp trên Player hoặc trên object con của prefab.
         player = GetComponentInParent<PlayerController>();
         if (player == null)
         {
@@ -131,6 +132,7 @@ public class PlayerBuffManager : MonoBehaviour
             BuffSetting buff = buffs[i];
             if (buff.visualEffect != null)
             {
+                // Prefab được Instantiate lúc chạy; object có sẵn trong scene phải là con Player.
                 if (!buff.visualEffect.scene.IsValid())
                 {
                     visualEffectIsPrefab[i] = true;
@@ -227,6 +229,7 @@ public class PlayerBuffManager : MonoBehaviour
     {
         float radius = buff.energyPulseRadius > 0f ? buff.energyPulseRadius : 2.5f;
         int damage = Mathf.Max(1, buff.energyPulseDamage);
+        // OverlapCircleAll truy vấn collider; HashSet tránh gây sát thương nhiều lần lên cùng mục tiêu.
         Collider2D[] hits = Physics2D.OverlapCircleAll(player.transform.position, radius);
         HashSet<int> damagedTargets = new HashSet<int>();
 
@@ -377,6 +380,7 @@ public class PlayerBuffManager : MonoBehaviour
             return;
         }
 
+        // Tạo HUD lúc chạy để icon buff không cần một GameObject riêng trong scene.
         GameObject canvasObject = new GameObject("Buff Effect Canvas", typeof(RectTransform), typeof(Canvas));
         Canvas canvas = canvasObject.GetComponent<Canvas>();
         canvas.renderMode = RenderMode.ScreenSpaceOverlay;

@@ -17,6 +17,7 @@ public class UIController : MonoBehaviour
     {
         if (Instance == null)
         {
+            // Gameplay component gửi dữ liệu về HUD thông qua singleton của scene.
             Instance = this;
             if (pausePanel != null)
             {
@@ -61,6 +62,7 @@ public class UIController : MonoBehaviour
 
         if (energySlider != null)
         {
+            // Slider năng lượng dùng tỷ lệ 0..1 để không phụ thuộc vào maxEnergy.
             energySlider.minValue = 0f;
             energySlider.maxValue = 1f;
             energySlider.value = clampedEnergy / maxEnergy;
@@ -83,6 +85,7 @@ public class UIController : MonoBehaviour
 
         if (healthSlider != null)
         {
+            // Slider máu dùng giá trị thực; nhãn hiển thị current/max tương ứng.
             healthSlider.minValue = 0f;
             healthSlider.maxValue = maxHealth;
             healthSlider.value = clampedHealth;

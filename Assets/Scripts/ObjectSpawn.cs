@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 public class ObjectSpawn : MonoBehaviour
 {
+    // Các tham chiếu này được gán trong Inspector để xác định vùng spawn và camera của màn chơi.
     [SerializeField] private Transform minPos; // Vị trí spawn tối thiểu
     [SerializeField] private Transform maxPos; // Vị trí spawn tối đa
     [SerializeField] private Camera pointStarCamera;
@@ -16,6 +17,7 @@ public class ObjectSpawn : MonoBehaviour
     [SerializeField, Min(0)] private int powerUpSpawnIncrease = 1;
     [SerializeField, Min(1)] private int powerUpMaxSpawnCount = 3;
     [SerializeField, Min(0.1f)] private float powerUpLifetime = 10f;
+    [SerializeField, Range(0.1f, 1f)] private float stageTwoRushPowerUpIntervalMultiplier = 0.5f;
 
     [SerializeField] private int waveNumber = 0;
     [SerializeField] private List<Wave> waves; // Danh sách các wave
@@ -26,6 +28,9 @@ public class ObjectSpawn : MonoBehaviour
     [SerializeField, Min(1)] private int whaleMiniMaxSpawnCount = 3;
     [SerializeField, Min(1)] private int whaleMiniMaxActiveCount = 6;
     [SerializeField, Min(0f)] private float whaleMiniHorizontalSpawnRange = 4f;
+    [SerializeField, Range(0.1f, 1f), Tooltip("Hệ số thời gian giữa các lần spawn ở Level 2; nhỏ hơn sẽ spawn dày hơn.")]
+    private float stageTwoSpawnIntervalMultiplier = 0.8f;
+    [SerializeField, Range(0.1f, 1f)] private float stageTwoRushSpawnIntervalMultiplier = 0.5f;
 
     [System.Serializable]
     public class Wave
@@ -51,7 +56,9 @@ public class ObjectSpawn : MonoBehaviour
     private float whaleMiniSpawnTimer;
     private float powerUpSpawnTimer;
     private float difficultyElapsedTime;
+    private float stageTwoRushRemaining;
     private int currentPowerUpSpawnCount;
+    private bool isStageTransitionPaused;
     private bool missingPickupCameraLogged;
     private bool invalidPowerUpPrefabLogged;
     private readonly List<GameObject> activePointStars = new List<GameObject>();
@@ -60,6 +67,7 @@ public class ObjectSpawn : MonoBehaviour
 
     private void Start()
     {
+        // Chuẩn hóa số orb ban đầu theo giới hạn cấu hình trong Inspector.
         currentPowerUpSpawnCount = Mathf.Clamp(
             powerUpInitialSpawnCount,
             1,
@@ -82,7 +90,14 @@ public class ObjectSpawn : MonoBehaviour
 
     void Update()
     {
+        if (isStageTransitionPaused)
+        {
+            return;
+        }
+
+        // Tiến độ khó dùng Time.deltaTime nên sẽ tạm dừng đồng bộ với Time.timeScale của Unity.
         difficultyElapsedTime += Time.deltaTime;
+        stageTwoRushRemaining = Mathf.Max(0f, stageTwoRushRemaining - Time.deltaTime);
         UpdatePointStarSpawning();
         UpdatePowerUpSpawning();
         UpdateWhaleMiniSpawning();
@@ -96,6 +111,7 @@ public class ObjectSpawn : MonoBehaviour
         Wave currentWave = waves[waveNumber];
         if (currentWave == null || !HasValidPrefab(currentWave))
         {
+            // Bỏ qua cấu hình wave rỗng để các wave hợp lệ phía sau vẫn tiếp tục chạy.
             AdvanceWave();
             return;
         }
@@ -110,6 +126,7 @@ public class ObjectSpawn : MonoBehaviour
         currentWave.spawnTimer -= spawnInterval;
         if (SpawnObject(currentWave))
         {
+            // Đếm số lần tạo thành công, không tính lần spawn thất bại do thiếu prefab hợp lệ.
             currentWave.spawnedObjectCount++;
             if (currentWave.spawnedObjectCount >= GetWaveObjectTarget(currentWave))
             {
@@ -163,6 +180,7 @@ public class ObjectSpawn : MonoBehaviour
                 continue;
             }
 
+            // Instantiate prefab tại tọa độ thế giới được tính từ khung hình camera hiện tại.
             GameObject star = Instantiate(
                 starSpawn.prefab,
                 RandomScreenPosition(starSpawn.prefab),
@@ -175,6 +193,7 @@ public class ObjectSpawn : MonoBehaviour
     {
         float baseInterval = Mathf.Max(0.1f, starSpawn.spawnInterval);
         float minimumInterval = Mathf.Max(3f, baseInterval - 2f);
+        // Trong thời gian ramp, sao xuất hiện nhanh dần tối đa 2 giây, nhưng không dưới 3 giây.
         return Mathf.Lerp(baseInterval, minimumInterval, GetDifficultyProgress());
     }
 
@@ -202,7 +221,14 @@ public class ObjectSpawn : MonoBehaviour
         }
 
         powerUpSpawnTimer += Time.deltaTime;
-        if (powerUpSpawnTimer < Mathf.Max(0.1f, powerUpSpawnInterval))
+        float spawnInterval = Mathf.Max(0.1f, powerUpSpawnInterval);
+        if (IsStageTwoRushActive())
+        {
+            // Trong đợt cao trào, orb xuất hiện theo chu kỳ ngắn hơn; giới hạn active vẫn được giữ nguyên.
+            spawnInterval = Mathf.Max(0.1f, spawnInterval * stageTwoRushPowerUpIntervalMultiplier);
+        }
+
+        if (powerUpSpawnTimer < spawnInterval)
         {
             return;
         }
@@ -245,6 +271,7 @@ public class ObjectSpawn : MonoBehaviour
             GameObject prefab = availablePrefabs[prefabIndex];
             availablePrefabs.RemoveAt(prefabIndex);
 
+            // Mỗi loại orb chỉ xuất hiện tối đa một lần trong cùng một đợt spawn.
             GameObject powerUp = Instantiate(prefab, RandomScreenPosition(prefab), Quaternion.identity);
             activePowerUps.Add(powerUp);
             Destroy(powerUp, powerUpLifetime);
@@ -252,6 +279,7 @@ public class ObjectSpawn : MonoBehaviour
 
         if (spawnCount > 0)
         {
+            // Tăng số orb ở các đợt sau, nhưng không vượt giới hạn cấu hình.
             currentPowerUpSpawnCount = Mathf.Min(
                 Mathf.Max(1, powerUpMaxSpawnCount),
                 currentPowerUpSpawnCount + Mathf.Max(0, powerUpSpawnIncrease));
@@ -260,6 +288,7 @@ public class ObjectSpawn : MonoBehaviour
 
     private Vector3 RandomScreenPosition(GameObject prefab)
     {
+        // Chuyển góc viewport sang tọa độ thế giới tại cùng mặt phẳng Z với spawner.
         float spawnZ = transform.position.z;
         float cameraDepth = pointStarCamera.WorldToViewportPoint(
             new Vector3(pointStarCamera.transform.position.x, pointStarCamera.transform.position.y, spawnZ)).z;
@@ -311,6 +340,7 @@ public class ObjectSpawn : MonoBehaviour
             return false;
         }
 
+        // Chọn ngẫu nhiên một prefab hợp lệ trong wave để tạo biến thể quái xuất hiện.
         int selectedIndex = Random.Range(0, validPrefabCount);
         GameObject selectedPrefab = null;
         foreach (GameObject prefab in currentWave.prefabs)
@@ -337,6 +367,7 @@ public class ObjectSpawn : MonoBehaviour
     {
         float baseInterval = Mathf.Max(0.1f, wave.spawnInterval);
         float minimumInterval = baseInterval;
+        // Với thông số Level1, tốc độ spawn tối đa tăng khoảng 1.54 lần cho asteroid và 1.43 lần cho Whale.
         if (IsAsteroidWave(wave))
         {
             minimumInterval = Mathf.Min(baseInterval, 0.65f);
@@ -346,7 +377,15 @@ public class ObjectSpawn : MonoBehaviour
             minimumInterval = Mathf.Min(baseInterval, 3.5f);
         }
 
-        return Mathf.Lerp(baseInterval, minimumInterval, GetDifficultyProgress());
+        float interval = Mathf.Lerp(baseInterval, minimumInterval, GetDifficultyProgress());
+        if (GameManager.Instance != null && GameManager.Instance.IsStageTwoActive)
+        {
+            interval *= stageTwoSpawnIntervalMultiplier;
+        }
+
+        return IsStageTwoRushActive()
+            ? Mathf.Max(0.1f, interval * stageTwoRushSpawnIntervalMultiplier)
+            : Mathf.Max(0.1f, interval);
     }
 
     private int GetWaveObjectTarget(Wave wave)
@@ -357,6 +396,7 @@ public class ObjectSpawn : MonoBehaviour
             return baseCount;
         }
 
+        // Wave asteroid tăng thêm một mục tiêu mỗi phút, tối đa hai mục tiêu so với cấu hình gốc.
         int elapsedDifficultySteps = Mathf.FloorToInt(difficultyElapsedTime / 60f);
         return baseCount + Mathf.Clamp(elapsedDifficultySteps, 0, 2);
     }
@@ -427,6 +467,16 @@ public class ObjectSpawn : MonoBehaviour
         float interval = Mathf.Max(0.1f, whaleMiniSpawnInterval);
         float minimumInterval = Mathf.Min(interval, 7f);
         interval = Mathf.Lerp(interval, minimumInterval, GetDifficultyProgress());
+        if (GameManager.Instance != null && GameManager.Instance.IsStageTwoActive)
+        {
+            interval *= stageTwoSpawnIntervalMultiplier;
+        }
+
+        if (IsStageTwoRushActive())
+        {
+            interval = Mathf.Max(0.1f, interval * stageTwoRushSpawnIntervalMultiplier);
+        }
+
         whaleMiniSpawnTimer += Time.deltaTime;
         if (whaleMiniSpawnTimer < interval)
         {
@@ -441,6 +491,7 @@ public class ObjectSpawn : MonoBehaviour
         int spawnCount = Mathf.Min(GetCurrentWhaleMiniSpawnCount(), availableSlots);
         for (int i = 0; i < spawnCount; i++)
         {
+            // Prefab quái nhỏ được tạo ngoài mép phải để đi vào vùng chơi từ bên ngoài màn hình.
             GameObject whaleMini = Instantiate(
                 whaleMiniPrefab,
                 RandomWhaleMiniSpawnPoint(),
@@ -452,6 +503,7 @@ public class ObjectSpawn : MonoBehaviour
     private int GetCurrentWhaleMiniSpawnCount()
     {
         int increasePerStep = Mathf.Max(0, whaleMiniSpawnIncrease);
+        // Số WhaleMini tăng theo từng phút, sau đó bị chặn bởi giới hạn Inspector.
         int elapsedDifficultySteps = Mathf.FloorToInt(difficultyElapsedTime / 60f);
         int maximumSpawnCount = Mathf.Max(1, whaleMiniMaxSpawnCount);
         return Mathf.Clamp(
@@ -474,10 +526,26 @@ public class ObjectSpawn : MonoBehaviour
     {
         if (minPos == null || maxPos == null) return transform.position;
 
+        // minPos/maxPos trong Inspector xác định hình chữ nhật vùng sinh quái.
         Vector2 spawnPoint;
         spawnPoint.x = Random.Range(minPos.position.x, maxPos.position.x);
         spawnPoint.y = Random.Range(minPos.position.y, maxPos.position.y);
 
         return spawnPoint;
+    }
+
+    public void SetStageTransitionPaused(bool paused)
+    {
+        isStageTransitionPaused = paused;
+    }
+
+    public void BeginStageTwoRush(float duration)
+    {
+        stageTwoRushRemaining = Mathf.Max(0f, duration);
+    }
+
+    private bool IsStageTwoRushActive()
+    {
+        return stageTwoRushRemaining > 0f;
     }
 }

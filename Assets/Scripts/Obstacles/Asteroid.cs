@@ -20,25 +20,31 @@ public class Asteroid : MonoBehaviour
     private Material originalMaterial;
     private Coroutine hitFlashCoroutine;
     private bool isDestroyed;
+    private bool hasStageTwoHealthMultiplier;
 
-    void Start()
+    private void Start()
     {
+        if (GameManager.Instance != null && GameManager.Instance.IsStageTwoActive)
+        {
+            ApplyStageTwoHealthMultiplier(GameManager.Instance.StageTwoEnemyHealthMultiplier);
+        }
+
         spriteRenderer = GetComponent<SpriteRenderer>();  
         rb = GetComponent<Rigidbody2D>(); 
 
         if (spriteRenderer != null)
         {
-            // Lưu lại Material gốc của Sprite
+            // Lưu material để có thể khôi phục sau hiệu ứng chớp khi bị trúng đạn.
             originalMaterial = spriteRenderer.material;
 
-            // Đổi ngẫu nhiên Sprite nếu mảng có dữ liệu
+            // Chọn biến thể hình ảnh ngẫu nhiên từ mảng sprites được gán trong Inspector.
             if (sprites != null && sprites.Length > 0)
             {
                 spriteRenderer.sprite = sprites[Random.Range(0, sprites.Length)];
             }
         }
 
-        // Tạo lực đẩy/xoay tự do ban đầu
+        // Vận tốc Rigidbody2D tạo chuyển động ngẫu nhiên ban đầu; Update còn cuộn asteroid sang trái.
         float pushX = Random.Range(-1f, 1f); 
         float pushY = Random.Range(-1f, 1f);  
         if (rb != null)
@@ -47,13 +53,23 @@ public class Asteroid : MonoBehaviour
         }
     }
 
-    void Update()
+    public void ApplyStageTwoHealthMultiplier(float multiplier)
     {
-        // Lấy tốc độ cuộn thế giới
+        if (hasStageTwoHealthMultiplier)
+        {
+            return;
+        }
+
+        health = Mathf.CeilToInt(health * Mathf.Max(1f, multiplier));
+        hasStageTwoHealthMultiplier = true;
+    }
+
+    private void Update()
+    {
+        // Đọc tốc độ chung từ GameManager để asteroid đồng bộ với nhịp cuộn của màn chơi.
         float currentWorldSpeed = 1f;
         if (GameManager.Instance != null)
         {
-            // Nếu biến trong GameManager của bạn là worldSpeed thì giữ nguyên, còn chuẩn sẽ là worldSpeed
             currentWorldSpeed = GameManager.Instance.worldSpeed; 
         }
 
@@ -78,6 +94,7 @@ public class Asteroid : MonoBehaviour
         {
             isDestroyed = true;
 
+            // Điểm thưởng được cộng khi phá hủy asteroid; va chạm Player làm giảm HP ở PlayerController.
             if (GameManager.Instance != null)
             {
                 GameManager.Instance.AddScore(scoreReward);
@@ -132,6 +149,7 @@ public class Asteroid : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        // Chỉ hiệu ứng hình ảnh khi chạm Player/đạn; sát thương Player và asteroid được xử lý riêng.
         if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Bullet"))
         {
             FlashOnHit(); // Gọi chung hàm Flash đã đồng nhất

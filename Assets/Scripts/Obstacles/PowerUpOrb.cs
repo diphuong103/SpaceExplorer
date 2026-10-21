@@ -13,6 +13,7 @@ public class PowerUpOrb : MonoBehaviour
 
     private void Awake()
     {
+        // Đảm bảo prefab có trigger để Unity gọi OnTriggerEnter2D khi Player chạm orb.
         CircleCollider2D pickupCollider = GetComponent<CircleCollider2D>();
         if (pickupCollider == null)
         {
@@ -37,6 +38,7 @@ public class PowerUpOrb : MonoBehaviour
             return;
         }
 
+        // Hỗ trợ collider va chạm nằm trên object con trong prefab Player.
         PlayerController player = other.GetComponentInParent<PlayerController>();
         if (player == null)
         {
@@ -46,6 +48,7 @@ public class PowerUpOrb : MonoBehaviour
         collected = true;
         if (powerUpType != PowerUpType.None)
         {
+            // Chuyển loại orb sang PlayerBuffManager để áp dụng hiệu ứng gameplay tương ứng.
             player.ActivatePowerUp(powerUpType);
         }
 
@@ -60,6 +63,7 @@ public class PowerUpOrb : MonoBehaviour
 
         if (AudioManager.Instance != null)
         {
+            // Âm thanh nhặt orb được phát qua AudioManager của scene.
             AudioManager.Instance.PlayPowerUpPickup();
         }
 

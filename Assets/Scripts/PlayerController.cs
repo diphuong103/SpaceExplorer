@@ -49,6 +49,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        // Buff manager có thể được gắn trực tiếp lên Player hoặc một object con trong prefab.
         PlayerBuffManager[] buffManagers = GetComponentsInChildren<PlayerBuffManager>(true);
         for (int i = 0; i < buffManagers.Length; i++)
         {
@@ -103,6 +104,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        // Đọc input và cập nhật Animator trong Update; xử lý vật lý riêng ở FixedUpdate.
         HandleInput();
         UpdateWarpDriveEffect();
         UpdateAnimation();
@@ -112,20 +114,22 @@ public class PlayerController : MonoBehaviour
     {
         HandleMovement();
         HandleEnergy();
-        HandleHealth();
     }
 
     private void HandleInput()
     {
+        // Horizontal/Vertical lấy cấu hình Input Manager mặc định, tương ứng phím mũi tên hoặc WASD.
         float directionX = Input.GetAxisRaw("Horizontal");
         float directionY = Input.GetAxisRaw("Vertical");
         playerDirection = new Vector2(directionX, directionY).normalized;
 
+        // Chuột phải bật/tắt tăng tốc; năng lượng bị tiêu hao trong FixedUpdate khi trạng thái này bật.
         if (Input.GetMouseButtonDown(1))
         {
             isBoosting = !isBoosting;
         }
 
+        // Chuột trái gọi PhaserWeapon để tạo đạn laser tại FirePoint được gán trong Inspector.
         if (Input.GetMouseButtonDown(0))
         {
             Shoot();
@@ -145,6 +149,7 @@ public class PlayerController : MonoBehaviour
             soundWaveKnockbackRemaining = Mathf.Max(0f, soundWaveKnockbackRemaining - Time.fixedDeltaTime);
         }
 
+        // Gán vận tốc Rigidbody2D trong nhịp vật lý để chuyển động ổn định theo Unity.
         rb.linearVelocity = playerDirection * currentSpeed + knockbackVelocity;
     }
 
@@ -274,14 +279,9 @@ public class PlayerController : MonoBehaviour
         UpdateUI();
     }
 
-    private void HandleHealth()
-    {
-
-    }
-
     private void UpdateUI()
     {
-        // Kiểm tra UIController tồn tại trước khi gọi để tránh lỗi NullReferenceException
+        // UI có thể khởi tạo sau Player trong scene, nên kiểm tra singleton trước khi cập nhật.
         if (UIController.Instance != null)
         {
             UIController.Instance.UpdateEnergySlider(energy, maxEnergy);
@@ -317,9 +317,13 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        // Tag Obstacles phải được gán cho collider của quái/chướng ngại vật trong prefab Unity.
         if (collision.gameObject.CompareTag("Obstacles"))
         {
-            TakeDamage(1); // Giảm 10 máu khi va chạm với chướng ngại vật
+            float damage = GameManager.Instance != null
+                ? GameManager.Instance.StageTwoEnemyDamageMultiplier
+                : 1f;
+            TakeDamage(damage); // Va chạm với chướng ngại vật gây sát thương cao hơn ở Level 2.
         }
     }
 
@@ -340,6 +344,7 @@ public class PlayerController : MonoBehaviour
 
         if (health <= 0f)
         {
+            // Khi HP về 0, hiệu ứng chết được tạo trước khi GameManager chuyển sang scene GameOver.
             Die();
         }
     }

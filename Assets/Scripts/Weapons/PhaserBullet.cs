@@ -16,6 +16,7 @@ public class PhaserBullet : MonoBehaviour
         Collider2D bulletCollider = GetComponent<Collider2D>();
         if (bulletCollider != null)
         {
+            // Đạn dùng trigger để va chạm được xử lý bởi OnTriggerEnter2D thay vì phản lực vật lý.
             bulletCollider.isTrigger = true;
         }
     }
@@ -50,6 +51,7 @@ public class PhaserBullet : MonoBehaviour
             return;
         }
 
+        // Đạn tìm script mục tiêu trên object cha vì collider thường nằm trong prefab nhiều tầng.
         Asteroid asteroid = other.GetComponentInParent<Asteroid>();
         if (asteroid != null)
         {
@@ -82,6 +84,7 @@ public class PhaserBullet : MonoBehaviour
         speed = Mathf.Max(0f, bulletSpeed);
         damage = Mathf.Max(1, bulletDamage);
         hasHit = false;
+        // Rigidbody2D nhận hướng và tốc độ từ PhaserWeapon ngay sau Instantiate.
         body.linearVelocity = direction.normalized * speed;
     }
 }

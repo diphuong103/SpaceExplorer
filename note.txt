@@ -1,7 +1,233 @@
- Thêm âm thanh nhặt sao và nhặt orb. Hiện Point.cs và PowerUpOrb.cs xử lý nhặt vật phẩm nhưng chưa phát âm thanh.
+SPACE EXPLORER - TAI LIEU ON DEMO UNITY
+=======================================
 
- Rà soát nhịp độ spawn: kiểm tra tần suất, số lượng tối đa và mức tăng dần của sao, orb,
-  WhaleMini và các wave quái trong ObjectSpawn.cs; xác nhận các loại orb xuất hiện đúng như dự định.
- Kiểm tra độ khó tăng theo thời gian: ghi chú dự án có mục tăng tốc độ và mật độ đạn theo thời gian;
-  cần xác định thông số nào sẽ tăng và kiểm thử để tránh độ khó tăng quá nhanh.
-  Cân bằng thông số và kiểm tra UI: thời lượng buff, sát thương, phạm vi, icon/đếm ngược và trạng thái năng lượng/máu sau khi nhặt.
+Tài liệu này tóm tắt kiến thức Unity đang được sử dụng trong project và gợi ý cách trình bày khi demo. Các giá trị ghi dưới đây là giá trị mặc định trong script hoặc đang serialize trong scene/prefab; Inspector có thể ghi đè giá trị mặc định.
+
+1. VẬT LÝ 2D TRONG UNITY
+------------------------
+
+Physics 2D mô phỏng và phát hiện tương tác giữa các GameObject có Rigidbody2D và Collider2D.
+
+- Collider2D định nghĩa hình dạng và vùng va chạm.
+- Rigidbody2D cho vật thể tham gia bộ máy vật lý 2D, nhận vận tốc/lực và được cập nhật theo FixedUpdate.
+- Va chạm vật lý thường dùng OnCollisionEnter2D(Collision2D).
+- Trigger dùng để phát hiện đi vào vùng mà không đẩy/chặn vật thể; callback là OnTriggerEnter2D(Collider2D).
+- Các layer và Physics 2D Layer Collision Matrix có thể giới hạn nhóm nào được tương tác.
+- Khi dùng trigger, cần Collider2D có isTrigger=true và trong cặp va chạm phải có Rigidbody2D để Unity phát hiện overlap.
+
+Trong project:
+- Player di chuyển bằng Rigidbody2D.linearVelocity trong FixedUpdate, không di chuyển bằng Transform trong Update.
+- Input được đọc trong Update; hướng di chuyển được chuẩn hóa để đi chéo không nhanh hơn đi thẳng.
+- Player có va chạm vật lý với đối tượng tag Obstacles và bị trừ máu.
+- Sao và orb dùng trigger để nhặt vật phẩm; đạn dùng trigger và xử lý trúng đích trong script.
+- Sound ring có CircleCollider2D trigger và cũng có truy vấn Physics2D.OverlapCircleAll để phát hiện Player trong phạm vi.
+
+2. RIGIDBODY2D - THUỘC TÍNH VÀ CÀI ĐẶT ĐANG DÙNG
+------------------------------------------------
+
+Rigidbody2D là component vật lý 2D. Các thuộc tính quan trọng:
+
+- Body Type:
+  + Dynamic: chịu tác động vật lý, có thể điều khiển bằng velocity/lực. Player đang dùng Dynamic.
+  + Kinematic: di chuyển theo script, không bị lực và va chạm vật lý thông thường điều khiển. Một số prefab quái đang dùng Kinematic.
+  + Static: vật thể đứng yên như tường/sàn.
+- Mass: khối lượng; ảnh hưởng phản ứng khi có lực và va chạm.
+- Linear Damping: làm giảm vận tốc tịnh tiến theo thời gian.
+- Angular Damping: làm giảm tốc độ quay.
+- Gravity Scale: hệ số trọng lực; game không gian top-down thường đặt 0 để vật thể không rơi theo trục Y.
+- Constraints: khóa trục di chuyển hoặc xoay. Player có giá trị serialized 4, tương ứng khóa xoay quanh trục Z trong Unity.
+- Collision Detection: Discrete tiết kiệm hơn; Continuous giúp hạn chế vật thể nhanh xuyên qua collider nhỏ.
+- Interpolate: làm mượt hình ảnh giữa các bước vật lý, hữu ích khi thấy chuyển động bị giật.
+
+Cấu hình Player trong Level1.unity:
+- Body Type: Dynamic.
+- Mass: 1.
+- Linear Damping: 0.
+- Angular Damping: 0.05.
+- Gravity Scale: 0.
+- Constraints: Freeze Rotation Z.
+- Script PlayerController đặt rb.linearVelocity = hướng * tốc độ trong FixedUpdate.
+- moveSpeed mặc định 8; boostMultiplier mặc định 1.5; tốc độ cuối còn nhân thêm hệ số buff nếu có.
+
+Đạn Phaser được khởi tạo trong PhaserWeapon và gán linearVelocity = hướng * speed. Tốc độ mặc định trong script là 10, sát thương mặc định là 1. Rigidbody2D trên đạn được tìm trong Awake; collider của đạn được chuyển sang isTrigger.
+
+Lưu ý khi demo: không nên cập nhật Rigidbody2D velocity trong Update vì Update thay đổi theo frame rate; FixedUpdate chạy theo nhịp vật lý ổn định hơn.
+
+3. CIRCLE COLLIDER 2D VÀ CÁC LOẠI COLLIDER
+------------------------------------------
+
+CircleCollider2D tạo vùng va chạm hình tròn:
+
+- Radius: bán kính collider, tính theo đơn vị world sau khi tính scale.
+- Offset: dịch tâm collider so với local origin của GameObject.
+- Is Trigger:
+  + Tắt: vật thể có va chạm vật lý, có thể ngăn/cản hoặc đẩy nhau.
+  + Bật: chỉ thông báo overlap, không tạo phản lực và không chặn vật thể.
+- Material: có thể gán PhysicsMaterial2D để điều chỉnh ma sát và độ nảy.
+
+Các collider khác trong project:
+- BoxCollider2D: hitbox hình chữ nhật, đang dùng trên một số quái và giới hạn vùng chơi.
+- CircleCollider2D: đang dùng trên Player, sao, orb, asteroid và sóng âm.
+
+Cấu hình và hành vi:
+- CircleCollider2D Player trong scene có isTrigger=false, offset serialized (-0.4, 0), radius khoảng 0.408; kết hợp tag Obstacles để xử lý va chạm gây sát thương.
+- Prefab sao có CircleCollider2D trigger, radius serialized 0.65.
+- PowerUpOrb đảm bảo có CircleCollider2D và bật isTrigger trong Awake; nếu có SpriteRenderer, script tính offset/radius từ kích thước sprite.
+- PointStar và PowerUpOrb tìm PlayerController trên collider hoặc object cha, đặt cờ collected trước khi cộng điểm/kích hoạt buff để tránh xử lý nhiều lần.
+- OnCollisionEnter2D phù hợp khi cần va chạm thật; OnTriggerEnter2D phù hợp nhặt vật phẩm và xử lý đạn khi không muốn vật thể bị chặn.
+
+4. TẠO CẢM GIÁC TÀU BAY TRONG KHÔNG GIAN / PARALLAX
+----------------------------------------------------
+
+Parallax là chuyển động các lớp hình nền với tốc độ khác nhau để tạo cảm giác chiều sâu.
+
+Level 1 / nền lặp:
+- ParallaxBackground.cs lấy chiều rộng sprite, di chuyển theo trục X bằng moveSpeed * Time.deltaTime.
+- Khi vượt qua một chiều rộng ảnh, object được đưa lùi/tiến đúng một chiều rộng để lặp vòng.
+- Cách này chỉ phù hợp với ảnh có mép trái/phải nối tiếp được; ảnh không liền mạch sẽ lộ đường ghép khi wrap.
+
+Level 2:
+- Khi đạt mốc điểm, GameManager tắt root nền Level 1 và tạo StageTwoParallax.
+- Nền BG_LV2_Space được scale vừa khung Camera orthographic, có thêm biên độ dịch chuyển nhẹ để tạo chiều sâu.
+- Hai sprite trạm trái/phải được tạo thành layer riêng. Chúng trôi sang trái với hệ số lần lượt 0.15 và 0.3 nhân worldSpeed; khi ra khỏi khung hình thì đưa lại bên phải.
+- Các SpriteRenderer được sắp xếp bằng Sorting Layer Background và sortingOrder.
+- Sprite trạm, nền và font banner Level 2 được gán cho GameManager qua Inspector của Level1.
+- Camera orthographic hiển thị một khung thế giới 2D không có hiệu ứng phối cảnh theo chiều sâu.
+
+Khi thêm nền mới:
+1. Kiểm tra ảnh có trong suốt/seamless hay không.
+2. Chọn Sorting Layer và sortingOrder để nền nằm sau Player, quái, đạn và UI.
+3. Chỉnh Pixels Per Unit, scale và vị trí để ảnh vừa khung camera.
+4. Play test ở nhiều tỉ lệ khung hình để chắc không lộ viền đen.
+
+5. PLAYER, ĐIỀU KHIỂN, HƯỚNG SÚNG VÀ BẮN ĐẠN
+--------------------------------------------
+
+Điều khiển Player trong PlayerController:
+- WASD / phím mũi tên đọc qua Input.GetAxisRaw("Horizontal"/"Vertical").
+- Chuột phải bật/tắt tăng tốc; năng lượng giảm khi tăng tốc và hồi phục khi không tăng tốc.
+- Chuột trái gọi PhaserWeapon để bắn.
+- Hướng di chuyển được normalized; animation nhận moveX, moveY và Boosting.
+- Tốc độ mặc định moveSpeed=8; boostMultiplier=1.5; năng lượng tiêu thụ mặc định 10 đơn vị/giây; hồi phục mặc định 10 đơn vị/giây.
+
+Hướng súng trong GunAimController:
+- Lấy vị trí chuột trên màn hình, dùng Camera.ScreenPointToRay chiếu tia vào mặt phẳng XY tại Z của súng.
+- Dùng Atan2 để đổi vector hướng thành góc và xoay transform quanh trục Z.
+- angleOffset hiệu chỉnh hướng gốc theo cách sprite/súng được vẽ.
+- instantRotation=true thì xoay tức thì; nếu tắt, MoveTowardsAngle giới hạn tốc độ xoay theo rotationSpeed (mặc định 720 độ/giây).
+- Cần gán đúng Camera và đặt script lên object súng/aim pivot; FirePoint phải nằm ở đầu nòng.
+
+Bắn đạn trong PhaserWeapon và PhaserBullet:
+- PhaserWeapon dùng bulletPrefab và firePoint được gán trong Inspector; nếu không có FirePoint thì dùng transform của weapon.
+- Khi bấm bắn, script Instantiate đạn tại FirePoint, tính hướng từ trục right của FirePoint và gọi Initialize trước khi bật GameObject.
+- ShootSpread tạo nhiều viên đạn trái/phải theo spreadAngle; buff NovaSpread đang cấu hình 3 viên, tổng góc 30 độ.
+- Đạn nhận vận tốc Rigidbody2D theo hướng, có trigger collider; chạm Asteroid, Whale hoặc WhaleMini thì gây sát thương rồi tự hủy.
+- Đạn tự hủy khi ra ngoài khung camera.
+- Laser HyperionBeam không bắn projectile: script raycast theo hướng FirePoint, gây sát thương mỗi 0.5 giây, tối đa tầm 16 world units theo cấu hình mặc định.
+
+6. ORB / BUFF VÀ HIỂN THỊ HIỆU ỨNG
+----------------------------------
+
+PowerUpOrb là component trên prefab orb:
+- powerUpType quyết định hiệu ứng.
+- Khi Player chạm trigger, orb gọi Player.ActivatePowerUp, cộng điểm qua GameManager, phát âm thanh và Destroy orb.
+- ObjectSpawn chọn ngẫu nhiên các prefab orb có PowerUpOrb và PowerUpType hợp lệ; tránh spawn lặp cùng loại trong cùng đợt.
+
+Buff được định nghĩa trong PlayerBuffManager. Giá trị mặc định trong script:
+- WarpDrive: 8 giây, tốc độ nhân 2; hiệu ứng động cơ bị ẩn khi đang boost chuột phải.
+- Energy: hồi 25 năng lượng và tạo xung bán kính 2.5, gây 1 sát thương.
+- Heal: hồi 2 máu.
+- Shield: bỏ qua sát thương khi buff đang hoạt động; thời lượng cần được cấu hình > 0 trong Inspector.
+- NovaSpread: bắn 3 viên, tổng góc 30 độ.
+- QuantumScore: 8 giây, điểm nhân 2.
+- HyperionBeam: 8 giây, gây 1 sát thương mỗi 0.5 giây, tầm 16.
+- Slow, ViperHoming và Wipe có tên trong enum/danh sách cài đặt; cần kiểm tra cấu hình prefab và logic hiện tại trước khi giới thiệu là tính năng hoạt động đầy đủ.
+
+Hiển thị buff:
+- PlayerBuffManager tạo Canvas Screen Space Overlay lúc chạy nếu các buff có icon.
+- Icon và lớp Image Filled/Radial360 giảm dần theo thời gian còn lại.
+- VisualEffect có thể là prefab được Instantiate làm con Player hoặc object có sẵn là con của Player.
+- Cần gán icon, visualEffect và đúng loại prefab trong Inspector; Console cảnh báo nếu thiếu cấu hình.
+
+7. HIỆU ỨNG HÌNH ẢNH VÀ UI
+---------------------------
+
+- ParticleSystem engineEffect được Play/Stop theo buff WarpDrive; có thể dùng cho vệt động cơ.
+- Hiệu ứng chết được Instantiate từ destroyEffectPrefab trước khi chuyển scene GameOver.
+- Player nhấp nháy màu khi trúng sóng âm; knockback được cộng vào velocity trong FixedUpdate.
+- Buff có thể bật/tắt visualEffect; HyperionBeam căn chỉnh visual theo laserRange.
+- UIController nhận dữ liệu từ PlayerController/GameManager và cập nhật Slider, TMP text điểm, máu và năng lượng.
+- GameOver lưu LastRunScore trước khi LoadScene.
+- Khi điểm đạt ngưỡng 50, GameManager tạm dừng spawn, chuyển nền, hiện banner LEVEL UP / LEVEL 2 trong 2.5 giây, sau đó bật rush 15 giây.
+
+8. LẮP VÀ GỌI ÂM THANH
+-----------------------
+
+AudioManager là điểm truy cập âm thanh chung qua AudioManager.Instance:
+- Các AudioSource (ví dụ shoot, pause, resume, hit, fire) và AudioClip hiệu ứng được gán trong Inspector.
+- PlaySound gọi AudioSource.Play cho AudioSource có clip gán sẵn.
+- PlayOneShot dùng cho AudioClip hiệu ứng ngắn; cho phép nhiều hiệu ứng chồng nhau trên AudioSource dùng chung.
+- Pickup sao gọi PlayPointPickup; pickup orb gọi PlayPowerUpPickup.
+- Bắn súng gọi âm thanh shoot; Shield và HyperionBeam gọi âm thanh kích hoạt từ PlayerBuffManager.
+- Va chạm/phá hủy quái và asteroid có các hàm âm thanh trong AudioManager; cần gán đúng clip để nghe được.
+
+Quy trình gán âm thanh trong Unity:
+1. Import file audio vào Assets; kiểm tra AudioClip được import thành công.
+2. Chọn GameObject AudioManager trong scene.
+3. Gán AudioSource vào field AudioSource (ví dụ shoot); gán AudioClip vào field Clip tương ứng.
+4. Kiểm tra Mute, Volume, Pitch, Spatial Blend. UI/game 2D thường để Spatial Blend=0 (2D).
+5. Với hiệu ứng ngắn, dùng PlayOneShot và không bật Loop; với nhạc nền, dùng AudioSource riêng và bật Loop nếu cần.
+6. Play test và xem Console nếu clip hoặc AudioSource chưa được gán.
+
+Lưu ý hiện trạng code: PlayOneShot đang dùng AudioSource field shoot làm AudioSource hiệu ứng dùng chung. Ngoài ra PhaserWeapon gọi PlayModifiedSound(shoot), sau đó PlayerController còn gọi AudioManager.Block() khi bắn thành công; nếu nghe hai âm thanh khi bắn, kiểm tra hai field shoot và hit trong Inspector.
+
+9. SPAWN VÀ ĐỘ KHÓ - CÁC GIÁ TRỊ LEVEL1
+----------------------------------------
+
+Theo Level1.unity và ObjectSpawn:
+- Wave quái: các Wave có spawnInterval đang serialize 4, 6 và 8 giây; các wave khác trong scene có thể có cấu hình riêng. Mỗi wave có số lượng objectPerWave.
+- Độ khó tăng trong 120 giây: interval asteroid có thể giảm tới 0.65 giây; interval Whale tới 3.5 giây. Wave asteroid tăng tối đa 2 mục tiêu sau mỗi mốc 60 giây.
+- Sao: giới hạn tối đa 4 sao đang sống; interval được giảm dần tối đa 2 giây theo ramp, nhưng không thấp hơn 3 giây theo logic script; prefab sao có timer/lifetime riêng.
+- Orb: chu kỳ cơ bản 15 giây, đợt đầu 2 orb, mỗi đợt tăng 1, giới hạn 3 orb đang sống, lifetime 10 giây. Các loại orb khả dụng được chọn ngẫu nhiên.
+- WhaleMini: chu kỳ cơ bản 10 giây, bắt đầu 1, tăng 1 qua đợt spawn tối đa 3 mỗi đợt; giới hạn tối đa 6 WhaleMini đang sống.
+- Level 2: spawn interval quái/asteroid nhân 0.8. Trong rush, interval quái nhân tiếp 0.5 và interval orb nhân 0.5; rush kéo dài 15 giây.
+- Level 2 tăng máu quái/asteroid và sát thương theo hệ số 1.5.
+
+Khi nói về cân bằng: các giới hạn số lượng đang sống, interval spawn, thời gian sống của vật phẩm và hệ số rush là những nút điều chỉnh chính. Cần Play test để đảm bảo nhiều vật thể không che Player và người chơi vẫn có thời gian phản ứng.
+
+10. GỢI Ý KỊCH BẢN DEMO VÀ CÂU HỎI CÓ THỂ ĐƯỢC HỎI
+---------------------------------------------------
+
+Mở đầu có thể trình bày:
+"Game dùng Unity 2D. Player được điều khiển bằng WASD/mũi tên, di chuyển bằng Rigidbody2D trong FixedUpdate. Collider xử lý va chạm với quái; trigger dùng cho việc nhặt sao/orb và xử lý đạn. Game có nền parallax, weapon aim theo chuột, power-up có thời hạn, HUD và âm thanh dùng chung AudioManager."
+
+Câu hỏi - trả lời ngắn:
+- Vì sao dùng Rigidbody2D cho Player? Để Unity quản lý chuyển động và va chạm 2D; code đặt velocity trong FixedUpdate.
+- Khác nhau giữa Collider và Trigger? Collider thường tạo tương tác vật lý; trigger chỉ thông báo overlap, không chặn vật thể.
+- Tại sao Gravity Scale = 0? Game top-down không muốn Player rơi do trọng lực.
+- Tại sao normalize hướng đi? Để đi chéo không nhanh hơn đi ngang/dọc.
+- Parallax là gì? Các lớp nền di chuyển khác tốc độ, tạo cảm giác chiều sâu và di chuyển.
+- Time.deltaTime dùng để làm gì? Chuyển chuyển động theo giây thay vì theo số frame; FixedUpdate dùng Time.fixedDeltaTime cho tính toán vật lý.
+- Singleton AudioManager/GameManager có tác dụng gì? Cho phép các script truy cập dịch vụ quản lý dùng chung trong scene; cần tránh tạo nhiều instance.
+- Inspector dùng để làm gì? Gán prefab, sprite, AudioClip, font, Camera, FirePoint và tinh chỉnh tham số mà không sửa code.
+- Sorting Layer/Order là gì? Điều khiển thứ tự vẽ sprite 2D; Order cao hơn được vẽ trên cùng layer.
+- Coroutine trong chuyển Level 2 làm gì? Thực hiện các bước chuyển tiếp và chờ banner trong một khoảng thời gian trước khi bật rush spawn.
+
+Khi demo nên mở Console và Inspector sẵn:
+1. Chọn Player: Rigidbody2D, CircleCollider2D, PlayerController và các tham số.
+2. Chọn prefab sao/orb: Collider isTrigger, script pickup và AudioClip.
+3. Chọn PhaserWeapon: bulletPrefab, FirePoint, speed, damage; chọn aim pivot để chỉ cách xoay.
+4. Chọn GameManager/ObjectSpawn: mốc điểm 50, thời gian transition 2.5 giây, rush 15 giây và các giới hạn spawn.
+5. Đạt điểm tới mốc chuyển Level 2 để cho thấy banner, nền mới và đợt rush.
+
+GHI CHÚ VỀ TÀI LIỆU LAB
+------------------------
+
+Trong workspace hiện tại không tìm thấy file .docx để đối chiếu trực tiếp. Dựa trên các yêu cầu Lab đã được trao đổi trước đây, những nội dung chính cần trình bày/kiểm tra là:
+
+- Điều khiển Player, bắn laser, xử lý asteroid, nhặt sao, tính điểm và chuyển scene: project có các luồng tương ứng.
+- Menu Play và GameOver có trong project; GameOver hiển thị điểm cuối.
+- Nút Instructions từng được ghi nhận là chưa thấy trong scene. Nếu rubric yêu cầu nút này, cần kiểm tra lại scene và bổ sung trước khi demo.
+- Chuyển Level 2 hiện là chuyển giai đoạn trong cùng gameplay khi đạt ngưỡng điểm, có banner và đợt rush; đây không phải chuyển sang một scene Level 2 riêng.
+
+Đây là ghi chú theo trạng thái project và nội dung Lab đã trao đổi, không thay thế việc đối chiếu lại nguyên văn rubric nếu giáo viên yêu cầu một tiêu chí cụ thể.

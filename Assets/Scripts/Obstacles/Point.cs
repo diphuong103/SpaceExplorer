@@ -9,21 +9,34 @@ public class PointStar : MonoBehaviour
 
     public int PointValue => pointValue;
 
+    private bool collected;
+
     private void Start()
     {
+        // Tự hủy sao sau thời gian hiển thị để vật phẩm không tồn tại vô hạn trong scene.
         Destroy(gameObject, visibleDuration);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (collected)
+        {
+            return;
+        }
+
+        // Collider của Player có thể nằm ở object con, nên tìm controller trên cả parent.
         PlayerController player = other.GetComponentInParent<PlayerController>();
         if (player == null)
         {
             return;
         }
 
+        // Đánh dấu trước khi cộng điểm/phát âm thanh để nhiều collider không xử lý sao này lặp lại.
+        collected = true;
+
         if (GameManager.Instance != null)
         {
+            // GameManager áp dụng hệ số buff và cập nhật HUD tại một nơi duy nhất.
             GameManager.Instance.AddScore(pointValue);
         }
         else
@@ -33,6 +46,7 @@ public class PointStar : MonoBehaviour
 
         if (AudioManager.Instance != null)
         {
+            // Dùng AudioManager chung thay vì gắn AudioSource riêng cho từng prefab sao.
             AudioManager.Instance.PlayPointPickup();
         }
         else

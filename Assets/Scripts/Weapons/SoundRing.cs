@@ -12,6 +12,15 @@ public class SoundRing : MonoBehaviour
     }
 
     private bool hasHitPlayer;
+    private bool hasStageTwoDamageMultiplier;
+
+    private void Awake()
+    {
+        if (GameManager.Instance != null && GameManager.Instance.IsStageTwoActive)
+        {
+            ApplyStageTwoDamageMultiplier(GameManager.Instance.StageTwoEnemyDamageMultiplier);
+        }
+    }
 
     private void Update()
     {
@@ -48,5 +57,16 @@ public class SoundRing : MonoBehaviour
         hasHitPlayer = true;
         player.ApplySoundWaveHit(Vector2.left, damage);
         return true;
+    }
+
+    public void ApplyStageTwoDamageMultiplier(float multiplier)
+    {
+        if (hasStageTwoDamageMultiplier)
+        {
+            return;
+        }
+
+        damage *= Mathf.Max(1f, multiplier);
+        hasStageTwoDamageMultiplier = true;
     }
 }

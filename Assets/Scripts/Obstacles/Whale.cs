@@ -29,6 +29,7 @@ public class Whale : MonoBehaviour
     private Coroutine sequenceCoroutine;
     private Coroutine hitFlashCoroutine;
     private bool isDead;
+    private bool hasStageTwoHealthMultiplier;
 
     private void Awake()
     {
@@ -65,6 +66,22 @@ public class Whale : MonoBehaviour
 
         gameObject.tag = "Obstacles";
         AutoFindMouthPoint();
+
+        if (GameManager.Instance != null && GameManager.Instance.IsStageTwoActive)
+        {
+            ApplyStageTwoHealthMultiplier(GameManager.Instance.StageTwoEnemyHealthMultiplier);
+        }
+    }
+
+    public void ApplyStageTwoHealthMultiplier(float multiplier)
+    {
+        if (hasStageTwoHealthMultiplier)
+        {
+            return;
+        }
+
+        health = Mathf.CeilToInt(health * Mathf.Max(1f, multiplier));
+        hasStageTwoHealthMultiplier = true;
     }
 
     private void OnValidate()
