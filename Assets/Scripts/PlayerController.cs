@@ -315,6 +315,8 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+
+//Player va chạm chướng ngại vật
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // Tag Obstacles phải được gán cho collider của quái/chướng ngại vật trong prefab Unity.

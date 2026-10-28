@@ -44,6 +44,7 @@ public class PhaserBullet : MonoBehaviour
             || viewportPosition.y > 1f;
     }
 
+// Đạn va chạm quái hoặc tiểu hành tinh
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (hasHit)

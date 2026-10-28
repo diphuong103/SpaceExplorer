@@ -231,3 +231,100 @@ Trong workspace hiện tại không tìm thấy file .docx để đối chiếu 
 - Chuyển Level 2 hiện là chuyển giai đoạn trong cùng gameplay khi đạt ngưỡng điểm, có banner và đợt rush; đây không phải chuyển sang một scene Level 2 riêng.
 
 Đây là ghi chú theo trạng thái project và nội dung Lab đã trao đổi, không thay thế việc đối chiếu lại nguyên văn rubric nếu giáo viên yêu cầu một tiêu chí cụ thể.
+
+11. CẤU HÌNH INSPECTOR THỰC TẾ CỦA CÁC OBJECT CHÍNH
+----------------------------------------------------
+
+Lưu ý: giá trị trong Scene/Prefab có thể ghi đè giá trị khởi tạo trong script. Các thông số dưới đây được đọc từ Level1.unity và prefab hiện có; nếu chỉnh Inspector sau đó, cần kiểm tra lại.
+
+PLAYER (object Player trong Level1.unity):
+- Rigidbody2D: Body Type Dynamic, Simulated bật, Mass 1, Linear Damping 0, Angular Damping 0.05, Gravity Scale 0, Collision Detection Discrete, Interpolate None, Freeze Rotation Z.
+- CircleCollider2D: Is Trigger tắt, Offset (-0.4, 0), Radius khoảng 0.408.
+- PlayerController trong scene đang có moveSpeed=2, boostMultiplier=1.5, maxEnergy=100, energyRegenerationRate=5, health=10, maxHealth=10. Đây là giá trị serialize trong scene và khác default trong script (moveSpeed=8, hồi năng lượng=10); khi chạy, giá trị scene được ưu tiên.
+- Tag Player đang là Untagged trong scene. Va chạm gây sát thương vẫn dựa vào tag Obstacles của vật va chạm; tuy nhiên logic phụ nào kiểm tra tag Player sẽ không nhận diện Player cho tới khi đổi tag trong Inspector.
+
+ASTEROID (Assets/Prefabs/Asteroid.prefab):
+- Tag Obstacles, Layer 8.
+- Rigidbody2D: Dynamic, Simulated bật, Mass 1, Damping 0/0.05, Gravity Scale 0, Collision Detection Discrete, Constraints không khóa.
+- CircleCollider2D: Is Trigger tắt, Radius khoảng 0.849.
+- Script Asteroid: Health 4, Score Reward 1; chọn ngẫu nhiên một sprite từ danh sách khi bắt đầu.
+- Khi bắt đầu, script gán velocity ngẫu nhiên cho Rigidbody2D; sau đó Update còn dịch Transform về trái theo worldSpeed. Khi bị phá, cộng điểm và tạo hiệu ứng; khi va chạm Player thì có xử lý chớp hình.
+
+WHALE (cấu hình thay đổi theo prefab):
+- Whale2 và Whale3 đang có tag Obstacles, Rigidbody2D Kinematic, Collider2D dạng Box không phải Trigger. Cấu hình prefab hiển thị Gravity Scale=1; do Body Type là Kinematic, chuyển động của chúng chủ yếu do script điều khiển, không phải rơi tự do như Dynamic.
+- Whale2/Whale3 có Health 6 và Score Reward 5 theo prefab hiện tại.
+- Whale1 có Health 20, Score Reward 10; trong prefab hiện được kiểm tra chưa có Rigidbody2D hoặc Collider2D. Nếu Whale1 được dùng trong wave, cần kiểm tra collision/trigger trong Play Mode và thêm collider phù hợp nếu cần để Player/đạn phát hiện được.
+- Khi Health về 0, Whale cộng Score Reward qua GameManager, phát hiệu ứng/âm thanh và bị hủy.
+
+ĐẠN (Assets/Prefabs/Weapons/Bullet.prefab):
+- Có SpriteRenderer, CapsuleCollider2D, PhaserBullet và Rigidbody2D.
+- Rigidbody2D: Dynamic, Simulated bật, Mass 1, Damping 0/0.05, Gravity Scale 0, Collision Detection Continuous, Freeze Rotation Z.
+- CapsuleCollider2D có Is Trigger tắt trong dữ liệu prefab, nhưng PhaserBullet.Awake() bật isTrigger=true lúc chạy. Vì vậy kiểm tra trạng thái trong Inspector khi chưa Play có thể thấy tắt; trạng thái runtime mới là trigger.
+- Bullet prefab hiện tag Untagged; va chạm đạn được nhận diện bằng component Asteroid/Whale/WhaleMini trên collider hoặc object cha, không dựa vào tag đạn.
+
+SAO VÀ ORB:
+- StarPoint prefab có CircleCollider2D Is Trigger bật, Radius 0.65; PointStar xử lý nhặt và cộng điểm.
+- PowerUpOrb tự thêm CircleCollider2D nếu thiếu và luôn bật Is Trigger trong Awake; radius/offset được tính từ SpriteRenderer khi có sprite.
+
+12. LUỒNG CODE LOGIC VẬT LÝ, VA CHẠM, ĐIỂM VÀ MÁU
+----------------------------------------------------
+
+Di chuyển Player:
+1. PlayerController.Update() gọi HandleInput() để đọc WASD/phím mũi tên và chuột.
+2. Vector hướng được normalized để tốc độ đi chéo không tăng.
+3. PlayerController.FixedUpdate() gọi HandleMovement(); Rigidbody2D.linearVelocity nhận hướng * tốc độ. Tốc độ tính từ moveSpeed, trạng thái boost và buff.
+4. Năng lượng tăng/giảm cũng được cập nhật theo nhịp FixedUpdate.
+
+Di chuyển asteroid/quái:
+- Asteroid.Start() đặt vận tốc ngẫu nhiên vào Rigidbody2D; Asteroid.Update() đồng thời dịch Transform sang trái theo GameManager.worldSpeed và hủy khi ra ngoài vùng chơi.
+- Whale có các hành vi di chuyển/đứng lại/tấn công do script Whale quản lý; Rigidbody2D Kinematic trong một số prefab giúp tránh bị lực vật lý điều khiển.
+- WhaleMini tự đảm bảo có Rigidbody2D Kinematic và BoxCollider2D không trigger trong Awake, sau đó di chuyển theo logic script.
+- Đây là game arcade nên một số chuyển động được viết trực tiếp bằng Transform, không phải tất cả đều do solver vật lý mô phỏng.
+
+Đạn trúng mục tiêu:
+1. PhaserWeapon tạo đạn tại FirePoint và gọi PhaserBullet.Initialize(speed, damage, direction).
+2. Initialize gán vận tốc cho Rigidbody2D; Awake của đạn bật collider thành trigger.
+3. PhaserBullet.OnTriggerEnter2D tìm Asteroid, Whale hoặc WhaleMini trên collider/object cha.
+4. Gọi TakeDamage(damage), đặt hasHit để chặn xử lý lặp, rồi hủy đạn.
+
+Player va chạm chướng ngại vật:
+1. PlayerController.OnCollisionEnter2D nhận Collision2D.
+2. Code kiểm tra object va chạm có tag Obstacles không.
+3. Nếu đúng, lấy StageTwoEnemyDamageMultiplier từ GameManager (Level 1 là 1, Level 2 mặc định 1.5) rồi gọi TakeDamage.
+4. TakeDamage bỏ qua nếu Player đã chết hoặc Shield đang hoạt động; nếu không thì trừ health, cập nhật UI. HP về 0 thì Die() tạo hiệu ứng và gọi GameManager.GameOver().
+
+Điểm:
+- Nhặt sao: PointStar.OnTriggerEnter2D kiểm tra PlayerController, chặn nhặt lặp bằng collected rồi gọi GameManager.AddScore(pointValue).
+- Nhặt orb: PowerUpOrb.OnTriggerEnter2D kích hoạt buff, gọi GameManager.AddScore(scoreOnPickup), phát âm thanh và hủy orb.
+- Phá asteroid/quái: hàm TakeDamage của mục tiêu khi HP <= 0 gọi GameManager.AddScore(scoreReward).
+- GameManager.AddScore kiểm tra amount > 0, áp dụng ScoreMultiplier từ buff QuantumScore, cập nhật HUD qua UIController. Đạt stageTwoScoreThreshold thì bắt đầu chuyển giai đoạn.
+- UIController chỉ hiển thị điểm/máu/năng lượng; GameManager và PlayerController mới là nơi giữ và thay đổi dữ liệu gameplay tương ứng.
+
+13. CÁC SCRIPT QUẢN LÝ LOGIC CƠ BẢN
+------------------------------------
+
+- GameManager: singleton của gameplay scene; giữ điểm, ngưỡng vào Level 2, trạng thái game, chuyển nền/giai đoạn, áp dụng hệ số khó và xử lý GameOver.
+- PlayerController: đọc input, di chuyển Player, boost/năng lượng, nhận sát thương, bắn và cập nhật trạng thái Player.
+- ObjectSpawn: điều khiển spawn sao, orb, WhaleMini và các wave quái; giới hạn số lượng, tăng độ khó và chạy rush Level 2.
+- PhaserWeapon: tạo projectile tại FirePoint, tính hướng bắn, hỗ trợ bắn chùm và laser.
+- PhaserBullet: di chuyển projectile, phát hiện mục tiêu, gây sát thương, tự hủy khi trúng hoặc ra khỏi camera.
+- Asteroid / Whale / WhaleMini: giữ HP, nhận sát thương, cộng điểm khi bị hạ, tạo hiệu ứng và điều khiển hành vi riêng.
+- PointStar / PowerUpOrb: xử lý trigger nhặt vật phẩm, cộng điểm và kích hoạt hiệu ứng tương ứng.
+- PlayerBuffManager: giữ trạng thái/thời gian buff, thực hiện hiệu ứng gameplay, tạo visual/icon và đếm thời gian.
+- UIController: nhận dữ liệu từ gameplay và cập nhật HUD.
+- AudioManager: cung cấp các hàm phát âm thanh dùng chung.
+
+14. CÂU HỎI DEMO CÓ THỂ GẶP VÀ CÂU TRẢ LỜI NGẮN
+-------------------------------------------------
+
+- Object cần gì để tham gia vật lý 2D? Rigidbody2D để tham gia mô phỏng và Collider2D để có hình dạng va chạm; Trigger dùng khi chỉ cần phát hiện overlap.
+- Player va chạm quái bằng callback nào? OnCollisionEnter2D vì collider Player và collider quái không phải Trigger.
+- Đạn và sao dùng callback nào? OnTriggerEnter2D; code xử lý mục tiêu hoặc nhặt vật phẩm mà không cần lực đẩy vật lý.
+- Điểm được lưu ở đâu? GameManager giữ currentScore; AddScore là hàm cộng tập trung và UIController chỉ cập nhật phần hiển thị.
+- HP bị trừ khi nào? Player va chạm object tag Obstacles hoặc bị logic đòn đánh gọi TakeDamage; Shield có thể chặn sát thương.
+- Tại sao phải có Rigidbody2D nếu chủ yếu dùng trigger? Unity cần ít nhất một Rigidbody2D trong cặp collider để phát callback trigger; Player có Rigidbody2D.
+- Tại sao asteroid vừa có velocity vừa dịch Transform? Đây là cách triển khai hiện tại: velocity tạo chuyển động ngẫu nhiên, còn Update thêm chuyển động cuộn trái theo worldSpeed. Có thể giải thích là logic arcade, không phải chuyển động thuần vật lý.
+- Vì sao giá trị Inspector khác giá trị trong code? Unity serialize giá trị của component trong scene/prefab; giá trị đã lưu ở Inspector sẽ ghi đè giá trị khởi tạo trong script.
+- Vì sao cần kiểm tra tag/layer? Code có thể dựa vào tag để chọn xử lý; Layer Collision Matrix quyết định các layer có được phép va chạm hay không.
+
+Trước demo nên mở đúng scene/prefab và kiểm tra lại giá trị Inspector, vì scene/prefab có thể đã được chỉnh sửa sau khi tài liệu này được cập nhật.
