@@ -22,6 +22,7 @@ public class StageTwoParallax : MonoBehaviour
     private float leftStationHalfWidth;
     private float rightStationHalfWidth;
 
+    // Tạo các lớp nền Level 2 và trả về false nếu thiếu camera hoặc sprite hợp lệ.
     public bool Initialize(
         Camera targetCamera,
         Sprite backgroundSprite,
@@ -70,6 +71,7 @@ public class StageTwoParallax : MonoBehaviour
         return true;
     }
 
+    // Cập nhật dao động nền và chuyển động tuần hoàn của hai trạm không gian.
     private void Update()
     {
         if (stageCamera == null)
@@ -89,6 +91,7 @@ public class StageTwoParallax : MonoBehaviour
         MoveStation(rightStationTransform, rightStationHalfWidth, rightStationSpeedMultiplier);
     }
 
+    // Tạo một lớp SpriteRenderer con với sorting order được chỉ định.
     private Transform CreateSpriteLayer(string layerName, Sprite sprite, int sortingOrder)
     {
         GameObject layerObject = new GameObject(layerName);
@@ -101,6 +104,7 @@ public class StageTwoParallax : MonoBehaviour
         return layerObject.transform;
     }
 
+    // Tạo lớp trạm, áp dụng tỷ lệ nền và trả về nửa chiều rộng của trạm.
     private Transform CreateStationLayer(
         string layerName,
         Sprite sprite,
@@ -116,6 +120,7 @@ public class StageTwoParallax : MonoBehaviour
         return stationTransform;
     }
 
+    // Phóng nền đủ phủ toàn bộ khung nhìn, có dư để tránh lộ viền.
     private void FitBackground(Transform target)
     {
         target.localScale = new Vector3(
@@ -124,6 +129,7 @@ public class StageTwoParallax : MonoBehaviour
             1f);
     }
 
+    // Đặt hai trạm tại hai mép trái/phải của khung nhìn camera.
     private void PositionStationsAtViewportEdges()
     {
         float cameraX = stageCamera.transform.position.x;
@@ -140,6 +146,7 @@ public class StageTwoParallax : MonoBehaviour
             0f);
     }
 
+    // Di chuyển trạm sang trái và đưa nó về ngoài mép phải khi đi khỏi màn hình.
     private void MoveStation(Transform station, float halfWidth, float speedMultiplier)
     {
         float cameraX = stageCamera.transform.position.x;

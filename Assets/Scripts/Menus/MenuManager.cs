@@ -6,6 +6,7 @@ public class MenuManager : MonoBehaviour
 {
     [SerializeField] private TMP_Text gameOverScoreText;
 
+    // Hiển thị điểm của lượt chơi vừa kết thúc trong scene Game Over.
     private void Start()
     {
         if (SceneManager.GetActiveScene().name != "GameOver")
@@ -32,6 +33,7 @@ public class MenuManager : MonoBehaviour
         gameOverScoreText.text = GameManager.LastRunScore.ToString();
     }
 
+    // Khôi phục thời gian và tải scene gameplay khi người chơi bắt đầu lượt mới.
     public void NewGame()
     {
         // Nút Play gọi hàm này qua Button.OnClick trong Inspector để mở scene gameplay.
@@ -39,6 +41,7 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene("Level1");
     }
 
+    // Yêu cầu Unity đóng ứng dụng khi chạy bản build.
     public void QuitGame()
     {
         // Application.Quit chỉ đóng ứng dụng ở bản build; trong Unity Editor lệnh này không đóng Editor.

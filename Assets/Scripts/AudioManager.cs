@@ -25,6 +25,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip enemyHitClip;
     [SerializeField] private AudioClip enemyDestroyedClip;
 
+    // Khởi tạo singleton âm thanh và loại bỏ bản sao thừa trong scene.
     private void Awake()
     {
         if (Instance == null)
@@ -38,6 +39,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    // Phát AudioSource được truyền vào nếu tham chiếu đã được gán.
     public void PlaySound(AudioSource audioSource)
     {
         if (audioSource == null)
@@ -49,6 +51,7 @@ public class AudioManager : MonoBehaviour
         audioSource.Play();
     }
 
+    // Đặt cao độ rồi phát AudioSource được truyền vào.
     public void PlayModifiedSound(AudioSource audioSource, float pitch)
     {
         if (audioSource == null)
@@ -61,46 +64,55 @@ public class AudioManager : MonoBehaviour
         audioSource.Play();
     }
 
+    // Phát hiệu ứng âm thanh khi người chơi nhặt sao.
     public void PlayPointPickup()
     {
         PlayOneShot(pointPickupClip);
     }
 
+    // Phát hiệu ứng âm thanh khi người chơi nhặt power-up.
     public void PlayPowerUpPickup()
     {
         PlayOneShot(powerUpPickupClip);
     }
 
+    // Phát hiệu ứng âm thanh khi kích hoạt laser.
     public void PlayLaserActivation()
     {
         PlayOneShot(laserActivationClip);
     }
 
+    // Phát hiệu ứng âm thanh khi kích hoạt khiên.
     public void PlayShieldActivation()
     {
         PlayOneShot(shieldActivationClip);
     }
 
+    // Phát hiệu ứng âm thanh khi kẻ địch bị trúng đòn.
     public void PlayEnemyHit()
     {
         PlayOneShot(enemyHitClip);
     }
 
+    // Phát hiệu ứng âm thanh khi kẻ địch bị tiêu diệt.
     public void PlayEnemyDestroyed()
     {
         PlayOneShot(enemyDestroyedClip);
     }
 
+    // Phát hiệu ứng âm thanh khi thiên thạch bị trúng đòn.
     public void PlayAsteroidHit()
     {
         PlayOneShot(enemyHitClip);
     }
 
+    // Phát hiệu ứng âm thanh khi thiên thạch bị phá hủy.
     public void PlayAsteroidDestroyed()
     {
         PlayOneShot(enemyDestroyedClip);
     }
 
+    // Phát một clip trên AudioSource hiệu ứng dùng chung.
     private void PlayOneShot(AudioClip clip)
     {
         if (clip == null)
@@ -119,11 +131,13 @@ public class AudioManager : MonoBehaviour
         shoot.PlayOneShot(clip);
     }
 
+    // Phát âm thanh hiệu ứng lửa đã gán trong Inspector.
     public void Fire()
     {
         PlaySound(fire);
     }
 
+    // Phát âm thanh va chạm/đòn bắn đã gán trong Inspector.
     public void Block()
     {
         PlaySound(hit);

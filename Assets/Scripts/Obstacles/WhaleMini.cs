@@ -29,6 +29,7 @@ public class WhaleMini : MonoBehaviour
     private float waveHitTimer;
     private bool hasStageTwoMultipliers;
 
+    // Khởi tạo vật lý, collider và áp dụng chỉ số Stage 2 nếu cần.
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -71,6 +72,7 @@ public class WhaleMini : MonoBehaviour
         }
     }
 
+    // Tăng máu và sát thương sóng theo cấu hình Stage 2 tối đa một lần.
     public void ApplyStageTwoMultipliers(float healthMultiplier, float damageMultiplier)
     {
         if (hasStageTwoMultipliers)
@@ -83,6 +85,7 @@ public class WhaleMini : MonoBehaviour
         hasStageTwoMultipliers = true;
     }
 
+    // Trừ máu và xử lý điểm thưởng/hiệu ứng khi whale nhỏ bị tiêu diệt.
     public void TakeDamage(int damage)
     {
         if (isDead || damage <= 0)
@@ -123,6 +126,7 @@ public class WhaleMini : MonoBehaviour
         }
     }
 
+    // Khởi chạy hiệu ứng chớp màu khi whale nhỏ bị trúng đòn.
     private void FlashOnHit()
     {
         if (spriteRenderer == null || colorMaterial == null || hitFlashDuration <= 0f)
@@ -138,6 +142,7 @@ public class WhaleMini : MonoBehaviour
         hitFlashCoroutine = StartCoroutine(ResetMaterialRoutine());
     }
 
+    // Khôi phục material gốc sau khoảng thời gian hiệu ứng trúng đòn.
     private IEnumerator ResetMaterialRoutine()
     {
         spriteRenderer.material = colorMaterial;
@@ -151,6 +156,7 @@ public class WhaleMini : MonoBehaviour
         hitFlashCoroutine = null;
     }
 
+    // Cập nhật bộ đếm và kiểm tra sóng của whale nhỏ có trúng Player không.
     private void Update()
     {
         if (isDead)
@@ -162,6 +168,7 @@ public class WhaleMini : MonoBehaviour
         TryHitPlayerWithWave();
     }
 
+    // Di chuyển whale nhỏ theo vật lý và hủy nó khi ra khỏi màn hình.
     private void FixedUpdate()
     {
         if (isDead)
@@ -181,6 +188,7 @@ public class WhaleMini : MonoBehaviour
         }
     }
 
+    // Tìm Player trong vùng sóng và gây sát thương theo chu kỳ cấu hình.
     private void TryHitPlayerWithWave()
     {
         if (waveHitTimer > 0f)
@@ -205,6 +213,7 @@ public class WhaleMini : MonoBehaviour
         }
     }
 
+    // Vẽ phạm vi sóng trong Scene view khi whale nhỏ được chọn.
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.cyan;

@@ -102,6 +102,7 @@ public class PlayerBuffManager : MonoBehaviour
         ? Mathf.Max(1, GetBuffSetting(PowerUpType.QuantumScore)?.scoreMultiplier ?? 2)
         : 1;
 
+    // Tìm Player, chuẩn bị trạng thái buff, hiệu ứng và HUD trước khi chơi.
     private void Awake()
     {
         // Hỗ trợ đặt component này trực tiếp trên Player hoặc trên object con của prefab.
@@ -158,6 +159,7 @@ public class PlayerBuffManager : MonoBehaviour
         CreateBuffCanvas();
     }
 
+    // Giảm thời lượng buff và cập nhật hiệu ứng, tấn công, chỉ báo mỗi khung hình.
     private void Update()
     {
         for (int i = 0; i < buffs.Length; i++)
@@ -173,6 +175,7 @@ public class PlayerBuffManager : MonoBehaviour
         }
     }
 
+    // Kích hoạt hiệu ứng tức thời hoặc buff có thời hạn theo loại power-up.
     public void Activate(PowerUpType type)
     {
         if (type == PowerUpType.None)
@@ -225,6 +228,7 @@ public class PlayerBuffManager : MonoBehaviour
         }
     }
 
+    // Gây sát thương một lần cho mỗi mục tiêu trong vùng xung năng lượng.
     private void DamageNearbyTargetsWithEnergyPulse(BuffSetting buff)
     {
         float radius = buff.energyPulseRadius > 0f ? buff.energyPulseRadius : 2.5f;
@@ -257,12 +261,14 @@ public class PlayerBuffManager : MonoBehaviour
         }
     }
 
+    // Kiểm tra buff loại được hỏi có thời lượng còn lại lớn hơn không.
     public bool IsActive(PowerUpType type)
     {
         int index = FindBuffIndex(type);
         return index >= 0 && remainingDurations[index] > 0f;
     }
 
+    // Tìm vị trí cấu hình buff theo loại, hoặc trả về -1 nếu không có.
     private int FindBuffIndex(PowerUpType type)
     {
         for (int i = 0; i < buffs.Length; i++)
@@ -276,12 +282,14 @@ public class PlayerBuffManager : MonoBehaviour
         return -1;
     }
 
+    // Lấy cấu hình buff theo loại, hoặc null nếu chưa được cấu hình.
     private BuffSetting GetBuffSetting(PowerUpType type)
     {
         int index = FindBuffIndex(type);
         return index >= 0 ? buffs[index] : null;
     }
 
+    // Thực hiện sát thương laser định kỳ khi buff Hyperion Beam hoạt động.
     private void UpdateAttack(int index)
     {
         if (remainingDurations[index] <= 0f || buffs[index].type != PowerUpType.HyperionBeam)
@@ -313,6 +321,7 @@ public class PlayerBuffManager : MonoBehaviour
         PhaserWeapon.Instance.DamageTargetsWithLaser(direction, buff.laserRange, buff.laserDamage);
     }
 
+    // Tạo, cấu hình và bật/tắt hiệu ứng hình ảnh tương ứng với trạng thái buff.
     private void UpdateVisual(int index)
     {
         BuffSetting buff = buffs[index];
@@ -357,6 +366,7 @@ public class PlayerBuffManager : MonoBehaviour
         }
     }
 
+    // Xác định loại buff nào cần được gán hiệu ứng hình ảnh trong Inspector.
     private static bool RequiresAssignedVisualEffect(PowerUpType type)
     {
         return type != PowerUpType.WarpDrive
@@ -364,6 +374,7 @@ public class PlayerBuffManager : MonoBehaviour
             && type != PowerUpType.QuantumScore;
     }
 
+    // Tạo Canvas và các icon đếm thời lượng cho những buff có icon được gán.
     private void CreateBuffCanvas()
     {
         int iconCount = 0;
@@ -449,6 +460,7 @@ public class PlayerBuffManager : MonoBehaviour
         }
     }
 
+    // Đồng bộ trạng thái icon, vòng đếm ngược và vị trí HUD của buff.
     private void UpdateBuffIndicator(int index)
     {
         BuffIndicator indicator = buffIndicators[index];

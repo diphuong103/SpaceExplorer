@@ -8,6 +8,7 @@ public class PhaserBullet : MonoBehaviour
     private Camera mainCamera;
     private Rigidbody2D body;
 
+    // Lưu camera/vật lý của viên đạn và cấu hình collider thành trigger.
     private void Awake()
     {
         mainCamera = Camera.main;
@@ -21,6 +22,7 @@ public class PhaserBullet : MonoBehaviour
         }
     }
 
+    // Hủy viên đạn khi nó đi ra ngoài khung nhìn camera.
     private void Update()
     {
         if (mainCamera == null)
@@ -34,6 +36,7 @@ public class PhaserBullet : MonoBehaviour
         }
     }
 
+    // Kiểm tra vị trí viên đạn có nằm ngoài viewport camera hay không.
     private bool IsOutsideCamera()
     {
         Vector3 viewportPosition = mainCamera.WorldToViewportPoint(transform.position);
@@ -44,7 +47,7 @@ public class PhaserBullet : MonoBehaviour
             || viewportPosition.y > 1f;
     }
 
-// Đạn va chạm quái hoặc tiểu hành tinh
+    // Gây sát thương cho mục tiêu đầu tiên bị trúng rồi hủy viên đạn.
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (hasHit)
@@ -80,6 +83,7 @@ public class PhaserBullet : MonoBehaviour
         }
     }
 
+    // Thiết lập sát thương và vận tốc ban đầu cho viên đạn mới tạo.
     public void Initialize(float bulletSpeed, int bulletDamage, Vector2 direction)
     {
         speed = Mathf.Max(0f, bulletSpeed);

@@ -12,6 +12,7 @@ public class PhaserWeapon : MonoBehaviour
 
     public Transform FirePoint => firePoint != null ? firePoint : transform;
 
+    // Đăng ký singleton và chuẩn bị prefab đạn dùng làm mẫu.
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -35,6 +36,7 @@ public class PhaserWeapon : MonoBehaviour
         }
     }
 
+    // Xóa singleton khi weapon đang đăng ký bị hủy.
     private void OnDestroy()
     {
         if (Instance == this)
@@ -43,6 +45,7 @@ public class PhaserWeapon : MonoBehaviour
         }
     }
 
+    // Bắn một viên đạn theo hướng FirePoint và trả về trạng thái thành công.
     public bool Shoot()
     {
         if (bulletPrefab == null)
@@ -56,6 +59,7 @@ public class PhaserWeapon : MonoBehaviour
         return true;
     }
 
+    // Bắn một loạt đạn tỏa đều theo góc và trả về trạng thái thành công.
     public bool ShootSpread(int bulletCount, float spreadAngle)
     {
         if (bulletPrefab == null)
@@ -67,7 +71,7 @@ public class PhaserWeapon : MonoBehaviour
         bulletCount = Mathf.Max(1, bulletCount);
         if (bulletCount == 1)
         {
-            SpawnBullet(GetShotDirection(0f));
+            SpawnBullet(GetShotDirection(0f));  // Nếu chỉ bắn 1 viên, không cần tính spread.
         }
         else
         {
@@ -83,6 +87,7 @@ public class PhaserWeapon : MonoBehaviour
         return true;
     }
 
+    // Tìm các mục tiêu trên đường tia laser và gây sát thương mỗi mục tiêu một lần.
     public void DamageTargetsWithLaser(Vector2 direction, float range, int laserDamage)
     {
         Transform spawnPoint = firePoint != null ? firePoint : transform;
@@ -115,6 +120,7 @@ public class PhaserWeapon : MonoBehaviour
         }
     }
 
+    // Gắn và căn chỉnh hình ảnh laser theo FirePoint cùng tầm bắn cấu hình.
     public void ConfigureLaserVisual(GameObject laserVisual, float range)
     {
         if (laserVisual == null)
@@ -148,6 +154,7 @@ public class PhaserWeapon : MonoBehaviour
             0f);
     }
 
+    // Tạo viên đạn tại FirePoint và khởi tạo hướng, tốc độ, sát thương.
     private void SpawnBullet(Vector2 direction)
     {
         // Tạo bản sao từ prefab tại FirePoint, rồi khởi tạo vận tốc/sát thương trước khi bật object.
@@ -158,12 +165,14 @@ public class PhaserWeapon : MonoBehaviour
         bullet.gameObject.SetActive(true);
     }
 
+    // Tính hướng bắn bằng cách xoay hướng phải của FirePoint theo góc cho trước.
     private Vector2 GetShotDirection(float angle)
     {
         Transform spawnPoint = firePoint != null ? firePoint : transform;
         return Quaternion.Euler(0f, 0f, angle) * spawnPoint.right;
     }
 
+    // Phát âm thanh bắn nếu AudioManager đang có trong scene.
     private void PlayShotSound()
     {
         if (AudioManager.Instance != null)

@@ -6,6 +6,7 @@ public class ParallaxBackground : MonoBehaviour
     private float backgroundImageWidth;
     private Vector3 startPos; // Vị trí ban đầu của object, dùng làm mốc để wrap
 
+    // Lưu vị trí gốc và tính chiều rộng nền để dùng khi lặp ảnh.
     void Start()
     {
         startPos = transform.position;
@@ -15,6 +16,7 @@ public class ParallaxBackground : MonoBehaviour
         backgroundImageWidth = (sprite.texture.width / sprite.pixelsPerUnit) * transform.localScale.x;
     }
 
+    // Cuộn nền theo tốc độ cấu hình và đưa object về vị trí tuần hoàn.
     void Update()
     {
         // Di chuyển theo trục X

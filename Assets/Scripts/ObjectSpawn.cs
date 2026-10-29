@@ -65,6 +65,7 @@ public class ObjectSpawn : MonoBehaviour
     private readonly List<GameObject> activePowerUps = new List<GameObject>();
     private readonly List<GameObject> activeWhaleMinis = new List<GameObject>();
 
+    // Chuẩn hóa số lượng power-up ban đầu và kiểm tra cấu hình prefab.
     private void Start()
     {
         // Chuẩn hóa số orb ban đầu theo giới hạn cấu hình trong Inspector.
@@ -88,6 +89,7 @@ public class ObjectSpawn : MonoBehaviour
         }
     }
 
+    // Cập nhật các bộ đếm spawn, độ khó và tiến trình wave hiện tại.
     void Update()
     {
         if (isStageTransitionPaused)
@@ -136,6 +138,7 @@ public class ObjectSpawn : MonoBehaviour
         }
     }
 
+    // Spawn sao theo lịch, giới hạn số sao và chọn vị trí trong viewport.
     private void UpdatePointStarSpawning()
     {
         if (pointStarSpawns == null || pointStarSpawns.Length == 0)
@@ -189,6 +192,7 @@ public class ObjectSpawn : MonoBehaviour
         }
     }
 
+    // Tính chu kỳ spawn sao sau khi áp dụng tiến trình tăng độ khó.
     private float GetPointStarSpawnInterval(PointStarSpawn starSpawn)
     {
         float baseInterval = Mathf.Max(0.1f, starSpawn.spawnInterval);
@@ -197,6 +201,7 @@ public class ObjectSpawn : MonoBehaviour
         return Mathf.Lerp(baseInterval, minimumInterval, GetDifficultyProgress());
     }
 
+    // Spawn các loại power-up hợp lệ theo chu kỳ và giới hạn số lượng đang tồn tại.
     private void UpdatePowerUpSpawning()
     {
         if (powerUpPrefabs == null || powerUpPrefabs.Length == 0)
@@ -286,6 +291,7 @@ public class ObjectSpawn : MonoBehaviour
         }
     }
 
+    // Chọn vị trí ngẫu nhiên bên trong màn hình có tính đến kích thước prefab.
     private Vector3 RandomScreenPosition(GameObject prefab)
     {
         // Chuyển góc viewport sang tọa độ thế giới tại cùng mặt phẳng Z với spawner.
@@ -319,6 +325,7 @@ public class ObjectSpawn : MonoBehaviour
         return new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), spawnZ);
     }
 
+    // Tạo ngẫu nhiên một prefab hợp lệ của wave tại vị trí spawn trong gameplay.
     private bool SpawnObject(Wave currentWave)
     {
         if (currentWave.prefabs == null || currentWave.prefabs.Length == 0)
@@ -363,6 +370,7 @@ public class ObjectSpawn : MonoBehaviour
         return true;
     }
 
+    // Tính chu kỳ spawn wave sau khi áp dụng độ khó và hệ số các giai đoạn.
     private float GetWaveSpawnInterval(Wave wave)
     {
         float baseInterval = Mathf.Max(0.1f, wave.spawnInterval);
@@ -388,6 +396,7 @@ public class ObjectSpawn : MonoBehaviour
             : Mathf.Max(0.1f, interval);
     }
 
+    // Tính số đối tượng cần spawn để hoàn thành wave hiện tại.
     private int GetWaveObjectTarget(Wave wave)
     {
         int baseCount = Mathf.Max(1, wave.objectPerWave);
@@ -401,16 +410,19 @@ public class ObjectSpawn : MonoBehaviour
         return baseCount + Mathf.Clamp(elapsedDifficultySteps, 0, 2);
     }
 
+    // Xác định wave có chứa ít nhất một prefab Asteroid hay không.
     private static bool IsAsteroidWave(Wave wave)
     {
         return WaveContains<Asteroid>(wave);
     }
 
+    // Xác định wave có chứa Whale hoặc WhaleMini hay không.
     private static bool IsWhaleWave(Wave wave)
     {
         return WaveContains<Whale>(wave) || WaveContains<WhaleMini>(wave);
     }
 
+    // Kiểm tra prefab trong wave có chứa component loại T ở object con hay không.
     private static bool WaveContains<T>(Wave wave) where T : Component
     {
         if (wave.prefabs == null)
@@ -429,6 +441,7 @@ public class ObjectSpawn : MonoBehaviour
         return false;
     }
 
+    // Kiểm tra wave có ít nhất một prefab được gán hay không.
     private static bool HasValidPrefab(Wave wave)
     {
         if (wave.prefabs == null)
@@ -447,16 +460,18 @@ public class ObjectSpawn : MonoBehaviour
         return false;
     }
 
+    // Chuyển sang wave kế tiếp và quay lại đầu danh sách khi cần.
     private void AdvanceWave()
     {
         waveNumber = (waveNumber + 1) % waves.Count;
     }
 
+    // Trả về tiến độ ramp độ khó trong khoảng từ 0 đến 1.
     private float GetDifficultyProgress()
     {
         return Mathf.Clamp01(difficultyElapsedTime / Mathf.Max(1f, difficultyRampDuration));
     }
-
+    // Spawn WhaleMini theo chu kỳ, giới hạn số đang hoạt động và tăng số lượng dần.
     private void UpdateWhaleMiniSpawning()
     {
         if (whaleMiniPrefab == null)
@@ -500,6 +515,7 @@ public class ObjectSpawn : MonoBehaviour
         }
     }
 
+    // Tính số WhaleMini mỗi đợt theo thời gian và giới hạn Inspector.
     private int GetCurrentWhaleMiniSpawnCount()
     {
         int increasePerStep = Mathf.Max(0, whaleMiniSpawnIncrease);
@@ -512,6 +528,7 @@ public class ObjectSpawn : MonoBehaviour
             maximumSpawnCount);
     }
 
+    // Chọn vị trí xuất hiện WhaleMini ngoài mép phải với độ cao ngẫu nhiên.
     private Vector2 RandomWhaleMiniSpawnPoint()
     {
         Vector2 spawnPoint = RandomSpawnPoint();
@@ -522,6 +539,7 @@ public class ObjectSpawn : MonoBehaviour
         return spawnPoint;
     }
 
+    // Chọn vị trí ngẫu nhiên bên trong hình chữ nhật minPos/maxPos.
     private Vector2 RandomSpawnPoint()
     {
         if (minPos == null || maxPos == null) return transform.position;
@@ -534,16 +552,19 @@ public class ObjectSpawn : MonoBehaviour
         return spawnPoint;
     }
 
+    // Tạm dừng hoặc tiếp tục các bộ đếm spawn trong lúc chuyển giai đoạn.
     public void SetStageTransitionPaused(bool paused)
     {
         isStageTransitionPaused = paused;
     }
 
+    // Bắt đầu đợt cao trào Stage 2 trong khoảng thời gian được truyền vào.
     public void BeginStageTwoRush(float duration)
     {
         stageTwoRushRemaining = Mathf.Max(0f, duration);
     }
 
+    // Cho biết thời gian của đợt cao trào Stage 2 còn hiệu lực hay không.
     private bool IsStageTwoRushActive()
     {
         return stageTwoRushRemaining > 0f;

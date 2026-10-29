@@ -11,6 +11,7 @@ public class PowerUpOrb : MonoBehaviour
 
     private bool collected;
 
+    // Đảm bảo orb có trigger và căn chỉnh collider theo kích thước sprite.
     private void Awake()
     {
         // Đảm bảo prefab có trigger để Unity gọi OnTriggerEnter2D khi Player chạm orb.
@@ -31,6 +32,7 @@ public class PowerUpOrb : MonoBehaviour
         }
     }
 
+    // Kích hoạt buff, cộng điểm và xử lý âm thanh khi Player nhặt orb.
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (collected)

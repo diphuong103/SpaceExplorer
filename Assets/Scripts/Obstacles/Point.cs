@@ -11,12 +11,14 @@ public class PointStar : MonoBehaviour
 
     private bool collected;
 
+    // Hủy sao sau thời gian hiển thị đã cấu hình nếu chưa được nhặt.
     private void Start()
     {
         // Tự hủy sao sau thời gian hiển thị để vật phẩm không tồn tại vô hạn trong scene.
         Destroy(gameObject, visibleDuration);
     }
 
+    // Nhận diện Player chạm sao, cộng điểm/phát âm thanh rồi hủy sao.
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (collected)

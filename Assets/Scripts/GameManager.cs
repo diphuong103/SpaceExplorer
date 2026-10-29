@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
     private bool hasEnteredStageTwo;
     private GameObject stageTransitionCanvas;
 
+    // Đăng ký singleton và khởi tạo điểm khi GameManager đầu tiên được tạo.
     private void Awake()
     {
         if (Instance == null)
@@ -47,6 +48,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // Xóa singleton nếu instance hiện tại bị hủy.
     private void OnDestroy()
     {
         if (Instance == this)
@@ -55,6 +57,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // Cộng điểm sau khi áp dụng buff, cập nhật HUD và kiểm tra mốc Stage 2.
     public void AddScore(int amount)
     {
         if (amount <= 0)
@@ -78,6 +81,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // Tạm dừng spawn, chuyển nền sang Stage 2 rồi bắt đầu đợt cao trào.
     private IEnumerator EnterStageTwoRoutine()
     {
         if (stageOneBackgroundRoot == null)
@@ -146,6 +150,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // Áp dụng hệ số máu/sát thương Stage 2 cho các kẻ địch đang tồn tại.
     private void ApplyStageTwoStatsToActiveEnemies()
     {
         // Kẻ địch đã tồn tại lúc chạm mốc cũng nhận cùng hệ số với các đợt spawn mới.
@@ -172,6 +177,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // Tạo Canvas và tiêu đề thông báo chuyển sang Stage 2.
     private void ShowStageTransitionBanner()
     {
         if (stageTransitionFont == null)
@@ -209,6 +215,7 @@ public class GameManager : MonoBehaviour
             new Vector2(0.8f, 0.58f));
     }
 
+    // Tạo nhãn TextMeshPro căn theo vùng anchor đã chỉ định trên Canvas.
     private void CreateStageTransitionLabel(
         string objectName,
         string text,
@@ -243,6 +250,7 @@ public class GameManager : MonoBehaviour
 
     private bool isPaused = false;
 
+    // Theo dõi phím Escape để chuyển đổi giữa trạng thái tạm dừng và tiếp tục.
     void Update()
     {
         // Nhấn nút ESC để Bật/Tắt Pause
@@ -260,6 +268,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // Tạm dừng thời gian, phát âm thanh và hiển thị bảng Pause.
     public void PauseGame()
     {
         isPaused = true;
@@ -277,6 +286,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // Tiếp tục thời gian chơi, phát âm thanh và ẩn bảng Pause.
     public void ResumeGame()
     {
         isPaused = false;
@@ -292,6 +302,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // Khôi phục thời gian rồi tải scene menu chính.
     public void MainMenu()
     {
         isPaused = false;
@@ -300,11 +311,13 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
+    // Yêu cầu Unity đóng ứng dụng khi chạy bản build.
     public void QuitGame()
     {
         Application.Quit(); // Thoát game
     }
 
+    // Lưu điểm cuối lượt, khôi phục thời gian và tải scene Game Over.
     public void GameOver()
     {
         isPaused = false;

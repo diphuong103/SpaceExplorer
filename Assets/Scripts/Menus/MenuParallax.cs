@@ -6,6 +6,7 @@ public class MenuParallax : MonoBehaviour
     private float backgroundImageWidth;
     private Vector3 startPos; // Vị trí ban đầu của object, dùng làm mốc để wrap
 
+    // Lưu vị trí gốc và tính chiều rộng ảnh để lặp nền menu.
     void Start()
     {
         startPos = transform.position;
@@ -14,6 +15,7 @@ public class MenuParallax : MonoBehaviour
         // Lấy chiều rộng thực tế của ảnh, có nhân thêm scale của object
         backgroundImageWidth = (sprite.texture.width / sprite.pixelsPerUnit) * transform.localScale.x;
     }
+    // Cuộn nền menu theo tốc độ cấu hình và lặp lại khi vượt quá ảnh.
     void Update()
     {
         // Di chuyển theo trục X

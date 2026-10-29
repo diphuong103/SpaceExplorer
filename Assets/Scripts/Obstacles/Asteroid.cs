@@ -22,6 +22,7 @@ public class Asteroid : MonoBehaviour
     private bool isDestroyed;
     private bool hasStageTwoHealthMultiplier;
 
+    // Áp dụng chỉ số Stage 2, chọn sprite ngẫu nhiên và tạo vận tốc ban đầu.
     private void Start()
     {
         if (GameManager.Instance != null && GameManager.Instance.IsStageTwoActive)
@@ -53,6 +54,7 @@ public class Asteroid : MonoBehaviour
         }
     }
 
+    // Tăng máu theo hệ số Stage 2 tối đa một lần trên mỗi thiên thạch.
     public void ApplyStageTwoHealthMultiplier(float multiplier)
     {
         if (hasStageTwoHealthMultiplier)
@@ -64,6 +66,7 @@ public class Asteroid : MonoBehaviour
         hasStageTwoHealthMultiplier = true;
     }
 
+    // Cuộn thiên thạch sang trái và hủy khi nó đi khỏi màn hình.
     private void Update()
     {
         // Đọc tốc độ chung từ GameManager để asteroid đồng bộ với nhịp cuộn của màn chơi.
@@ -83,6 +86,7 @@ public class Asteroid : MonoBehaviour
         }
     }
 
+    // Trừ máu, phát hiệu ứng trúng đòn và thưởng điểm khi thiên thạch bị phá hủy.
     public void TakeDamage(int damage)
     {
         if (isDestroyed || damage <= 0) return;
@@ -122,6 +126,7 @@ public class Asteroid : MonoBehaviour
         }
     }
 
+    // Bắt đầu hiệu ứng chớp khi bị trúng đòn nếu renderer và material đã sẵn sàng.
     private void FlashOnHit()
     {
         if (spriteRenderer == null || whiteMaterial == null || hitFlashDuration <= 0f) return;
@@ -133,7 +138,7 @@ public class Asteroid : MonoBehaviour
         hitFlashCoroutine = StartCoroutine(ResetMaterialRoutine());
     }
 
-    // Coroutine đổi Material sang màu trắng rồi khôi phục lại
+    // Đổi material sang màu trắng trong thời gian ngắn rồi khôi phục material gốc.
     private IEnumerator ResetMaterialRoutine()
     {
         spriteRenderer.material = whiteMaterial;
@@ -147,6 +152,7 @@ public class Asteroid : MonoBehaviour
         hitFlashCoroutine = null;
     }
 
+    // Kích hoạt hiệu ứng chớp hình ảnh khi va chạm với Player hoặc đạn.
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // Chỉ hiệu ứng hình ảnh khi chạm Player/đạn; sát thương Player và asteroid được xử lý riêng.

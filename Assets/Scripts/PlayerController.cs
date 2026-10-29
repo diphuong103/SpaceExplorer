@@ -47,6 +47,7 @@ public class PlayerController : MonoBehaviour
     public bool IsBoosting => isBoosting;
     public int ScoreMultiplier => buffManager != null ? buffManager.ScoreMultiplier : 1;
 
+    // Tìm buff manager, lưu renderer và đăng ký Player singleton.
     private void Awake()
     {
         // Buff manager có thể được gắn trực tiếp lên Player hoặc một object con trong prefab.
@@ -92,6 +93,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // Lấy component cần thiết, khởi tạo tài nguyên và cập nhật HUD ban đầu.
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -102,6 +104,7 @@ public class PlayerController : MonoBehaviour
         UpdateUI();
     }
 
+    // Xử lý input và cập nhật hiệu ứng/animation mỗi khung hình.
     private void Update()
     {
         // Đọc input và cập nhật Animator trong Update; xử lý vật lý riêng ở FixedUpdate.
@@ -110,12 +113,14 @@ public class PlayerController : MonoBehaviour
         UpdateAnimation();
     }
 
+    // Cập nhật chuyển động vật lý và năng lượng theo nhịp cố định.
     private void FixedUpdate()
     {
         HandleMovement();
         HandleEnergy();
     }
 
+    // Đọc hướng di chuyển, trạng thái tăng tốc và lệnh bắn từ input.
     private void HandleInput()
     {
         // Horizontal/Vertical lấy cấu hình Input Manager mặc định, tương ứng phím mũi tên hoặc WASD.
@@ -136,6 +141,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // Tính tốc độ gồm buff/boost/knockback và gán vận tốc Rigidbody2D.
     private void HandleMovement()
     {
         float buffMultiplier = buffManager != null ? buffManager.SpeedMultiplier : 1f;
@@ -153,6 +159,7 @@ public class PlayerController : MonoBehaviour
         rb.linearVelocity = playerDirection * currentSpeed + knockbackVelocity;
     }
 
+    // Bật hoặc tắt hiệu ứng động cơ tùy trạng thái Warp Drive và boost.
     private void UpdateWarpDriveEffect()
     {
         bool shouldPlay = buffManager != null
@@ -174,6 +181,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // Chuyển yêu cầu kích hoạt power-up đến PlayerBuffManager.
     public void ActivatePowerUp(PowerUpType type)
     {
         if (buffManager == null)
@@ -185,6 +193,7 @@ public class PlayerController : MonoBehaviour
         buffManager.Activate(type);
     }
 
+    // Hồi năng lượng trong giới hạn tối đa và cập nhật HUD.
     public void RestoreEnergy(float amount)
     {
         if (amount <= 0f || isDead)
@@ -196,6 +205,7 @@ public class PlayerController : MonoBehaviour
         UpdateUI();
     }
 
+    // Hồi máu trong giới hạn tối đa và cập nhật HUD.
     public void RestoreHealth(float amount)
     {
         if (amount <= 0f || isDead)
@@ -207,6 +217,7 @@ public class PlayerController : MonoBehaviour
         UpdateUI();
     }
 
+    // Áp dụng sát thương/đẩy lùi từ sóng âm và hiệu ứng chớp cho Player.
     public void ApplySoundWaveHit(Vector2 knockbackDirection, float damage = 0f)
     {
         if (isDead || (buffManager != null && buffManager.IsActive(PowerUpType.Shield)))
@@ -234,6 +245,7 @@ public class PlayerController : MonoBehaviour
         hitFlashCoroutine = StartCoroutine(SoundWaveHitFlashRoutine());
     }
 
+    // Hiển thị màu trúng sóng âm trong thời gian cấu hình rồi khôi phục màu gốc.
     private IEnumerator SoundWaveHitFlashRoutine()
     {
         if (spriteRenderer == null)
@@ -252,6 +264,7 @@ public class PlayerController : MonoBehaviour
         hitFlashCoroutine = null;
     }
 
+    // Tiêu hao năng lượng khi boost và hồi năng lượng khi không boost.
     private void HandleEnergy()
     {
         if (isBoosting)
@@ -279,6 +292,7 @@ public class PlayerController : MonoBehaviour
         UpdateUI();
     }
 
+    // Gửi trạng thái máu và năng lượng hiện tại đến HUD nếu đã khởi tạo.
     private void UpdateUI()
     {
         // UI có thể khởi tạo sau Player trong scene, nên kiểm tra singleton trước khi cập nhật.
@@ -289,6 +303,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // Cập nhật tham số hướng di chuyển và tăng tốc trên Animator.
     private void UpdateAnimation()
     {
         if (animator == null) return;
@@ -298,7 +313,8 @@ public class PlayerController : MonoBehaviour
         animator.SetBool(boostingHash, isBoosting);
     }
 
-     private void Shoot()
+    // Chọn bắn thường hoặc bắn chùm tùy buff đang hoạt động.
+    private void Shoot()
     {
         if (PhaserWeapon.Instance == null)
         {
@@ -314,9 +330,7 @@ public class PlayerController : MonoBehaviour
             AudioManager.Instance.Block();
         }
     }
-
-
-//Player va chạm chướng ngại vật
+    // Nhận diện va chạm với chướng ngại vật và áp dụng sát thương tương ứng.
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // Tag Obstacles phải được gán cho collider của quái/chướng ngại vật trong prefab Unity.
@@ -329,6 +343,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // Trừ máu, cập nhật HUD và kết thúc lượt khi máu về không.
     private void TakeDamage(float damage)
     {
         if (isDead || (buffManager != null && buffManager.IsActive(PowerUpType.Shield)))
@@ -351,6 +366,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // Chạy hiệu ứng chết, vô hiệu hóa Player và chuyển sang Game Over.
     private void Die()
     {
         if (isDead)

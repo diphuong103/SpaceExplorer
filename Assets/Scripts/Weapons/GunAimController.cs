@@ -7,6 +7,7 @@ public class GunAimController : MonoBehaviour
     [SerializeField] private bool instantRotation = true;
     [SerializeField, Min(0f)] private float rotationSpeed = 720f;
 
+    // Chiếu vị trí chuột xuống mặt phẳng ngắm và xoay nòng súng về hướng đó.
     void Update()
     {
         if (aimCamera == null)

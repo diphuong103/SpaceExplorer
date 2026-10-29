@@ -31,6 +31,7 @@ public class Whale : MonoBehaviour
     private bool isDead;
     private bool hasStageTwoHealthMultiplier;
 
+    // Chuẩn bị renderer, vật lý, collider và cấu hình whale khi tạo object.
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -73,6 +74,7 @@ public class Whale : MonoBehaviour
         }
     }
 
+    // Tăng máu theo hệ số Stage 2 tối đa một lần trên mỗi whale.
     public void ApplyStageTwoHealthMultiplier(float multiplier)
     {
         if (hasStageTwoHealthMultiplier)
@@ -84,11 +86,13 @@ public class Whale : MonoBehaviour
         hasStageTwoHealthMultiplier = true;
     }
 
+    // Cập nhật tham chiếu miệng trong Editor khi cấu hình prefab/scene.
     private void OnValidate()
     {
         AutoFindMouthPoint();
     }
 
+    // Tự tìm object con MouthPoint nếu chưa được gán trong Inspector.
     private void AutoFindMouthPoint()
     {
         if (mouthPoint == null)
@@ -97,11 +101,13 @@ public class Whale : MonoBehaviour
         }
     }
 
+    // Bắt đầu chuỗi hành động của whale sau khi khởi tạo.
     private void Start()
     {
         sequenceCoroutine = StartCoroutine(WhaleSequenceRoutine());
     }
 
+    // Di chuyển whale, phát sóng âm rồi làm mờ và hủy whale.
     private IEnumerator WhaleSequenceRoutine()
     {
         while (!isDead && body.position.x > stopX)
@@ -171,6 +177,7 @@ public class Whale : MonoBehaviour
         Destroy(gameObject);
     }
 
+    // Trừ máu và xử lý điểm, hiệu ứng, âm thanh khi whale bị đánh bại.
     public void TakeDamage(int damage)
     {
         if (isDead || damage <= 0)
@@ -217,6 +224,7 @@ public class Whale : MonoBehaviour
         }
     }
 
+    // Khởi chạy hiệu ứng đổi material khi whale bị trúng đòn.
     private void FlashOnHit()
     {
         if (spriteRenderer == null || colorMaterial == null || hitFlashDuration <= 0f)
@@ -232,6 +240,7 @@ public class Whale : MonoBehaviour
         hitFlashCoroutine = StartCoroutine(ResetMaterialRoutine());
     }
 
+    // Giữ material trúng đòn trong thời gian ngắn rồi khôi phục material ban đầu.
     private IEnumerator ResetMaterialRoutine()
     {
         spriteRenderer.material = colorMaterial;

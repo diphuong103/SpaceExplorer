@@ -6,6 +6,7 @@ public class Boom : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField, Min(0.1f)] private float fallbackDuration = 2f;
 
+    // Tìm Animator, chờ hết thời lượng hiệu ứng rồi tự hủy object.
     private IEnumerator Start()
     {
         if (animator == null)
